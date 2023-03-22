@@ -67,14 +67,14 @@ set(yocs_virtual_sensor_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(yocs_virtual_sensor_SOURCE_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor)
-  set(yocs_virtual_sensor_DEVEL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel)
+  set(yocs_virtual_sensor_SOURCE_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor)
+  set(yocs_virtual_sensor_DEVEL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel)
   set(yocs_virtual_sensor_INSTALL_PREFIX "")
   set(yocs_virtual_sensor_PREFIX ${yocs_virtual_sensor_DEVEL_PREFIX})
 else()
   set(yocs_virtual_sensor_SOURCE_PREFIX "")
   set(yocs_virtual_sensor_DEVEL_PREFIX "")
-  set(yocs_virtual_sensor_INSTALL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/install)
+  set(yocs_virtual_sensor_INSTALL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install)
   set(yocs_virtual_sensor_PREFIX ${yocs_virtual_sensor_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(yocs_virtual_sensor_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/include;/usr/include " STREQUAL " ")
+if(NOT " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/include;/usr/include " STREQUAL " ")
   set(yocs_virtual_sensor_INCLUDE_DIRS "")
-  set(_include_dirs "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/include;/usr/include")
+  set(_include_dirs " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/include;/usr/include")
   if(NOT "https://github.com/yujinrobot/yujin_ocs/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/yujinrobot/yujin_ocs/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/yocs_virtual_sensor " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_
         message(FATAL_ERROR "Project 'yocs_virtual_sensor' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'yocs_virtual_sensor' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'yocs_virtual_sensor' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/${idir}'.  ${_report}")
     endif()
     _list_append_unique(yocs_virtual_sensor_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
+    foreach(path  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

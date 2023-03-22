@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/CliffEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/CliffEvent.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/WheelDropEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/WheelDropEvent.h
 string
 -
 vector
@@ -54,7 +54,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_safety_controller/include/kobuki_safety_controller/safety_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_safety_controller/include/kobuki_safety_controller/safety_controller.hpp
 string
 -
 ros/ros.h
@@ -72,7 +72,7 @@ kobuki_msgs/CliffEvent.h
 kobuki_msgs/WheelDropEvent.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_safety_controller/src/nodelet.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_safety_controller/src/nodelet.cpp
 nodelet/nodelet.h
 -
 pluginlib/class_list_macros.h
@@ -80,9 +80,9 @@ pluginlib/class_list_macros.h
 ecl/threads/thread.hpp
 -
 kobuki_safety_controller/safety_controller.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_safety_controller/src/kobuki_safety_controller/safety_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_safety_controller/src/kobuki_safety_controller/safety_controller.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
 
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp

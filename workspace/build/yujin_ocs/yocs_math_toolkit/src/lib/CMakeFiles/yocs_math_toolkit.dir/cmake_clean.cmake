@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_math_toolkit.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_math_toolkit.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_math_toolkit.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_math_toolkit.so"
   "CMakeFiles/yocs_math_toolkit.dir/common.cpp.o"
   "CMakeFiles/yocs_math_toolkit.dir/geometry.cpp.o"
 )

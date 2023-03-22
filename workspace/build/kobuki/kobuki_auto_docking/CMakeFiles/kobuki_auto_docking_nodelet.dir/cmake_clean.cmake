@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_auto_docking_nodelet.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_auto_docking_nodelet.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_auto_docking_nodelet.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_auto_docking_nodelet.so"
   "CMakeFiles/kobuki_auto_docking_nodelet.dir/src/nodelet.cpp.o"
 )
 

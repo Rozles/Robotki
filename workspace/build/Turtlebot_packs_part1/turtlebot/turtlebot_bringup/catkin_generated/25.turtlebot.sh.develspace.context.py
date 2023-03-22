@@ -2,7 +2,7 @@
 DEVELSPACE = True
 INSTALLSPACE = False
 
-CATKIN_DEVEL_PREFIX = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel'
+CATKIN_DEVEL_PREFIX = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel'
 
 CATKIN_GLOBAL_BIN_DESTINATION = 'bin'
 CATKIN_GLOBAL_ETC_DESTINATION = 'etc'
@@ -20,14 +20,14 @@ CATKIN_PACKAGE_LIBEXEC_DESTINATION = 'lib/turtlebot_bringup'
 CATKIN_PACKAGE_PYTHON_DESTINATION = 'lib/python3/dist-packages/turtlebot_bringup'
 CATKIN_PACKAGE_SHARE_DESTINATION = 'share/turtlebot_bringup'
 
-CMAKE_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build'
-CMAKE_CURRENT_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
-CMAKE_CURRENT_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
-CMAKE_INSTALL_PREFIX = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/install'
-CMAKE_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src'
+CMAKE_BINARY_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build'
+CMAKE_CURRENT_BINARY_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
+CMAKE_CURRENT_SOURCE_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
+CMAKE_INSTALL_PREFIX = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install'
+CMAKE_SOURCE_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src'
 
 PROJECT_NAME = 'turtlebot_bringup'
-PROJECT_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
-PROJECT_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
+PROJECT_BINARY_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
+PROJECT_SOURCE_DIR = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot/turtlebot_bringup'
 
 PYTHON_EXECUTABLE = '/usr/bin/python3'

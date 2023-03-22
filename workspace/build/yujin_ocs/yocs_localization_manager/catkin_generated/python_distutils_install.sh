@@ -13,21 +13,21 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_localization_manager"
+echo_and_run cd " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_localization_manager"
 
 # ensure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/lib/python3/dist-packages"
+echo_and_run mkdir -p "$DESTDIR ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install/lib/python3/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/lib/python3/dist-packages:/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/lib/python3/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/team_cyber_crusaders/Desktop/Robotki/workspace/build" \
+    PYTHONPATH=" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install/lib/python3/dist-packages: ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/lib/python3/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR=" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build" \
     "/usr/bin/python3" \
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_localization_manager/setup.py" \
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_localization_manager/setup.py" \
      \
-    build --build-base "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_localization_manager" \
+    build --build-base " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_localization_manager" \
     install \
     --root="${DESTDIR-/}" \
-    --install-layout=deb --prefix="/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" --install-scripts="/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/bin"
+    --install-layout=deb --prefix=" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install" --install-scripts=" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install/bin"

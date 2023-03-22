@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_keyop/src/keyop.cpp" "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.o"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_keyop/src/main.cpp" "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.o"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_keyop/src/keyop.cpp" " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.o"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_keyop/src/main.cpp" " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,7 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_keyop/include"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_keyop/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

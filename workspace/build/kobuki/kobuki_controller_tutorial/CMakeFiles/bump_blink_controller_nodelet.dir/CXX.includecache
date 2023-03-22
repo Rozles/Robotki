@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/Led.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/Led.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/include/kobuki_controller_tutorial/bump_blink_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/include/kobuki_controller_tutorial/bump_blink_controller.hpp
 ros/ros.h
 -
 std_msgs/Empty.h
@@ -50,15 +50,15 @@ kobuki_msgs/BumperEvent.h
 kobuki_msgs/Led.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
 nodelet/nodelet.h
 -
 pluginlib/class_list_macros.h
 -
 kobuki_controller_tutorial/bump_blink_controller.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/kobuki_controller_tutorial/bump_blink_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/kobuki_controller_tutorial/bump_blink_controller.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
 
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp

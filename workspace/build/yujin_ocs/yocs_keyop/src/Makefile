@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_keyop/src/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/rule
 .PHONY : yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ yocs_keyop: yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/rule
 
 # fast build rule for target.
 yocs_keyop/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build
 .PHONY : yocs_keyop/fast
 
 keyop.o: keyop.cpp.o
@@ -188,7 +188,7 @@ keyop.o: keyop.cpp.o
 
 # target to build an object file
 keyop.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.o
 .PHONY : keyop.cpp.o
 
 keyop.i: keyop.cpp.i
@@ -197,7 +197,7 @@ keyop.i: keyop.cpp.i
 
 # target to preprocess a source file
 keyop.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.i
 .PHONY : keyop.cpp.i
 
 keyop.s: keyop.cpp.s
@@ -206,7 +206,7 @@ keyop.s: keyop.cpp.s
 
 # target to generate assembly for a file
 keyop.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/keyop.cpp.s
 .PHONY : keyop.cpp.s
 
 main.o: main.cpp.o
@@ -215,7 +215,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -224,7 +224,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -233,7 +233,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/build.make yujin_ocs/yocs_keyop/src/CMakeFiles/yocs_keyop.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -267,6 +267,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_safety_controller_nodelet.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_safety_controller_nodelet.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_safety_controller_nodelet.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_safety_controller_nodelet.so"
   "CMakeFiles/kobuki_safety_controller_nodelet.dir/src/nodelet.cpp.o"
 )
 

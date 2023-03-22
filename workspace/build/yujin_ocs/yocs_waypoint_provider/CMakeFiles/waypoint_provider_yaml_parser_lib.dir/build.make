@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Include any dependencies generated for this target.
 include yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/depend.make
@@ -58,17 +58,17 @@ include yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parse
 include yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/flags.make
 
 yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/flags.make
-yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o -c /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp
+yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o -c  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp
 
 yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.i"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp > CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp > CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.i
 
 yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.s"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp -o CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/src/yaml_parser.cpp -o CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.s
 
 # Object files for target waypoint_provider_yaml_parser_lib
 waypoint_provider_yaml_parser_lib_OBJECTS = \
@@ -77,40 +77,40 @@ waypoint_provider_yaml_parser_lib_OBJECTS = \
 # External object files for target waypoint_provider_yaml_parser_lib
 waypoint_provider_yaml_parser_lib_EXTERNAL_OBJECTS =
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/build.make
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libroscpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librostime.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libcpp_common.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/waypoint_provider_yaml_parser_lib.dir/link.txt --verbose=$(VERBOSE)
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/build.make
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libroscpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libroscpp_serialization.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libxmlrpcpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/librostime.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /opt/ros/noetic/lib/libcpp_common.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so: yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/waypoint_provider_yaml_parser_lib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/build: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so
+yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/build:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so
 
 .PHONY : yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/build
 
 yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && $(CMAKE_COMMAND) -P CMakeFiles/waypoint_provider_yaml_parser_lib.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider && $(CMAKE_COMMAND) -P CMakeFiles/waypoint_provider_yaml_parser_lib.dir/cmake_clean.cmake
 .PHONY : yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/clean
 
 yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : yujin_ocs/yocs_waypoint_provider/CMakeFiles/waypoint_provider_yaml_parser_lib.dir/depend
 

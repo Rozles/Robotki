@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/NavigationControl.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/NavigationControl.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/NavigationControlStatus.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/NavigationControlStatus.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/Trajectory.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/Trajectory.h
 string
 -
 vector
@@ -58,7 +58,7 @@ std_msgs/Header.h
 yocs_msgs/Waypoint.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/TrajectoryList.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/TrajectoryList.h
 string
 -
 vector
@@ -76,7 +76,7 @@ ros/message_operations.h
 yocs_msgs/Trajectory.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/Waypoint.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/Waypoint.h
 string
 -
 vector
@@ -96,7 +96,7 @@ std_msgs/Header.h
 geometry_msgs/Pose.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/WaypointList.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/WaypointList.h
 string
 -
 vector
@@ -114,33 +114,33 @@ ros/message_operations.h
 yocs_msgs/Waypoint.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Quaternion.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Quaternion.h
 Vector3.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
 QuadWord.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/QuadWord.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/QuadWord.h
 ros/macros.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
 Scalar.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Scalar.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Scalar.h
 MinMax.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/MinMax.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/MinMax.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/buffer_core.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/buffer_core.h
 transform_storage.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
 boost/signals2.hpp
 -
 string
 -
 ros/duration.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/duration.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/duration.h
 ros/time.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
 geometry_msgs/TransformStamped.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/geometry_msgs/TransformStamped.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/geometry_msgs/TransformStamped.h
 boost/unordered_map.hpp
 -
 boost/thread/mutex.hpp
@@ -150,7 +150,7 @@ boost/function.hpp
 boost/shared_ptr.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/convert.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/convert.h
 tf2/transform_datatypes.h
 -
 tf2/exceptions.h
@@ -160,19 +160,19 @@ geometry_msgs/TransformStamped.h
 tf2/impl/convert.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/exceptions.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/exceptions.h
 stdexcept
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/impl/convert.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/impl/convert.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_datatypes.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_datatypes.h
 string
 -
 ros/time.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
 tf2/LinearMath/Vector3.h
 -
 tf2/LinearMath/Quaternion.h
@@ -184,7 +184,7 @@ ros/time.h
 ros/types.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/common.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/common.hpp
 tf/tf.h
 -
 geometry_msgs/Pose.h
@@ -196,7 +196,7 @@ ecl/config/macros.hpp
 ecl/config/macros.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/geometry.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/geometry.hpp
 tf/tf.h
 -
 geometry_msgs/Pose.h
@@ -204,7 +204,7 @@ geometry_msgs/Pose.h
 geometry_msgs/PoseStamped.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/include/yocs_waypoints_navi/waypoints_navi.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/include/yocs_waypoints_navi/waypoints_navi.hpp
 tf/tf.h
 -
 tf/transform_listener.h
@@ -230,13 +230,13 @@ yocs_msgs/TrajectoryList.h
 yocs_msgs/WaypointList.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/main.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/main.cpp
 yocs_waypoints_navi/waypoints_navi.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/yocs_waypoints_navi/waypoints_navi.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/yocs_waypoints_navi/waypoints_navi.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/waypoints_navi.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/waypoints_navi.cpp
 yocs_waypoints_navi/waypoints_navi.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/yocs_waypoints_navi/waypoints_navi.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/src/yocs_waypoints_navi/waypoints_navi.hpp
 
 /opt/ros/noetic/include/actionlib/action_definition.h
 

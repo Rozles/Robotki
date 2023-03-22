@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/rule
 .PHONY : yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ yocs_waypoints_navi_node: yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoint
 
 # fast build rule for target.
 yocs_waypoints_navi_node/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build
 .PHONY : yocs_waypoints_navi_node/fast
 
 src/main.o: src/main.cpp.o
@@ -188,7 +188,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -197,7 +197,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -206,7 +206,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/waypoints_navi.o: src/waypoints_navi.cpp.o
@@ -215,7 +215,7 @@ src/waypoints_navi.o: src/waypoints_navi.cpp.o
 
 # target to build an object file
 src/waypoints_navi.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.o
 .PHONY : src/waypoints_navi.cpp.o
 
 src/waypoints_navi.i: src/waypoints_navi.cpp.i
@@ -224,7 +224,7 @@ src/waypoints_navi.i: src/waypoints_navi.cpp.i
 
 # target to preprocess a source file
 src/waypoints_navi.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.i
 .PHONY : src/waypoints_navi.cpp.i
 
 src/waypoints_navi.s: src/waypoints_navi.cpp.s
@@ -233,7 +233,7 @@ src/waypoints_navi.s: src/waypoints_navi.cpp.s
 
 # target to generate assembly for a file
 src/waypoints_navi.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/build.make yujin_ocs/yocs_waypoints_navi/CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.s
 .PHONY : src/waypoints_navi.cpp.s
 
 # Help Target
@@ -267,6 +267,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

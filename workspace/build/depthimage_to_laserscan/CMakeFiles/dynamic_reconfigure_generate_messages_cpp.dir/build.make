@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for dynamic_reconfigure_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir
 .PHONY : depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
 
 depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/depthimage_to_laserscan && $(CMAKE_COMMAND) -P CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/depthimage_to_laserscan && $(CMAKE_COMMAND) -P CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean
 
 depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/depthimage_to_laserscan /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/depthimage_to_laserscan  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : depthimage_to_laserscan/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/depend
 

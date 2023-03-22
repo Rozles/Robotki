@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/install
+prefix=/usr/local
 
 Name: turtlebot_navigation
 Description: Description of turtlebot_navigation

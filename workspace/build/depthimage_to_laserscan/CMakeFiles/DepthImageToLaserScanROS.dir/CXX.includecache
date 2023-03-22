@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/depthimage_to_laserscan/DepthConfig.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/depthimage_to_laserscan/DepthConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScan.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScan.h
 sensor_msgs/Image.h
 -
 sensor_msgs/LaserScan.h
@@ -42,7 +42,7 @@ limits.h
 math.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScanROS.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScanROS.h
 ros/ros.h
 -
 image_transport/image_transport.h
@@ -60,13 +60,13 @@ depthimage_to_laserscan/DepthConfig.h
 depthimage_to_laserscan/DepthImageToLaserScan.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/depth_traits.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/depth_traits.h
 algorithm
 -
 limits
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/src/DepthImageToLaserScanROS.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/src/DepthImageToLaserScanROS.cpp
 depthimage_to_laserscan/DepthImageToLaserScanROS.h
 -
 

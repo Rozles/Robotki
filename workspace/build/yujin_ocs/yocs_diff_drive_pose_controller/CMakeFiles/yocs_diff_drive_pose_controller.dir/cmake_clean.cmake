@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_diff_drive_pose_controller.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_diff_drive_pose_controller.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_diff_drive_pose_controller.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_diff_drive_pose_controller.so"
   "CMakeFiles/yocs_diff_drive_pose_controller.dir/src/diff_drive_pose_controller.cpp.o"
 )
 

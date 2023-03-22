@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/depthimage_to_laserscan/depthimage_to_laserscan"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/depthimage_to_laserscan/depthimage_to_laserscan.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/depthimage_to_laserscan/depthimage_to_laserscan"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/depthimage_to_laserscan/depthimage_to_laserscan.pdb"
   "CMakeFiles/depthimage_to_laserscan.dir/src/depthimage_to_laserscan.cpp.o"
 )
 

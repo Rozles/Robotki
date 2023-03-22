@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_navigator/yocs_semantic_navigator_node"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_navigator/yocs_semantic_navigator_node.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_navigator/yocs_semantic_navigator_node"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_navigator/yocs_semantic_navigator_node.pdb"
   "CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.o"
 )
 

@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
 
 Name: turtlebot_description
 Description: Description of turtlebot_description

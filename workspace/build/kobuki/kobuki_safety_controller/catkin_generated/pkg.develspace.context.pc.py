@@ -1,8 +1,8 @@
 # generated from catkin/cmake/template/pkg.context.pc.in
 CATKIN_PACKAGE_PREFIX = ""
-PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_safety_controller/include".split(';') if "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_safety_controller/include" != "" else []
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_safety_controller/include".split(';') if " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_safety_controller/include" != "" else []
 PROJECT_CATKIN_DEPENDS = "roscpp;nodelet;pluginlib;std_msgs;geometry_msgs;kobuki_msgs;yocs_controllers;ecl_threads".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lkobuki_safety_controller_nodelet".split(';') if "-lkobuki_safety_controller_nodelet" != "" else []
 PROJECT_NAME = "kobuki_safety_controller"
-PROJECT_SPACE_DIR = "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel"
+PROJECT_SPACE_DIR = " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel"
 PROJECT_VERSION = "0.7.6"

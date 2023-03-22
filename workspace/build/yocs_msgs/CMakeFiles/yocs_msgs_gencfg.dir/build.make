@@ -43,44 +43,44 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for yocs_msgs_gencfg.
 
 # Include the progress variables for this target.
 include yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/progress.make
 
-yocs_msgs/CMakeFiles/yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-yocs_msgs/CMakeFiles/yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
+yocs_msgs/CMakeFiles/yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+yocs_msgs/CMakeFiles/yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yocs_msgs/dynamic_reconfigure/Joystick.cfg
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h: /opt/ros/noetic/share/dynamic_reconfigure/templates/ConfigType.py.template
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h: /opt/ros/noetic/share/dynamic_reconfigure/templates/ConfigType.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating dynamic reconfigure files from dynamic_reconfigure/Joystick.cfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs && ../catkin_generated/env_cached.sh /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs/setup_custom_pythonpath.sh /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yocs_msgs/dynamic_reconfigure/Joystick.cfg /opt/ros/noetic/share/dynamic_reconfigure/cmake/.. /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yocs_msgs/dynamic_reconfigure/Joystick.cfg
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h: /opt/ros/noetic/share/dynamic_reconfigure/templates/ConfigType.py.template
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h: /opt/ros/noetic/share/dynamic_reconfigure/templates/ConfigType.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating dynamic reconfigure files from dynamic_reconfigure/Joystick.cfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yocs_msgs && ../catkin_generated/env_cached.sh  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yocs_msgs/setup_custom_pythonpath.sh  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yocs_msgs/dynamic_reconfigure/Joystick.cfg /opt/ros/noetic/share/dynamic_reconfigure/cmake/..  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-	@$(CMAKE_COMMAND) -E touch_nocreate /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-	@$(CMAKE_COMMAND) -E touch_nocreate /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-	@$(CMAKE_COMMAND) -E touch_nocreate /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-	@$(CMAKE_COMMAND) -E touch_nocreate /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc
 
 yocs_msgs_gencfg: yocs_msgs/CMakeFiles/yocs_msgs_gencfg
-yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
-yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox
-yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox
-yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
-yocs_msgs_gencfg: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc
+yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h
+yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox
+yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox
+yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py
+yocs_msgs_gencfg:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc
 yocs_msgs_gencfg: yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/build.make
 
 .PHONY : yocs_msgs_gencfg
@@ -91,10 +91,10 @@ yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/build: yocs_msgs_gencfg
 .PHONY : yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/build
 
 yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs && $(CMAKE_COMMAND) -P CMakeFiles/yocs_msgs_gencfg.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yocs_msgs && $(CMAKE_COMMAND) -P CMakeFiles/yocs_msgs_gencfg.dir/cmake_clean.cmake
 .PHONY : yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/clean
 
 yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yocs_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yocs_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yocs_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : yocs_msgs/CMakeFiles/yocs_msgs_gencfg.dir/depend
 

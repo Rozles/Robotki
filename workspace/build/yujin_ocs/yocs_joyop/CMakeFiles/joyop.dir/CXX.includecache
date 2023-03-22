@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/joyop.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/joyop.cpp
 ecl/exceptions.hpp
 -
 ecl/time.hpp
@@ -20,9 +20,9 @@ sensor_msgs/Joy.h
 std_msgs/String.h
 -
 boost/thread/mutex.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/boost/thread/mutex.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/boost/thread/mutex.hpp
 boost/thread/thread.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/boost/thread/thread.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_joyop/src/boost/thread/thread.hpp
 dynamic_reconfigure/server.h
 -
 yocs_msgs/JoystickConfig.h

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_navigation/laser_footprint_filter"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_navigation/laser_footprint_filter.pdb"
+  "../../devel/lib/turtlebot_navigation/laser_footprint_filter"
+  "../../devel/lib/turtlebot_navigation/laser_footprint_filter.pdb"
   "CMakeFiles/laser_footprint_filter.dir/src/laser_footprint_filter.cpp.o"
 )
 

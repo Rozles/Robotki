@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_bumper2pc_nodelet.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_bumper2pc_nodelet.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_bumper2pc_nodelet.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_bumper2pc_nodelet.so"
   "CMakeFiles/kobuki_bumper2pc_nodelet.dir/src/kobuki_bumper2pc.cpp.o"
 )
 

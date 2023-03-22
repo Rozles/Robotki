@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ turtlebot_description_test_urdf: Turtlebot_packs_part1/turtlebot/turtlebot_descr
 
 # fast build rule for target.
 turtlebot_description_test_urdf/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build
 .PHONY : turtlebot_description_test_urdf/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ run_tests_turtlebot_description: Turtlebot_packs_part1/turtlebot/turtlebot_descr
 
 # fast build rule for target.
 run_tests_turtlebot_description/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description.dir/build
 .PHONY : run_tests_turtlebot_description/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ _run_tests_turtlebot_description: Turtlebot_packs_part1/turtlebot/turtlebot_desc
 
 # fast build rule for target.
 _run_tests_turtlebot_description/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description.dir/build
 .PHONY : _run_tests_turtlebot_description/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ run_tests_turtlebot_description_gtest: Turtlebot_packs_part1/turtlebot/turtlebot
 
 # fast build rule for target.
 run_tests_turtlebot_description_gtest/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest.dir/build
 .PHONY : run_tests_turtlebot_description_gtest/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ _run_tests_turtlebot_description_gtest: Turtlebot_packs_part1/turtlebot/turtlebo
 
 # fast build rule for target.
 _run_tests_turtlebot_description_gtest/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest.dir/build
 .PHONY : _run_tests_turtlebot_description_gtest/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf: Turtlebot
 
 # fast build rule for target.
 run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build
 .PHONY : run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ _run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf: Turtlebo
 
 # fast build rule for target.
 _run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/_run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf.dir/build
 .PHONY : _run_tests_turtlebot_description_gtest_turtlebot_description_test_urdf/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/rule
 
 # Convenience name for target.
@@ -284,12 +284,12 @@ turtlebot_description_xacro_generated_to_devel_space_: Turtlebot_packs_part1/tur
 
 # fast build rule for target.
 turtlebot_description_xacro_generated_to_devel_space_/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_xacro_generated_to_devel_space_.dir/build
 .PHONY : turtlebot_description_xacro_generated_to_devel_space_/fast
 
 # Convenience name for target.
 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/rule
 .PHONY : Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/rule
 
 # Convenience name for target.
@@ -299,7 +299,7 @@ clean_test_results_turtlebot_description: Turtlebot_packs_part1/turtlebot/turtle
 
 # fast build rule for target.
 clean_test_results_turtlebot_description/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/clean_test_results_turtlebot_description.dir/build
 .PHONY : clean_test_results_turtlebot_description/fast
 
 test/test_urdf.o: test/test_urdf.cpp.o
@@ -308,7 +308,7 @@ test/test_urdf.o: test/test_urdf.cpp.o
 
 # target to build an object file
 test/test_urdf.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.o
 .PHONY : test/test_urdf.cpp.o
 
 test/test_urdf.i: test/test_urdf.cpp.i
@@ -317,7 +317,7 @@ test/test_urdf.i: test/test_urdf.cpp.i
 
 # target to preprocess a source file
 test/test_urdf.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.i
 .PHONY : test/test_urdf.cpp.i
 
 test/test_urdf.s: test/test_urdf.cpp.s
@@ -326,7 +326,7 @@ test/test_urdf.s: test/test_urdf.cpp.s
 
 # target to generate assembly for a file
 test/test_urdf.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/build.make Turtlebot_packs_part1/turtlebot/turtlebot_description/CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.s
 .PHONY : test/test_urdf.cpp.s
 
 # Help Target
@@ -365,6 +365,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

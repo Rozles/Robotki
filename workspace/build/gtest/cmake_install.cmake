@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/gtest/googlemock/cmake_install.cmake")
+  include("/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/gtest/googlemock/cmake_install.cmake")
 
 endif()
 

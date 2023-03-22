@@ -1,8 +1,8 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
 
 Name: kobuki_bumper2pc
 Description: Description of kobuki_bumper2pc
 Version: 0.7.6
-Cflags: -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include
+Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include
 Libs: -L${prefix}/lib -lkobuki_bumper2pc_nodelet
 Requires: roscpp nodelet pluginlib sensor_msgs kobuki_msgs

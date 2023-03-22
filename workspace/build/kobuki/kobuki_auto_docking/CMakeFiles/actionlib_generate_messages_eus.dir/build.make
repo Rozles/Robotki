@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for actionlib_generate_messages_eus.
 
@@ -63,10 +63,10 @@ kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/build:
 .PHONY : kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/build
 
 kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_auto_docking && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_eus.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_auto_docking && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/clean
 
 kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_auto_docking /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_auto_docking /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_auto_docking  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_auto_docking  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : kobuki/kobuki_auto_docking/CMakeFiles/actionlib_generate_messages_eus.dir/depend
 

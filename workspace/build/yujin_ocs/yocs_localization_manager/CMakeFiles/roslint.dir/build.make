@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for roslint.
 
@@ -63,10 +63,10 @@ yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/build: roslint
 .PHONY : yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/build
 
 yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_localization_manager && $(CMAKE_COMMAND) -P CMakeFiles/roslint.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_localization_manager && $(CMAKE_COMMAND) -P CMakeFiles/roslint.dir/cmake_clean.cmake
 .PHONY : yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/clean
 
 yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_localization_manager /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_localization_manager /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_localization_manager  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_localization_manager  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : yujin_ocs/yocs_localization_manager/CMakeFiles/roslint.dir/depend
 

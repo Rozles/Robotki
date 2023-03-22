@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_joyop/joyop"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_joyop/joyop.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_joyop/joyop"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_joyop/joyop.pdb"
   "CMakeFiles/joyop.dir/src/joyop.cpp.o"
 )
 

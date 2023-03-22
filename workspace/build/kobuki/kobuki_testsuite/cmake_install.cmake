@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite
+# Install script for directory:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,42 +38,42 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/safe_execute_install.cmake")
+  include(" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuite.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuite.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_testsuite/cmake" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuiteConfig.cmake"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuiteConfig-version.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuiteConfig.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_testsuite/catkin_generated/installspace/kobuki_testsuiteConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_testsuite" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_testsuite" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kobuki_testsuite" TYPE PROGRAM FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/inf_rotation.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_analog_input.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_battery_voltage.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_events.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_gyro.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_led_array.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_rotation.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_sounds.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/scan_angle.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_battery"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_digital_output.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_external_power.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_input.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_output.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_safewandering.py"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_translation.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/inf_rotation.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_analog_input.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_battery_voltage.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_events.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_gyro.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_led_array.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_rotation.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_sounds.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/scan_angle.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_battery"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_digital_output.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_external_power.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_input.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_output.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_safewandering.py"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_testsuite/scripts/test_translation.py"
     )
 endif()
 

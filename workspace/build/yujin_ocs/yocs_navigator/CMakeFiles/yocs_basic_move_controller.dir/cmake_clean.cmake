@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_basic_move_controller.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_basic_move_controller.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_basic_move_controller.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_basic_move_controller.so"
   "CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.o"
 )
 

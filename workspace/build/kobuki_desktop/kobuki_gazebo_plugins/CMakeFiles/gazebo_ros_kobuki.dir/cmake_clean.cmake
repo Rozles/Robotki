@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libgazebo_ros_kobuki.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libgazebo_ros_kobuki.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libgazebo_ros_kobuki.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libgazebo_ros_kobuki.so"
   "CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.o"
   "CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.o"
   "CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.o"

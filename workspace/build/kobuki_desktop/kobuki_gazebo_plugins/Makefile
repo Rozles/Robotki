@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ gazebo_ros_gencfg: kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_ge
 
 # fast build rule for target.
 gazebo_ros_gencfg/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build
 .PHONY : gazebo_ros_gencfg/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ gazebo_plugins_gencfg: kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_pl
 
 # fast build rule for target.
 gazebo_plugins_gencfg/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build
 .PHONY : gazebo_plugins_gencfg/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ gazebo_ros_kobuki: kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_ko
 
 # fast build rule for target.
 gazebo_ros_kobuki/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build
 .PHONY : gazebo_ros_kobuki/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ gazebo_msgs_generate_messages_cpp: kobuki_desktop/kobuki_gazebo_plugins/CMakeFil
 
 # fast build rule for target.
 gazebo_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
 .PHONY : gazebo_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ trajectory_msgs_generate_messages_py: kobuki_desktop/kobuki_gazebo_plugins/CMake
 
 # fast build rule for target.
 trajectory_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
 .PHONY : trajectory_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ gazebo_msgs_generate_messages_py: kobuki_desktop/kobuki_gazebo_plugins/CMakeFile
 
 # fast build rule for target.
 gazebo_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
 .PHONY : gazebo_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ trajectory_msgs_generate_messages_eus: kobuki_desktop/kobuki_gazebo_plugins/CMak
 
 # fast build rule for target.
 trajectory_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
 .PHONY : trajectory_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -284,12 +284,12 @@ gazebo_msgs_generate_messages_eus: kobuki_desktop/kobuki_gazebo_plugins/CMakeFil
 
 # fast build rule for target.
 gazebo_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
 .PHONY : gazebo_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -299,12 +299,12 @@ gazebo_msgs_generate_messages_nodejs: kobuki_desktop/kobuki_gazebo_plugins/CMake
 
 # fast build rule for target.
 gazebo_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
 .PHONY : gazebo_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -314,12 +314,12 @@ trajectory_msgs_generate_messages_cpp: kobuki_desktop/kobuki_gazebo_plugins/CMak
 
 # fast build rule for target.
 trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
 .PHONY : trajectory_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -329,12 +329,12 @@ trajectory_msgs_generate_messages_lisp: kobuki_desktop/kobuki_gazebo_plugins/CMa
 
 # fast build rule for target.
 trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
 .PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -344,12 +344,12 @@ gazebo_msgs_generate_messages_lisp: kobuki_desktop/kobuki_gazebo_plugins/CMakeFi
 
 # fast build rule for target.
 gazebo_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
 .PHONY : gazebo_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 .PHONY : kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -359,7 +359,7 @@ trajectory_msgs_generate_messages_nodejs: kobuki_desktop/kobuki_gazebo_plugins/C
 
 # fast build rule for target.
 trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
 .PHONY : trajectory_msgs_generate_messages_nodejs/fast
 
 src/gazebo_ros_kobuki.o: src/gazebo_ros_kobuki.cpp.o
@@ -368,7 +368,7 @@ src/gazebo_ros_kobuki.o: src/gazebo_ros_kobuki.cpp.o
 
 # target to build an object file
 src/gazebo_ros_kobuki.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.o
 .PHONY : src/gazebo_ros_kobuki.cpp.o
 
 src/gazebo_ros_kobuki.i: src/gazebo_ros_kobuki.cpp.i
@@ -377,7 +377,7 @@ src/gazebo_ros_kobuki.i: src/gazebo_ros_kobuki.cpp.i
 
 # target to preprocess a source file
 src/gazebo_ros_kobuki.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.i
 .PHONY : src/gazebo_ros_kobuki.cpp.i
 
 src/gazebo_ros_kobuki.s: src/gazebo_ros_kobuki.cpp.s
@@ -386,7 +386,7 @@ src/gazebo_ros_kobuki.s: src/gazebo_ros_kobuki.cpp.s
 
 # target to generate assembly for a file
 src/gazebo_ros_kobuki.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki.cpp.s
 .PHONY : src/gazebo_ros_kobuki.cpp.s
 
 src/gazebo_ros_kobuki_loads.o: src/gazebo_ros_kobuki_loads.cpp.o
@@ -395,7 +395,7 @@ src/gazebo_ros_kobuki_loads.o: src/gazebo_ros_kobuki_loads.cpp.o
 
 # target to build an object file
 src/gazebo_ros_kobuki_loads.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.o
 .PHONY : src/gazebo_ros_kobuki_loads.cpp.o
 
 src/gazebo_ros_kobuki_loads.i: src/gazebo_ros_kobuki_loads.cpp.i
@@ -404,7 +404,7 @@ src/gazebo_ros_kobuki_loads.i: src/gazebo_ros_kobuki_loads.cpp.i
 
 # target to preprocess a source file
 src/gazebo_ros_kobuki_loads.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.i
 .PHONY : src/gazebo_ros_kobuki_loads.cpp.i
 
 src/gazebo_ros_kobuki_loads.s: src/gazebo_ros_kobuki_loads.cpp.s
@@ -413,7 +413,7 @@ src/gazebo_ros_kobuki_loads.s: src/gazebo_ros_kobuki_loads.cpp.s
 
 # target to generate assembly for a file
 src/gazebo_ros_kobuki_loads.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_loads.cpp.s
 .PHONY : src/gazebo_ros_kobuki_loads.cpp.s
 
 src/gazebo_ros_kobuki_updates.o: src/gazebo_ros_kobuki_updates.cpp.o
@@ -422,7 +422,7 @@ src/gazebo_ros_kobuki_updates.o: src/gazebo_ros_kobuki_updates.cpp.o
 
 # target to build an object file
 src/gazebo_ros_kobuki_updates.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.o
 .PHONY : src/gazebo_ros_kobuki_updates.cpp.o
 
 src/gazebo_ros_kobuki_updates.i: src/gazebo_ros_kobuki_updates.cpp.i
@@ -431,7 +431,7 @@ src/gazebo_ros_kobuki_updates.i: src/gazebo_ros_kobuki_updates.cpp.i
 
 # target to preprocess a source file
 src/gazebo_ros_kobuki_updates.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.i
 .PHONY : src/gazebo_ros_kobuki_updates.cpp.i
 
 src/gazebo_ros_kobuki_updates.s: src/gazebo_ros_kobuki_updates.cpp.s
@@ -440,7 +440,7 @@ src/gazebo_ros_kobuki_updates.s: src/gazebo_ros_kobuki_updates.cpp.s
 
 # target to generate assembly for a file
 src/gazebo_ros_kobuki_updates.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/build.make kobuki_desktop/kobuki_gazebo_plugins/CMakeFiles/gazebo_ros_kobuki.dir/src/gazebo_ros_kobuki_updates.cpp.s
 .PHONY : src/gazebo_ros_kobuki_updates.cpp.s
 
 # Help Target
@@ -489,6 +489,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_waypoint_provider/waypoint_provider"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_waypoint_provider/waypoint_provider.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_waypoint_provider/waypoint_provider"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_waypoint_provider/waypoint_provider.pdb"
   "CMakeFiles/waypoint_provider.dir/src/main.cpp.o"
 )
 

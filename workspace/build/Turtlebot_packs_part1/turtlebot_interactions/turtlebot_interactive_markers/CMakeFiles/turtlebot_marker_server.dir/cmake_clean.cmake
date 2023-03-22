@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_interactive_markers/turtlebot_marker_server"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_interactive_markers/turtlebot_marker_server.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/turtlebot_interactive_markers/turtlebot_marker_server"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/turtlebot_interactive_markers/turtlebot_marker_server.pdb"
   "CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o"
 )
 

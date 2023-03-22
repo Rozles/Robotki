@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"yocs_navigator\" -Dyocs_basic_move_controller_EXPORTS
 
-CXX_INCLUDES = -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_navigator/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 
+CXX_INCLUDES = -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_navigator/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 
 

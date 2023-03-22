@@ -2,7 +2,7 @@
 DEVELSPACE = False
 INSTALLSPACE = True
 
-CATKIN_DEVEL_PREFIX = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel'
+CATKIN_DEVEL_PREFIX = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/devel'
 
 CATKIN_GLOBAL_BIN_DESTINATION = 'bin'
 CATKIN_GLOBAL_ETC_DESTINATION = 'etc'
@@ -20,14 +20,14 @@ CATKIN_PACKAGE_LIBEXEC_DESTINATION = 'lib/turtlebot_navigation'
 CATKIN_PACKAGE_PYTHON_DESTINATION = 'lib/python3/dist-packages/turtlebot_navigation'
 CATKIN_PACKAGE_SHARE_DESTINATION = 'share/turtlebot_navigation'
 
-CMAKE_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build'
-CMAKE_CURRENT_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation'
-CMAKE_CURRENT_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_navigation'
-CMAKE_INSTALL_PREFIX = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/install'
-CMAKE_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src'
+CMAKE_BINARY_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build'
+CMAKE_CURRENT_BINARY_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation'
+CMAKE_CURRENT_SOURCE_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_navigation'
+CMAKE_INSTALL_PREFIX = '/usr/local'
+CMAKE_SOURCE_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src'
 
 PROJECT_NAME = 'turtlebot_navigation'
-PROJECT_BINARY_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation'
-PROJECT_SOURCE_DIR = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_navigation'
+PROJECT_BINARY_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation'
+PROJECT_SOURCE_DIR = '/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_navigation'
 
 PYTHON_EXECUTABLE = '/usr/bin/python3'

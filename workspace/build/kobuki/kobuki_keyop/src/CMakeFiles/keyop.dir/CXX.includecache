@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/KeyboardInput.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/KeyboardInput.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/MotorPower.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/MotorPower.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
 ros/ros.h
 -
 termios.h
@@ -52,7 +52,7 @@ geometry_msgs/TwistStamped.h
 kobuki_msgs/KeyboardInput.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_keyop/src/keyop_core.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_keyop/src/keyop_core.cpp
 ros/ros.h
 -
 ecl/time.hpp
@@ -64,11 +64,11 @@ std_srvs/Empty.h
 kobuki_msgs/MotorPower.h
 -
 ../include/keyop_core/keyop_core.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_keyop/src/main.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_keyop/src/main.cpp
 ../include/keyop_core/keyop_core.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_keyop/include/keyop_core/keyop_core.hpp
 
 /opt/ros/noetic/include/ecl/concepts/nullary_function.hpp
 macros.hpp

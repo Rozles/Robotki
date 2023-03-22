@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_velocity_smoother/paramsConfig.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_velocity_smoother/paramsConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/include/yocs_velocity_smoother/velocity_smoother_nodelet.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/include/yocs_velocity_smoother/velocity_smoother_nodelet.hpp
 ros/ros.h
 -
 nav_msgs/Odometry.h
@@ -32,7 +32,7 @@ nav_msgs/Odometry.h
 mutex
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/src/velocity_smoother_nodelet.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/src/velocity_smoother_nodelet.cpp
 ros/ros.h
 -
 nodelet/nodelet.h
@@ -46,7 +46,7 @@ yocs_velocity_smoother/paramsConfig.h
 ecl/threads/thread.hpp
 -
 yocs_velocity_smoother/velocity_smoother_nodelet.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/src/yocs_velocity_smoother/velocity_smoother_nodelet.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/src/yocs_velocity_smoother/velocity_smoother_nodelet.hpp
 
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/rule
 .PHONY : yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_
 
 # fast build rule for target.
 yocs_virtual_sensor_node/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build
 .PHONY : yocs_virtual_sensor_node/fast
 
 src/virtual_sensor_node.o: src/virtual_sensor_node.cpp.o
@@ -188,7 +188,7 @@ src/virtual_sensor_node.o: src/virtual_sensor_node.cpp.o
 
 # target to build an object file
 src/virtual_sensor_node.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o
 .PHONY : src/virtual_sensor_node.cpp.o
 
 src/virtual_sensor_node.i: src/virtual_sensor_node.cpp.i
@@ -197,7 +197,7 @@ src/virtual_sensor_node.i: src/virtual_sensor_node.cpp.i
 
 # target to preprocess a source file
 src/virtual_sensor_node.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i
 .PHONY : src/virtual_sensor_node.cpp.i
 
 src/virtual_sensor_node.s: src/virtual_sensor_node.cpp.s
@@ -206,7 +206,7 @@ src/virtual_sensor_node.s: src/virtual_sensor_node.cpp.s
 
 # target to generate assembly for a file
 src/virtual_sensor_node.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s
 .PHONY : src/virtual_sensor_node.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
