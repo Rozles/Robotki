@@ -1,0 +1,18 @@
+# ROS build files
+workspace/build/
+workspace/devel/
+workspace/install/
+workspace/.catkin_workspace
+
+# Python compiled files
+workspace/.pyc
+
+# ROS log files
+workspace/.log
+
+# Backup files
+workspace/.bak
+workspace/.swp
+
+# Visual Studio Code configuration files
+workspace/.vscode/
