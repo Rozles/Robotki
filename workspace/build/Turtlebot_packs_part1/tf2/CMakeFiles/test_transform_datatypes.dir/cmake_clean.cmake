@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_transform_datatypes"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_transform_datatypes.pdb"
+  "../../devel/lib/tf2/test_transform_datatypes"
+  "../../devel/lib/tf2/test_transform_datatypes.pdb"
   "CMakeFiles/test_transform_datatypes.dir/test/test_transform_datatypes.cpp.o"
 )
 

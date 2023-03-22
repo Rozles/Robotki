@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for base_local_planner_gencfg.
 
@@ -63,10 +63,10 @@ yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/build: base
 .PHONY : yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/build
 
 yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit && $(CMAKE_COMMAND) -P CMakeFiles/base_local_planner_gencfg.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit && $(CMAKE_COMMAND) -P CMakeFiles/base_local_planner_gencfg.dir/cmake_clean.cmake
 .PHONY : yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/clean
 
 yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_navi_toolkit /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_navi_toolkit  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : yujin_ocs/yocs_navi_toolkit/CMakeFiles/base_local_planner_gencfg.dir/depend
 

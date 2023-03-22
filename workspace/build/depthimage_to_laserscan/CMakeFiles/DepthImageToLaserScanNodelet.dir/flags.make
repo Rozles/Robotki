@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DDepthImageToLaserScanNodelet_EXPORTS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"depthimage_to_laserscan\"
 
-CXX_INCLUDES = -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 
+CXX_INCLUDES = -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 
 

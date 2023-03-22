@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi
+# Install script for directory:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,18 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_navi.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_navi.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi/cmake" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_naviConfig.cmake"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_naviConfig-version.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_naviConfig.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/catkin_generated/installspace/yocs_waypoints_naviConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -59,12 +59,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi/yocs_waypoints_navi_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi" TYPE EXECUTABLE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi" TYPE EXECUTABLE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi/yocs_waypoints_navi_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi/yocs_waypoints_navi_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi/yocs_waypoints_navi_node"
-         OLD_RPATH "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib:/opt/ros/noetic/lib:"
+         OLD_RPATH " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib:/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/yocs_waypoints_navi/yocs_waypoints_navi_node")
@@ -73,10 +73,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE DIRECTORY FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/resources")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE DIRECTORY FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/resources")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE DIRECTORY FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yocs_waypoints_navi" TYPE DIRECTORY FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoints_navi/launch")
 endif()
 

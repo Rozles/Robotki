@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR = /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR = /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for _run_tests_tf2.
 
@@ -63,10 +63,10 @@ Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/build: _run_tests_tf2
 .PHONY : Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/build
 
 Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/tf2 && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_tf2.dir/cmake_clean.cmake
+	cd /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/tf2 && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_tf2.dir/cmake_clean.cmake
 .PHONY : Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/clean
 
 Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2 /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/tf2 /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2 /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/tf2 /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Turtlebot_packs_part1/tf2/CMakeFiles/_run_tests_tf2.dir/depend
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_ros.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libkobuki_ros.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_ros.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libkobuki_ros.so"
   "CMakeFiles/kobuki_ros.dir/diagnostics.cpp.o"
   "CMakeFiles/kobuki_ros.dir/kobuki_ros.cpp.o"
   "CMakeFiles/kobuki_ros.dir/odometry.cpp.o"

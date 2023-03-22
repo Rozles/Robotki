@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_bumper2pc/src/kobuki_bumper2pc.cpp" "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_bumper2pc/CMakeFiles/kobuki_bumper2pc_nodelet.dir/src/kobuki_bumper2pc.cpp.o"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_bumper2pc/src/kobuki_bumper2pc.cpp" " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_bumper2pc/CMakeFiles/kobuki_bumper2pc_nodelet.dir/src/kobuki_bumper2pc.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,8 +18,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

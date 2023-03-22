@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for diagnostic_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build: di
 .PHONY : kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
 
 kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_node && $(CMAKE_COMMAND) -P CMakeFiles/diagnostic_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_node && $(CMAKE_COMMAND) -P CMakeFiles/diagnostic_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean
 
 kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_node /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_node  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : kobuki/kobuki_node/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/depend
 

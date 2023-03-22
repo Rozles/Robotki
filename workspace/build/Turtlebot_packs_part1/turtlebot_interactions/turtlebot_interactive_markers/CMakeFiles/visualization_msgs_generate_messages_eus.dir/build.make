@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for visualization_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMake
 .PHONY : Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
 
 Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/clean
 
 Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/visualization_msgs_generate_messages_eus.dir/depend
 

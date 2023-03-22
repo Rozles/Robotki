@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit
+# Install script for directory:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,8 +39,8 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/yocs_math_toolkit" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/common.hpp"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/geometry.hpp"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/common.hpp"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include/yocs_math_toolkit/geometry.hpp"
     )
 endif()
 

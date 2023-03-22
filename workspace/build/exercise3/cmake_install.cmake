@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/exercise3
+# Install script for directory: /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/exercise3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/exercise3/cmake" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3Config.cmake"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3Config-version.cmake"
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3Config.cmake"
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/exercise3/catkin_generated/installspace/exercise3Config-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/exercise3" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/exercise3/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/exercise3" TYPE FILE FILES "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/exercise3/package.xml")
 endif()
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR = /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR = /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for run_tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/run_tests.dir/clean:
 .PHONY : CMakeFiles/run_tests.dir/clean
 
 CMakeFiles/run_tests.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests.dir/depend
 

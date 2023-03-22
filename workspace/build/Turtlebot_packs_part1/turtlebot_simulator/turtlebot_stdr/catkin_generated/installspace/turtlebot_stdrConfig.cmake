@@ -67,14 +67,14 @@ set(turtlebot_stdr_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(turtlebot_stdr_SOURCE_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_stdr)
-  set(turtlebot_stdr_DEVEL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel)
+  set(turtlebot_stdr_SOURCE_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_stdr)
+  set(turtlebot_stdr_DEVEL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel)
   set(turtlebot_stdr_INSTALL_PREFIX "")
   set(turtlebot_stdr_PREFIX ${turtlebot_stdr_DEVEL_PREFIX})
 else()
   set(turtlebot_stdr_SOURCE_PREFIX "")
   set(turtlebot_stdr_DEVEL_PREFIX "")
-  set(turtlebot_stdr_INSTALL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/install)
+  set(turtlebot_stdr_INSTALL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install)
   set(turtlebot_stdr_PREFIX ${turtlebot_stdr_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/team_cyber_crusaders/Desktop/Robotki/workspace/install/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
+    foreach(path  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

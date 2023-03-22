@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_waypoints_navi/yocs_waypoints_navi_node.pdb"
   "CMakeFiles/yocs_waypoints_navi_node.dir/src/main.cpp.o"
   "CMakeFiles/yocs_waypoints_navi_node.dir/src/waypoints_navi.cpp.o"
 )

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_mux_nodelet.cpp" "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_cmd_vel_mux/CMakeFiles/yocs_cmd_vel_mux_nodelet.dir/src/cmd_vel_mux_nodelet.cpp.o"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_subscribers.cpp" "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_cmd_vel_mux/CMakeFiles/yocs_cmd_vel_mux_nodelet.dir/src/cmd_vel_subscribers.cpp.o"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_mux_nodelet.cpp" " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_cmd_vel_mux/CMakeFiles/yocs_cmd_vel_mux_nodelet.dir/src/cmd_vel_mux_nodelet.cpp.o"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/src/cmd_vel_subscribers.cpp" " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_cmd_vel_mux/CMakeFiles/yocs_cmd_vel_mux_nodelet.dir/src/cmd_vel_subscribers.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/include"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

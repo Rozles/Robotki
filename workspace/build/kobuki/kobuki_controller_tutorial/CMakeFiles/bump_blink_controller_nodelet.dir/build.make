@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Include any dependencies generated for this target.
 include kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/depend.make
@@ -58,17 +58,17 @@ include kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodel
 include kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/flags.make
 
 kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/flags.make
-kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o -c /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
+kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o -c  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp
 
 kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.i"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp > CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp > CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.i
 
 kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.s"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp -o CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial/src/nodelet.cpp -o CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.s
 
 # Object files for target bump_blink_controller_nodelet
 bump_blink_controller_nodelet_OBJECTS = \
@@ -77,50 +77,50 @@ bump_blink_controller_nodelet_OBJECTS = \
 # External object files for target bump_blink_controller_nodelet
 bump_blink_controller_nodelet_EXTERNAL_OBJECTS =
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/build.make
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libnodeletlib.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libbondcpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libuuid.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libclass_loader.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libPocoFoundation.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libdl.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroslib.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librospack.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libpython3.8.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroscpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librostime.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libcpp_common.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bump_blink_controller_nodelet.dir/link.txt --verbose=$(VERBOSE)
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/src/nodelet.cpp.o
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/build.make
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libnodeletlib.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libbondcpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libclass_loader.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libPocoFoundation.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libdl.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroslib.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librospack.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroscpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libroscpp_serialization.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libxmlrpcpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/librostime.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /opt/ros/noetic/lib/libcpp_common.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so: kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bump_blink_controller_nodelet.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/build: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so
+kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/build:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libbump_blink_controller_nodelet.so
 
 .PHONY : kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/build
 
 kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && $(CMAKE_COMMAND) -P CMakeFiles/bump_blink_controller_nodelet.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial && $(CMAKE_COMMAND) -P CMakeFiles/bump_blink_controller_nodelet.dir/cmake_clean.cmake
 .PHONY : kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/clean
 
 kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_controller_tutorial /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_controller_tutorial  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : kobuki/kobuki_controller_tutorial/CMakeFiles/bump_blink_controller_nodelet.dir/depend
 

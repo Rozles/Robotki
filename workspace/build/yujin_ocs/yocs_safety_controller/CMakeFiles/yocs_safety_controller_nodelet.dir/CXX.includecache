@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_controllers/include/yocs_controllers/default_controller.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/include/yocs_safety_controller/safety_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/include/yocs_safety_controller/safety_controller.hpp
 string
 -
 geometry_msgs/Twist.h
@@ -22,13 +22,13 @@ sensor_msgs/Range.h
 yocs_controllers/default_controller.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/library.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/library.cpp
 limits
 -
 yocs_safety_controller/safety_controller.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/yocs_safety_controller/safety_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/yocs_safety_controller/safety_controller.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/nodelet.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/nodelet.cpp
 ecl/threads/thread.hpp
 -
 nodelet/nodelet.h
@@ -36,7 +36,7 @@ nodelet/nodelet.h
 pluginlib/class_list_macros.h
 -
 yocs_safety_controller/safety_controller.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/yocs_safety_controller/safety_controller.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_safety_controller/src/yocs_safety_controller/safety_controller.hpp
 
 /opt/ros/noetic/include/class_loader/class_loader.hpp
 boost/bind.hpp

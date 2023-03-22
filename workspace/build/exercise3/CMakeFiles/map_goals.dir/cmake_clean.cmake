@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/exercise3/map_goals"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/exercise3/map_goals.pdb"
+  "../devel/lib/exercise3/map_goals"
+  "../devel/lib/exercise3/map_goals.pdb"
   "CMakeFiles/map_goals.dir/src/map_goals.cpp.o"
 )
 

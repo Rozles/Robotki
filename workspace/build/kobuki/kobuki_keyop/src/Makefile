@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_keyop/src/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki/kobuki_keyop/src/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/rule
 .PHONY : kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ keyop: kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/rule
 
 # fast build rule for target.
 keyop/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build
 .PHONY : keyop/fast
 
 keyop_core.o: keyop_core.cpp.o
@@ -188,7 +188,7 @@ keyop_core.o: keyop_core.cpp.o
 
 # target to build an object file
 keyop_core.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.o
 .PHONY : keyop_core.cpp.o
 
 keyop_core.i: keyop_core.cpp.i
@@ -197,7 +197,7 @@ keyop_core.i: keyop_core.cpp.i
 
 # target to preprocess a source file
 keyop_core.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.i
 .PHONY : keyop_core.cpp.i
 
 keyop_core.s: keyop_core.cpp.s
@@ -206,7 +206,7 @@ keyop_core.s: keyop_core.cpp.s
 
 # target to generate assembly for a file
 keyop_core.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/keyop_core.cpp.s
 .PHONY : keyop_core.cpp.s
 
 main.o: main.cpp.o
@@ -215,7 +215,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -224,7 +224,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -233,7 +233,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/build.make kobuki/kobuki_keyop/src/CMakeFiles/keyop.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -267,6 +267,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

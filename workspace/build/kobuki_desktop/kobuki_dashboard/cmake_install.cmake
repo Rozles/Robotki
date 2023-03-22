@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard
+# Install script for directory:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,29 +38,29 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/safe_execute_install.cmake")
+  include(" ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboard.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboard.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_dashboard/cmake" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboardConfig.cmake"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboardConfig-version.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboardConfig.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/catkin_generated/installspace/kobuki_dashboardConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_dashboard" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_dashboard" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kobuki_dashboard" TYPE PROGRAM FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/scripts/kobuki_dashboard")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kobuki_dashboard" TYPE PROGRAM FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/scripts/kobuki_dashboard")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_dashboard" TYPE DIRECTORY FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/plugins")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_dashboard" TYPE DIRECTORY FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_dashboard/plugins")
 endif()
 

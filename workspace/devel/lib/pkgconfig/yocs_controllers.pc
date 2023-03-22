@@ -1,8 +1,8 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
 
 Name: yocs_controllers
 Description: Description of yocs_controllers
 Version: 0.12.1
-Cflags: -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_controllers/include
+Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_controllers/include
 Libs: -L${prefix}/lib 
 Requires: roscpp

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScan.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/DepthImageToLaserScan.h
 sensor_msgs/Image.h
 -
 sensor_msgs/LaserScan.h
@@ -24,13 +24,13 @@ limits.h
 math.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/depth_traits.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include/depthimage_to_laserscan/depth_traits.h
 algorithm
 -
 limits
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/src/DepthImageToLaserScan.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/src/DepthImageToLaserScan.cpp
 depthimage_to_laserscan/DepthImageToLaserScan.h
 -
 

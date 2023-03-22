@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/install
+prefix=/usr/local
 
 Name: exercise3
 Description: Description of exercise3

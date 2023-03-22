@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+# Install script for directory: /home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,140 +49,91 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/_setup_util.py")
+   "/usr/local/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE PROGRAM FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/env.sh")
+   "/usr/local/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE PROGRAM FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/setup.bash;/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/local_setup.bash")
+   "/usr/local/setup.bash;/usr/local/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/setup.bash"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/setup.bash"
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/setup.sh;/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/local_setup.sh")
+   "/usr/local/setup.sh;/usr/local/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/setup.sh"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/setup.sh"
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/setup.zsh;/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/local_setup.zsh")
+   "/usr/local/setup.zsh;/usr/local/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/setup.zsh"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/setup.zsh"
+    "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install/.rosinstall")
+   "/usr/local/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/gtest/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_capabilities/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_desktop/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_gazebo/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_rapps/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/tf2/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_bringup/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_capabilities/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_dashboard/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_gazebo/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactions/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_rviz_launchers/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_simulator/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_stage/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_simulator/turtlebot_stdr/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_keyop/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_auto_docking/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/depthimage_to_laserscan/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_bumper2pc/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/exercise3/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_dashboard/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_teleop/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_gazebo_plugins/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_description/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot/turtlebot_description/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_cmd_vel_mux/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_controllers/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_controller_tutorial/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_random_walker/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_safety_controller/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_keyop/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_localization_manager/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_math_toolkit/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_diff_drive_pose_controller/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yocs_msgs/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_joyop/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navi_toolkit/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navigator/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_rapps/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_safety_controller/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_velocity_smoother/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_node/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki/kobuki_testsuite/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoint_provider/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_waypoints_navi/cmake_install.cmake")
-  include("/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yujin_ocs/cmake_install.cmake")
+  include("/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/gtest/cmake_install.cmake")
+  include("/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/tf2/cmake_install.cmake")
+  include("/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/exercise3/cmake_install.cmake")
+  include("/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_navigation/cmake_install.cmake")
 
 endif()
 
@@ -194,5 +145,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

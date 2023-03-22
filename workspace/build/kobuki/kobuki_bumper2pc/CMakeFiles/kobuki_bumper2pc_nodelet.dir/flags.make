@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"kobuki_bumper2pc\" -Dkobuki_bumper2pc_nodelet_EXPORTS
 
-CXX_INCLUDES = -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_bumper2pc/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

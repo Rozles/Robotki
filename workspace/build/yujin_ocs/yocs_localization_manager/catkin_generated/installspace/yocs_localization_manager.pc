@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/install
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install
 
 Name: yocs_localization_manager
 Description: Description of yocs_localization_manager

@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/install
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install
 
 Name: kobuki_keyop
 Description: Description of kobuki_keyop

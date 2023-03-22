@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libwaypoint_provider_yaml_parser_lib.so"
   "CMakeFiles/waypoint_provider_yaml_parser_lib.dir/src/yaml_parser.cpp.o"
 )
 

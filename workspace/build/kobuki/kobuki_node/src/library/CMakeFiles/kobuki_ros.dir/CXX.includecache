@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/BumperEvent.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/ButtonEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/ButtonEvent.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/CliffEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/CliffEvent.h
 string
 -
 vector
@@ -54,7 +54,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/ControllerInfo.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/ControllerInfo.h
 string
 -
 vector
@@ -70,7 +70,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/DigitalInputEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/DigitalInputEvent.h
 string
 -
 vector
@@ -86,7 +86,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/DigitalOutput.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/DigitalOutput.h
 string
 -
 vector
@@ -102,105 +102,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/DockInfraRed.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-std_msgs/Header.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/ExternalPower.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/Led.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/MotorPower.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/PowerSystemEvent.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/RobotStateEvent.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/SensorState.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/DockInfraRed.h
 string
 -
 vector
@@ -218,7 +120,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/Sound.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/ExternalPower.h
 string
 -
 vector
@@ -234,7 +136,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/VersionInfo.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/Led.h
 string
 -
 vector
@@ -250,7 +152,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/kobuki_msgs/WheelDropEvent.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/MotorPower.h
 string
 -
 vector
@@ -266,33 +168,131 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Quaternion.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/PowerSystemEvent.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/RobotStateEvent.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/SensorState.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/Sound.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/VersionInfo.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/kobuki_msgs/WheelDropEvent.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Quaternion.h
 Vector3.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
 QuadWord.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/QuadWord.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/QuadWord.h
 ros/macros.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Vector3.h
 Scalar.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Scalar.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/Scalar.h
 MinMax.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/MinMax.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/LinearMath/MinMax.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/buffer_core.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/buffer_core.h
 transform_storage.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
 boost/signals2.hpp
 -
 string
 -
 ros/duration.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/duration.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/duration.h
 ros/time.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
 geometry_msgs/TransformStamped.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/geometry_msgs/TransformStamped.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/geometry_msgs/TransformStamped.h
 boost/unordered_map.hpp
 -
 boost/thread/mutex.hpp
@@ -302,7 +302,7 @@ boost/function.hpp
 boost/shared_ptr.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/convert.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/convert.h
 tf2/transform_datatypes.h
 -
 tf2/exceptions.h
@@ -312,19 +312,19 @@ geometry_msgs/TransformStamped.h
 tf2/impl/convert.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/exceptions.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/exceptions.h
 stdexcept
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/impl/convert.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/impl/convert.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_datatypes.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_datatypes.h
 string
 -
 ros/time.h
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/ros/time.h
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include/tf2/transform_storage.h
 tf2/LinearMath/Vector3.h
 -
 tf2/LinearMath/Quaternion.h
@@ -336,7 +336,7 @@ ros/time.h
 ros/types.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
 kobuki_driver/packets/cliff.hpp
 -
 kobuki_driver/modules/battery.hpp
@@ -346,7 +346,7 @@ kobuki_driver/packets/core_sensors.hpp
 diagnostic_updater/diagnostic_updater.h
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/kobuki_ros.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/kobuki_ros.hpp
 string
 -
 boost/shared_ptr.hpp
@@ -402,11 +402,11 @@ kobuki_msgs/WheelDropEvent.h
 kobuki_driver/kobuki.hpp
 -
 diagnostics.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
 odometry.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
 string
 -
 geometry_msgs/Twist.h
@@ -418,11 +418,11 @@ tf/transform_broadcaster.h
 ecl/geometry/legacy_pose2d.hpp
 -
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/diagnostics.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/diagnostics.cpp
 ../../include/kobuki_node/diagnostics.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/diagnostics.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_ros.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_ros.cpp
 float.h
 -
 tf/tf.h
@@ -432,19 +432,19 @@ ecl/streams/string_stream.hpp
 kobuki_msgs/VersionInfo.h
 -
 kobuki_node/kobuki_ros.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_node/kobuki_ros.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_node/kobuki_ros.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/odometry.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/odometry.cpp
 ../../include/kobuki_node/odometry.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/odometry.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/slot_callbacks.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/slot_callbacks.cpp
 kobuki_node/kobuki_ros.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_node/kobuki_ros.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/kobuki_node/kobuki_ros.hpp
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/src/library/subscriber_callbacks.cpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/src/library/subscriber_callbacks.cpp
 ../../include/kobuki_node/kobuki_ros.hpp
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/kobuki_ros.hpp
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki/kobuki_node/include/kobuki_node/kobuki_ros.hpp
 
 /opt/ros/noetic/include/angles/angles.h
 algorithm

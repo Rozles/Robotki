@@ -67,14 +67,14 @@ set(depthimage_to_laserscan_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(depthimage_to_laserscan_SOURCE_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan)
-  set(depthimage_to_laserscan_DEVEL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel)
+  set(depthimage_to_laserscan_SOURCE_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan)
+  set(depthimage_to_laserscan_DEVEL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel)
   set(depthimage_to_laserscan_INSTALL_PREFIX "")
   set(depthimage_to_laserscan_PREFIX ${depthimage_to_laserscan_DEVEL_PREFIX})
 else()
   set(depthimage_to_laserscan_SOURCE_PREFIX "")
   set(depthimage_to_laserscan_DEVEL_PREFIX "")
-  set(depthimage_to_laserscan_INSTALL_PREFIX /home/team_cyber_crusaders/Desktop/Robotki/workspace/install)
+  set(depthimage_to_laserscan_INSTALL_PREFIX  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install)
   set(depthimage_to_laserscan_PREFIX ${depthimage_to_laserscan_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(depthimage_to_laserscan_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include;/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include " STREQUAL " ")
+if(NOT " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include; ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include " STREQUAL " ")
   set(depthimage_to_laserscan_INCLUDE_DIRS "")
-  set(_include_dirs "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include;/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/include")
+  set(_include_dirs " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include; ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/include")
   if(NOT "https://github.com/ros-perception/depthimage_to_laserscan/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-perception/depthimage_to_laserscan/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/depthimage_to_laserscan " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include;/home
         message(FATAL_ERROR "Project 'depthimage_to_laserscan' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'depthimage_to_laserscan' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/depthimage_to_laserscan/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'depthimage_to_laserscan' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/depthimage_to_laserscan/${idir}'.  ${_report}")
     endif()
     _list_append_unique(depthimage_to_laserscan_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
+    foreach(path  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/workspace/devel/lib;/home/team_cyber_crusaders/Desktop/Naloga1/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

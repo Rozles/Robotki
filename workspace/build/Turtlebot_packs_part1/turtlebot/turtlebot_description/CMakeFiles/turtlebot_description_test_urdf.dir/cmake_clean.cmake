@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_description/turtlebot_description_test_urdf"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/turtlebot_description/turtlebot_description_test_urdf.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/turtlebot_description/turtlebot_description_test_urdf"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/turtlebot_description/turtlebot_description_test_urdf.pdb"
   "CMakeFiles/turtlebot_description_test_urdf.dir/test/test_urdf.cpp.o"
 )
 

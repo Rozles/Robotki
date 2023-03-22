@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_navi_toolkit.pdb"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_navi_toolkit.so"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_navi_toolkit.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_navi_toolkit.so"
   "CMakeFiles/yocs_navi_toolkit.dir/collision_checker.cpp.o"
   "CMakeFiles/yocs_navi_toolkit.dir/odometry_helper.cpp.o"
   "CMakeFiles/yocs_navi_toolkit.dir/pose_helper.cpp.o"

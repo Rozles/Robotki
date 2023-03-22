@@ -7,10 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/team_cyber_crusaders/Desktop/Robotki/workspace/build'
-export PYTHONPATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/team_cyber_crusaders/Desktop/Robotki/workspace/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/nejcskrbec/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src:$ROS_PACKAGE_PATH"

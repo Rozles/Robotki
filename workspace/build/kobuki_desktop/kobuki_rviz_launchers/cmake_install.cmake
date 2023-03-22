@@ -1,8 +1,8 @@
-# Install script for directory: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers
+# Install script for directory:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install")
+  set(CMAKE_INSTALL_PREFIX " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchers.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchers.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers/cmake" TYPE FILE FILES
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchersConfig.cmake"
-    "/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchersConfig-version.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchersConfig.cmake"
+    " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_desktop/kobuki_rviz_launchers/catkin_generated/installspace/kobuki_rviz_launchersConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE FILE FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE FILE FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE DIRECTORY FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE DIRECTORY FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/launch")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE DIRECTORY FILES "/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/rviz")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kobuki_rviz_launchers" TYPE DIRECTORY FILES " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_desktop/kobuki_rviz_launchers/rviz")
 endif()
 

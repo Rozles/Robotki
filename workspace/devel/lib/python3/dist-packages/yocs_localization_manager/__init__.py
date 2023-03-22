@@ -6,7 +6,7 @@ from os import path as os_path
 from pkgutil import extend_path
 from sys import path as sys_path
 
-__extended_path = '/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_localization_manager/src'.split(';')
+__extended_path = ' ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_localization_manager/src'.split(';')
 for p in reversed(__extended_path):
     sys_path.insert(0, p)
     del p

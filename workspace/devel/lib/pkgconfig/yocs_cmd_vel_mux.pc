@@ -1,8 +1,8 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel
+prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
 
 Name: yocs_cmd_vel_mux
 Description: Description of yocs_cmd_vel_mux
 Version: 0.12.1
-Cflags: -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/include
+Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_cmd_vel_mux/include
 Libs: -L${prefix}/lib -lyocs_cmd_vel_mux_nodelet -lyaml-cpp
 Requires: roscpp pluginlib nodelet dynamic_reconfigure geometry_msgs

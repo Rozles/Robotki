@@ -1,4 +1,4 @@
-prefix=/home/team_cyber_crusaders/Desktop/Robotki/workspace/install
+prefix=/usr/local
 
 Name: tf2
 Description: Description of tf2

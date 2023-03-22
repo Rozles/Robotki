@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/kobuki_keyop/keyop"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/kobuki_keyop/keyop.pdb"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/kobuki_keyop/keyop"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/kobuki_keyop/keyop.pdb"
   "CMakeFiles/keyop.dir/keyop_core.cpp.o"
   "CMakeFiles/keyop.dir/main.cpp.o"
 )

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Include any dependencies generated for this target.
 include yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/depend.make
@@ -58,17 +58,17 @@ include yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/pr
 include yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/flags.make
 
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/flags.make
-yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o -c /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp
+yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o -c  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp
 
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp > CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp > CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.i
 
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp -o CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/src/virtual_sensor_node.cpp -o CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.s
 
 # Object files for target yocs_virtual_sensor_node
 yocs_virtual_sensor_node_OBJECTS = \
@@ -77,55 +77,55 @@ yocs_virtual_sensor_node_OBJECTS = \
 # External object files for target yocs_virtual_sensor_node
 yocs_virtual_sensor_node_EXTERNAL_OBJECTS =
 
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libyocs_math_toolkit.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_linear_algebra.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_formatters.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_exceptions.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_errors.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_type_traits.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libtf.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libtf2_ros.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libactionlib.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libmessage_filters.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libroscpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/libtf2.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librostime.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libcpp_common.so
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/yocs_virtual_sensor_node.dir/link.txt --verbose=$(VERBOSE)
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/src/virtual_sensor_node.cpp.o
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build.make
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libyocs_math_toolkit.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_linear_algebra.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_formatters.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_exceptions.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_errors.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libecl_type_traits.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libtf.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libtf2_ros.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libactionlib.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libmessage_filters.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libroscpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libpthread.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libxmlrpcpp.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/libtf2.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libroscpp_serialization.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/librostime.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /opt/ros/noetic/lib/libcpp_common.so
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+ ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node: yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/yocs_virtual_sensor_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build: /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node
+yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/yocs_virtual_sensor/yocs_virtual_sensor_node
 
 .PHONY : yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/build
 
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && $(CMAKE_COMMAND) -P CMakeFiles/yocs_virtual_sensor_node.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor && $(CMAKE_COMMAND) -P CMakeFiles/yocs_virtual_sensor_node.dir/cmake_clean.cmake
 .PHONY : yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/clean
 
 yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : yujin_ocs/yocs_virtual_sensor/CMakeFiles/yocs_virtual_sensor_node.dir/depend
 

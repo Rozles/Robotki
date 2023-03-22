@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Utility rule file for _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
 include kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/progress.make
 
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py kobuki_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/kobuki_msgs/msg/AutoDockingFeedback.msg 
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py kobuki_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/kobuki_msgs/msg/AutoDockingFeedback.msg 
 
 _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback: kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback
 _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback: kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build.make
@@ -67,10 +67,10 @@ kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeed
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build
 
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/cmake_clean.cmake
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/cmake_clean.cmake
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/clean
 
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team_cyber_crusaders/Desktop/Robotki/workspace/src /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/kobuki_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/build /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/DependInfo.cmake --color=$(COLOR)
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles"  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/kobuki_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_msgs  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/depend
 

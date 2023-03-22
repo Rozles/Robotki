@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/yujin_ocs/yocs_navigator/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/yujin_ocs/yocs_navigator/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ move_base_msgs_generate_messages_cpp: yujin_ocs/yocs_navigator/CMakeFiles/move_b
 
 # fast build rule for target.
 move_base_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/build
 .PHONY : move_base_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ move_base_msgs_generate_messages_nodejs: yujin_ocs/yocs_navigator/CMakeFiles/mov
 
 # fast build rule for target.
 move_base_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/build
 .PHONY : move_base_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ move_base_msgs_generate_messages_py: yujin_ocs/yocs_navigator/CMakeFiles/move_ba
 
 # fast build rule for target.
 move_base_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_py.dir/build
 .PHONY : move_base_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ yocs_semantic_navigator: yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navig
 
 # fast build rule for target.
 yocs_semantic_navigator/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build
 .PHONY : yocs_semantic_navigator/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ yocs_semantic_navigator_node: yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_
 
 # fast build rule for target.
 yocs_semantic_navigator_node/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build
 .PHONY : yocs_semantic_navigator_node/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ move_base_msgs_generate_messages_eus: yujin_ocs/yocs_navigator/CMakeFiles/move_b
 
 # fast build rule for target.
 move_base_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_eus.dir/build
 .PHONY : move_base_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ yocs_basic_move_controller: yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_
 
 # fast build rule for target.
 yocs_basic_move_controller/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build
 .PHONY : yocs_basic_move_controller/fast
 
 # Convenience name for target.
 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/rule
 .PHONY : yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -284,7 +284,7 @@ move_base_msgs_generate_messages_lisp: yujin_ocs/yocs_navigator/CMakeFiles/move_
 
 # fast build rule for target.
 move_base_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/build
 .PHONY : move_base_msgs_generate_messages_lisp/fast
 
 src/lib/basic_move_controller.o: src/lib/basic_move_controller.cpp.o
@@ -293,7 +293,7 @@ src/lib/basic_move_controller.o: src/lib/basic_move_controller.cpp.o
 
 # target to build an object file
 src/lib/basic_move_controller.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.o
 .PHONY : src/lib/basic_move_controller.cpp.o
 
 src/lib/basic_move_controller.i: src/lib/basic_move_controller.cpp.i
@@ -302,7 +302,7 @@ src/lib/basic_move_controller.i: src/lib/basic_move_controller.cpp.i
 
 # target to preprocess a source file
 src/lib/basic_move_controller.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.i
 .PHONY : src/lib/basic_move_controller.cpp.i
 
 src/lib/basic_move_controller.s: src/lib/basic_move_controller.cpp.s
@@ -311,7 +311,7 @@ src/lib/basic_move_controller.s: src/lib/basic_move_controller.cpp.s
 
 # target to generate assembly for a file
 src/lib/basic_move_controller.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_basic_move_controller.dir/src/lib/basic_move_controller.cpp.s
 .PHONY : src/lib/basic_move_controller.cpp.s
 
 src/lib/navigation_handler.o: src/lib/navigation_handler.cpp.o
@@ -320,7 +320,7 @@ src/lib/navigation_handler.o: src/lib/navigation_handler.cpp.o
 
 # target to build an object file
 src/lib/navigation_handler.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.o
 .PHONY : src/lib/navigation_handler.cpp.o
 
 src/lib/navigation_handler.i: src/lib/navigation_handler.cpp.i
@@ -329,7 +329,7 @@ src/lib/navigation_handler.i: src/lib/navigation_handler.cpp.i
 
 # target to preprocess a source file
 src/lib/navigation_handler.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.i
 .PHONY : src/lib/navigation_handler.cpp.i
 
 src/lib/navigation_handler.s: src/lib/navigation_handler.cpp.s
@@ -338,7 +338,7 @@ src/lib/navigation_handler.s: src/lib/navigation_handler.cpp.s
 
 # target to generate assembly for a file
 src/lib/navigation_handler.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/navigation_handler.cpp.s
 .PHONY : src/lib/navigation_handler.cpp.s
 
 src/lib/semantic_navigator.o: src/lib/semantic_navigator.cpp.o
@@ -347,7 +347,7 @@ src/lib/semantic_navigator.o: src/lib/semantic_navigator.cpp.o
 
 # target to build an object file
 src/lib/semantic_navigator.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.o
 .PHONY : src/lib/semantic_navigator.cpp.o
 
 src/lib/semantic_navigator.i: src/lib/semantic_navigator.cpp.i
@@ -356,7 +356,7 @@ src/lib/semantic_navigator.i: src/lib/semantic_navigator.cpp.i
 
 # target to preprocess a source file
 src/lib/semantic_navigator.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.i
 .PHONY : src/lib/semantic_navigator.cpp.i
 
 src/lib/semantic_navigator.s: src/lib/semantic_navigator.cpp.s
@@ -365,7 +365,7 @@ src/lib/semantic_navigator.s: src/lib/semantic_navigator.cpp.s
 
 # target to generate assembly for a file
 src/lib/semantic_navigator.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/semantic_navigator.cpp.s
 .PHONY : src/lib/semantic_navigator.cpp.s
 
 src/lib/utils.o: src/lib/utils.cpp.o
@@ -374,7 +374,7 @@ src/lib/utils.o: src/lib/utils.cpp.o
 
 # target to build an object file
 src/lib/utils.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.o
 .PHONY : src/lib/utils.cpp.o
 
 src/lib/utils.i: src/lib/utils.cpp.i
@@ -383,7 +383,7 @@ src/lib/utils.i: src/lib/utils.cpp.i
 
 # target to preprocess a source file
 src/lib/utils.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.i
 .PHONY : src/lib/utils.cpp.i
 
 src/lib/utils.s: src/lib/utils.cpp.s
@@ -392,7 +392,7 @@ src/lib/utils.s: src/lib/utils.cpp.s
 
 # target to generate assembly for a file
 src/lib/utils.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator.dir/src/lib/utils.cpp.s
 .PHONY : src/lib/utils.cpp.s
 
 src/semantic_navigator_main.o: src/semantic_navigator_main.cpp.o
@@ -401,7 +401,7 @@ src/semantic_navigator_main.o: src/semantic_navigator_main.cpp.o
 
 # target to build an object file
 src/semantic_navigator_main.cpp.o:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.o
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.o
 .PHONY : src/semantic_navigator_main.cpp.o
 
 src/semantic_navigator_main.i: src/semantic_navigator_main.cpp.i
@@ -410,7 +410,7 @@ src/semantic_navigator_main.i: src/semantic_navigator_main.cpp.i
 
 # target to preprocess a source file
 src/semantic_navigator_main.cpp.i:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.i
 .PHONY : src/semantic_navigator_main.cpp.i
 
 src/semantic_navigator_main.s: src/semantic_navigator_main.cpp.s
@@ -419,7 +419,7 @@ src/semantic_navigator_main.s: src/semantic_navigator_main.cpp.s
 
 # target to generate assembly for a file
 src/semantic_navigator_main.cpp.s:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.s
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/build.make yujin_ocs/yocs_navigator/CMakeFiles/yocs_semantic_navigator_node.dir/src/semantic_navigator_main.cpp.s
 .PHONY : src/semantic_navigator_main.cpp.s
 
 # Help Target
@@ -469,6 +469,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

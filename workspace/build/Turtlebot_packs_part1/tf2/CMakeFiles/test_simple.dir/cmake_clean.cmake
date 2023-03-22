@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_simple"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_simple.pdb"
+  "../../devel/lib/tf2/test_simple"
+  "../../devel/lib/tf2/test_simple.pdb"
   "CMakeFiles/test_simple.dir/test/simple_tf2_core.cpp.o"
 )
 

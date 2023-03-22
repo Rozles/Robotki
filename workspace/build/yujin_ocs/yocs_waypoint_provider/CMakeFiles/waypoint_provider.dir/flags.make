@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = -DHAVE_NEW_YAMLCPP -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"yocs_waypoint_provider\"
 
-CXX_INCLUDES = -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/include -I/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_waypoint_provider/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

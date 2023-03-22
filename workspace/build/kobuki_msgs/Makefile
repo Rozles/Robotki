@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/kobuki_msgs/CMakeFiles/progress.marks
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/kobuki_msgs/CMakeFiles/progress.marks
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/all
+	$(CMAKE_COMMAND) -E cmake_progress_start  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/clean
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/preinstall
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ kobuki_msgs_genpy: kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/rule
 
 # fast build rule for target.
 kobuki_msgs_genpy/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_genpy.dir/build
 .PHONY : kobuki_msgs_genpy/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ kobuki_msgs_gennodejs: kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/rule
 
 # fast build rule for target.
 kobuki_msgs_gennodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_gennodejs.dir/build
 .PHONY : kobuki_msgs_gennodejs/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ kobuki_msgs_geneus: kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/rule
 
 # fast build rule for target.
 kobuki_msgs_geneus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_geneus.dir/build
 .PHONY : kobuki_msgs_geneus/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ kobuki_msgs_generate_messages_eus: kobuki_msgs/CMakeFiles/kobuki_msgs_generate_m
 
 # fast build rule for target.
 kobuki_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_eus.dir/build
 .PHONY : kobuki_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback: kobuki_msgs/CMake
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingFeedback/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingResult: kobuki_msgs/CMakeFi
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingResult/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingResult.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingResult/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingGoal: kobuki_msgs/CMakeFile
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingGoal/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingGoal.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingGoal/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/rule
 
 # Convenience name for target.
@@ -284,12 +284,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback: kobuki_msgs
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingActionFeedback/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/rule
 
 # Convenience name for target.
@@ -299,12 +299,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal: kobuki_msgs/CMa
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingActionGoal/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/rule
 
 # Convenience name for target.
@@ -314,12 +314,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingAction: kobuki_msgs/CMakeFi
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingAction/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingAction.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingAction/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/rule
 
 # Convenience name for target.
@@ -329,12 +329,12 @@ _kobuki_msgs_generate_messages_check_deps_CliffEvent: kobuki_msgs/CMakeFiles/_ko
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_CliffEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_CliffEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_CliffEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/rule
 
 # Convenience name for target.
@@ -344,12 +344,12 @@ _kobuki_msgs_generate_messages_check_deps_KeyboardInput: kobuki_msgs/CMakeFiles/
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_KeyboardInput/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_KeyboardInput.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_KeyboardInput/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -359,12 +359,12 @@ kobuki_msgs_generate_messages_py: kobuki_msgs/CMakeFiles/kobuki_msgs_generate_me
 
 # fast build rule for target.
 kobuki_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_py.dir/build
 .PHONY : kobuki_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -374,12 +374,12 @@ std_msgs_generate_messages_nodejs: kobuki_msgs/CMakeFiles/std_msgs_generate_mess
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -389,12 +389,12 @@ kobuki_msgs_generate_messages_nodejs: kobuki_msgs/CMakeFiles/kobuki_msgs_generat
 
 # fast build rule for target.
 kobuki_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_nodejs.dir/build
 .PHONY : kobuki_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/rule
 
 # Convenience name for target.
@@ -404,12 +404,12 @@ kobuki_msgs_generate_messages: kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messa
 
 # fast build rule for target.
 kobuki_msgs_generate_messages/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages.dir/build
 .PHONY : kobuki_msgs_generate_messages/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -419,12 +419,12 @@ actionlib_msgs_generate_messages_lisp: kobuki_msgs/CMakeFiles/actionlib_msgs_gen
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -434,12 +434,12 @@ std_msgs_generate_messages_lisp: kobuki_msgs/CMakeFiles/std_msgs_generate_messag
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/rule
 
 # Convenience name for target.
@@ -449,12 +449,12 @@ _kobuki_msgs_generate_messages_check_deps_DigitalOutput: kobuki_msgs/CMakeFiles/
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_DigitalOutput/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalOutput.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_DigitalOutput/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -464,12 +464,12 @@ actionlib_msgs_generate_messages_eus: kobuki_msgs/CMakeFiles/actionlib_msgs_gene
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 .PHONY : actionlib_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/rule
 
 # Convenience name for target.
@@ -479,12 +479,12 @@ _kobuki_msgs_generate_messages_check_deps_PowerSystemEvent: kobuki_msgs/CMakeFil
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_PowerSystemEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_PowerSystemEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_PowerSystemEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/rule
 
 # Convenience name for target.
@@ -494,12 +494,12 @@ _kobuki_msgs_generate_messages_check_deps_BumperEvent: kobuki_msgs/CMakeFiles/_k
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_BumperEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_BumperEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_BumperEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -509,12 +509,12 @@ std_msgs_generate_messages_py: kobuki_msgs/CMakeFiles/std_msgs_generate_messages
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -524,12 +524,12 @@ actionlib_msgs_generate_messages_nodejs: kobuki_msgs/CMakeFiles/actionlib_msgs_g
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 .PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -539,12 +539,12 @@ std_msgs_generate_messages_eus: kobuki_msgs/CMakeFiles/std_msgs_generate_message
 
 # fast build rule for target.
 std_msgs_generate_messages_eus/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 .PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/rule
 
 # Convenience name for target.
@@ -554,12 +554,12 @@ _kobuki_msgs_generate_messages_check_deps_DigitalInputEvent: kobuki_msgs/CMakeFi
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_DigitalInputEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DigitalInputEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_DigitalInputEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -569,12 +569,12 @@ std_msgs_generate_messages_cpp: kobuki_msgs/CMakeFiles/std_msgs_generate_message
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -584,12 +584,12 @@ kobuki_msgs_generate_messages_cpp: kobuki_msgs/CMakeFiles/kobuki_msgs_generate_m
 
 # fast build rule for target.
 kobuki_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_cpp.dir/build
 .PHONY : kobuki_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/rule
 
 # Convenience name for target.
@@ -599,12 +599,12 @@ _kobuki_msgs_generate_messages_check_deps_ExternalPower: kobuki_msgs/CMakeFiles/
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_ExternalPower/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ExternalPower.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_ExternalPower/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/rule
 
 # Convenience name for target.
@@ -614,12 +614,12 @@ _kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult: kobuki_msgs/C
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_AutoDockingActionResult/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/rule
 
 # Convenience name for target.
@@ -629,12 +629,12 @@ _kobuki_msgs_generate_messages_check_deps_SensorState: kobuki_msgs/CMakeFiles/_k
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_SensorState/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_SensorState.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_SensorState/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/rule
 
 # Convenience name for target.
@@ -644,12 +644,12 @@ kobuki_msgs_genlisp: kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/rule
 
 # fast build rule for target.
 kobuki_msgs_genlisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_genlisp.dir/build
 .PHONY : kobuki_msgs_genlisp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/rule
 
 # Convenience name for target.
@@ -659,12 +659,12 @@ kobuki_msgs_gencpp: kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/rule
 
 # fast build rule for target.
 kobuki_msgs_gencpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_gencpp.dir/build
 .PHONY : kobuki_msgs_gencpp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/rule
 
 # Convenience name for target.
@@ -674,12 +674,12 @@ _kobuki_msgs_generate_messages_check_deps_Led: kobuki_msgs/CMakeFiles/_kobuki_ms
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_Led/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Led.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_Led/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/rule
 
 # Convenience name for target.
@@ -689,12 +689,12 @@ _kobuki_msgs_generate_messages_check_deps_VersionInfo: kobuki_msgs/CMakeFiles/_k
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_VersionInfo/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_VersionInfo.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_VersionInfo/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/rule
 
 # Convenience name for target.
@@ -704,12 +704,12 @@ _kobuki_msgs_generate_messages_check_deps_RobotStateEvent: kobuki_msgs/CMakeFile
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_RobotStateEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_RobotStateEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_RobotStateEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -719,12 +719,12 @@ actionlib_msgs_generate_messages_py: kobuki_msgs/CMakeFiles/actionlib_msgs_gener
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_py/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/rule
 
 # Convenience name for target.
@@ -734,12 +734,12 @@ _kobuki_msgs_generate_messages_check_deps_ControllerInfo: kobuki_msgs/CMakeFiles
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_ControllerInfo/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ControllerInfo.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_ControllerInfo/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/rule
 
 # Convenience name for target.
@@ -749,12 +749,12 @@ _kobuki_msgs_generate_messages_check_deps_WheelDropEvent: kobuki_msgs/CMakeFiles
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_WheelDropEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_WheelDropEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_WheelDropEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/rule
 
 # Convenience name for target.
@@ -764,12 +764,12 @@ _kobuki_msgs_generate_messages_check_deps_DockInfraRed: kobuki_msgs/CMakeFiles/_
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_DockInfraRed/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_DockInfraRed.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_DockInfraRed/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/rule
 
 # Convenience name for target.
@@ -779,12 +779,12 @@ _kobuki_msgs_generate_messages_check_deps_MotorPower: kobuki_msgs/CMakeFiles/_ko
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_MotorPower/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_MotorPower.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_MotorPower/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -794,12 +794,12 @@ kobuki_msgs_generate_messages_lisp: kobuki_msgs/CMakeFiles/kobuki_msgs_generate_
 
 # fast build rule for target.
 kobuki_msgs_generate_messages_lisp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/build.make kobuki_msgs/CMakeFiles/kobuki_msgs_generate_messages_lisp.dir/build
 .PHONY : kobuki_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/rule
 
 # Convenience name for target.
@@ -809,12 +809,12 @@ _kobuki_msgs_generate_messages_check_deps_ButtonEvent: kobuki_msgs/CMakeFiles/_k
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_ButtonEvent/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ButtonEvent.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_ButtonEvent/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -824,12 +824,12 @@ actionlib_msgs_generate_messages_cpp: kobuki_msgs/CMakeFiles/actionlib_msgs_gene
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make kobuki_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/rule
 
 # Convenience name for target.
@@ -839,12 +839,12 @@ _kobuki_msgs_generate_messages_check_deps_Sound: kobuki_msgs/CMakeFiles/_kobuki_
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_Sound/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_Sound.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_Sound/fast
 
 # Convenience name for target.
 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/rule:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/rule
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/rule
 .PHONY : kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/rule
 
 # Convenience name for target.
@@ -854,7 +854,7 @@ _kobuki_msgs_generate_messages_check_deps_ScanAngle: kobuki_msgs/CMakeFiles/_kob
 
 # fast build rule for target.
 _kobuki_msgs_generate_messages_check_deps_ScanAngle/fast:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/build
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(MAKE) -f kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/build.make kobuki_msgs/CMakeFiles/_kobuki_msgs_generate_messages_check_deps_ScanAngle.dir/build
 .PHONY : _kobuki_msgs_generate_messages_check_deps_ScanAngle/fast
 
 # Help Target
@@ -927,6 +927,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

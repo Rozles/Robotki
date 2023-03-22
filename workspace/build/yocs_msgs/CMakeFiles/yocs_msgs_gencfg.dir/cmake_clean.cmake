@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include/yocs_msgs/JoystickConfig.h"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/lib/python3/dist-packages/yocs_msgs/cfg/JoystickConfig.py"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig-usage.dox"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.dox"
+  " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/share/yocs_msgs/docs/JoystickConfig.wikidoc"
   "CMakeFiles/yocs_msgs_gencfg"
 )
 

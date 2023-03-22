@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/src
+CMAKE_SOURCE_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team_cyber_crusaders/Desktop/Robotki/workspace/build
+CMAKE_BINARY_DIR =  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build
 
 # Include any dependencies generated for this target.
 include Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/depend.make
@@ -58,13 +58,13 @@ include Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_marke
 include Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/flags.make
 
 Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o: Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/flags.make
-Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o: /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team_cyber_crusaders/Desktop/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o -c /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp
+Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o:  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o"
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.o -c  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp
 
 Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.i"
-	cd /home/team_cyber_crusaders/Desktop/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team_cyber_crusaders/Desktop/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp > CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.i
+	cd  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/build/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E  ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/src/turtlebot_marker_server.cpp > CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.i
 
 Turtlebot_packs_part1/turtlebot_interactions/turtlebot_interactive_markers/CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/turtlebot_marker_server.dir/src/turtlebot_marker_server.cpp.s"

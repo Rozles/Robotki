@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "dynamic_reconfigure;actionlib_msgs;std_msgs;geometry_msgs;std_srvs;message_runtime".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "yocs_msgs"
-PROJECT_SPACE_DIR = "/home/team_cyber_crusaders/Desktop/Robotki/workspace/install"
+PROJECT_SPACE_DIR = " ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install"
 PROJECT_VERSION = "0.7.0"

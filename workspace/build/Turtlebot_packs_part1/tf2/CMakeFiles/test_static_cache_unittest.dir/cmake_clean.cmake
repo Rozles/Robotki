@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_static_cache_unittest"
-  "/home/team_cyber_crusaders/Desktop/Robotki/workspace/devel/lib/tf2/test_static_cache_unittest.pdb"
+  "../../devel/lib/tf2/test_static_cache_unittest"
+  "../../devel/lib/tf2/test_static_cache_unittest.pdb"
   "CMakeFiles/test_static_cache_unittest.dir/test/static_cache_test.cpp.o"
 )
 
