@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: turtlebot_interactive_markers
-Description: Description of turtlebot_interactive_markers
-Version: 2.3.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

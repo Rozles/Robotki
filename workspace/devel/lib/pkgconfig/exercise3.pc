@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: exercise3
-Description: Description of exercise3
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

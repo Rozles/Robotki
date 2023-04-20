@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install
-
-Name: turtlebot_stage
-Description: Description of turtlebot_stage
-Version: 2.2.3
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

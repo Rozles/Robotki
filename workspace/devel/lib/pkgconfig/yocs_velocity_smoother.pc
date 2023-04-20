@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: yocs_velocity_smoother
-Description: Description of yocs_velocity_smoother
-Version: 0.12.1
-Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel/include -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_velocity_smoother/include
-Libs: -L${prefix}/lib -lyocs_velocity_smoother_nodelet
-Requires: roscpp pluginlib nodelet ecl_threads dynamic_reconfigure geometry_msgs nav_msgs

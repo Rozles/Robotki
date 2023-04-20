@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: tf2
-Description: Description of tf2
-Version: 0.7.5
-Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/Turtlebot_packs_part1/tf2/include -I/usr/include
-Libs: -L${prefix}/lib -ltf2 /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-Requires: geometry_msgs tf2_msgs rostime

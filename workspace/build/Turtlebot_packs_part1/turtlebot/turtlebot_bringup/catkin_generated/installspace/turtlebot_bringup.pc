@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/install
-
-Name: turtlebot_bringup
-Description: Description of turtlebot_bringup
-Version: 2.4.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

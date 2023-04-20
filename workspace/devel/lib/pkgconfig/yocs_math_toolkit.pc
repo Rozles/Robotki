@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: yocs_math_toolkit
-Description: Description of yocs_math_toolkit
-Version: 0.12.1
-Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_math_toolkit/include
-Libs: -L${prefix}/lib -lyocs_math_toolkit
-Requires: ecl_build ecl_config ecl_exceptions ecl_formatters ecl_linear_algebra geometry_msgs roscpp tf

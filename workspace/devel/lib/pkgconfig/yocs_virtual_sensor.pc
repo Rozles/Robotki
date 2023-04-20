@@ -1,8 +1,0 @@
-prefix= ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/devel
-
-Name: yocs_virtual_sensor
-Description: Description of yocs_virtual_sensor
-Version: 0.12.1
-Cflags: -I ~/Documents/FRI/3-letnik/RINS/DN3/Robotki/workspace/src/yujin_ocs/yocs_virtual_sensor/include -I/usr/include
-Libs: -L${prefix}/lib /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-Requires: tf roscpp sensor_msgs geometry_msgs yocs_msgs yocs_math_toolkit
