@@ -14,3 +14,6 @@ build
 
 # Visual Studio Code configuration files
 .vscode/
+
+# environmental variables
+env_vars.sh
