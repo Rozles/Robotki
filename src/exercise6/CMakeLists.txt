@@ -64,6 +64,7 @@ catkin_package(
 )
 
 add_executable (example src/example.cpp)
+add_executable (cylinders src/cylinders.cpp)
 add_executable (example_voxelgrid src/example_voxelgrid.cpp)
 add_executable (planes src/planes.cpp)
 add_executable (find_plane src/find_plane.cpp)
