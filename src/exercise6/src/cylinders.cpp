@@ -116,7 +116,7 @@ cloud_cb (const pcl::PCLPointCloud2ConstPtr& cloud_blob)
   seg.setModelType (pcl::SACMODEL_CYLINDER);
   seg.setMethodType (pcl::SAC_RANSAC);
   seg.setNormalDistanceWeight (0.1);
-  seg.setMaxIterations (10000);
+  seg.setMaxIterations (100);
   seg.setDistanceThreshold (0.05);
   seg.setRadiusLimits (0.1, 0.2);
   seg.setInputCloud (cloud_filtered2);
@@ -175,7 +175,6 @@ cloud_cb (const pcl::PCLPointCloud2ConstPtr& cloud_blob)
       for (visualization_msgs::Marker m : marker_array_cylinders.markers) {
         if (abs(m.pose.position.x - point_map.point.x) < 0.1 && abs(m.pose.position.y - point_map.point.y) < 0.1) {
           new_cylinder = false;
-          ROS_INFO("Isti cilindr");
           m.pose.position.x = (m.pose.position.x * cylinders_n[i] + point_map.point.x) / (cylinders_n[i] + 1);
           m.pose.position.y = (m.pose.position.y * cylinders_n[i] + point_map.point.y) / (cylinders_n[i] + 1);
           cylinders_n[i]++;
@@ -184,7 +183,6 @@ cloud_cb (const pcl::PCLPointCloud2ConstPtr& cloud_blob)
         i++;
       }
       if (new_cylinder) {
-        ROS_INFO("Size: %d", marker_array_cylinders.markers.size());
         visualization_msgs::Marker marker;
 
         marker.header.frame_id = "map";
