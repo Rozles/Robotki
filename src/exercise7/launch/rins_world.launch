@@ -6,7 +6,7 @@
   <arg name="gui" default="true"/>
   <arg name="stacks"    value="hexagons"/>  <!-- circles, hexagons -->
   <arg name="arm_type"  default="$(optenv TURTLEBOT_ARM1 turtlebot)"/>
-  <arg name="3d_sensor" value="kinect"/>  <!-- kinect, asus_xtion_pro -->
+  <arg name="3d_sensor" value="$(optenv kinect kinect)"/>  <!-- kinect, asus_xtion_pro -->
 
  <include file="$(find turtlebot_arm_control)/launch/turtlebot_arm_control.launch"/>
 

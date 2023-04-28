@@ -1,7 +1,7 @@
 <launch>
   
   <!-- Map server -->
-  <arg name="map_file" default="/home/matej/bad_map.yaml"/>
+  <arg name="map_file" default="$(find turtlebot_custom_navigation)/poligon.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!-- Localization -->
@@ -16,4 +16,5 @@
 
   <!-- Move base -->
   <include file="$(find turtlebot_custom_navigation)/launch/includes/move_base.launch.xml"/>
+  <rosparam file="$(find turtlebot_custom_navigation)/robovi.yaml"/>
 </launch>
