@@ -63,7 +63,7 @@ class The_Ring:
                 marker.header.stamp = r.pose.header.stamp
                 marker.header.frame_id = r.pose.header.frame_id
                 marker.pose = r.pose.pose
-                marker.type = Marker.CUBE
+                marker.type = Marker.SPHERE
                 marker.action = Marker.ADD
                 marker.frame_locked = False
                 marker.lifetime = rospy.Duration(0)
