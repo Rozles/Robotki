@@ -7,11 +7,16 @@ import numpy as np
 import tf2_geometry_msgs
 import tf2_ros
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import PointStamped, Vector3, Pose
+from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
 from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
+class RingCandidate:
+    def __init__(self, pose, color):
+        self.pose = pose
+        self.color = color
+        self.n = 1
 
 class The_Ring:
     def __init__(self):
@@ -24,9 +29,7 @@ class The_Ring:
         self.dims = (0, 0, 0)
 
         # Marker array object used for visualizations
-        self.marker_array = MarkerArray()
-        self.marker_n = []
-        self.marker_num = 1
+        self.candidates = []
 
         # Publiser for the visualization markers
         self.markers_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
@@ -37,22 +40,37 @@ class The_Ring:
         self.tf_listener
 
 
-    def update_marker_array(self, pose):
-        for i, m in enumerate(self.marker_array.markers):
-            if np.sqrt((m.pose.position.x - pose.position.x)**2 + (m.pose.position.y - pose.position.y)**2) < 0.5:
-                m.pose.position.x = (m.pose.position.x * self.marker_n[i] + pose.position.x) / (self.marker_n[i] + 1)
-                m.pose.position.y = (m.pose.position.y * self.marker_n[i] + pose.position.y) / (self.marker_n[i] + 1)
-                m.pose.position.z = (m.pose.position.z * self.marker_n[i] + pose.position.z) / (self.marker_n[i] + 1)
-                self.marker_n[i] += 1
-                return False
-        return True
+    def update_marker_array(self, pose, color):
+        for r in self.candidates:
+            if np.sqrt((r.pose.pose.position.x - pose.pose.position.x)**2 + (r.pose.pose.position.y - pose.pose.position.y)**2) < 0.5:
+                r.pose.pose.position.x = (r.pose.pose.position.x * r.n + pose.pose.position.x) / (r.n + 1)
+                r.pose.pose.position.y = (r.pose.pose.position.y * r.n + pose.pose.position.y) / (r.n + 1)
+                r.pose.pose.position.z = (r.pose.pose.position.z * r.n + pose.pose.position.z) / (r.n + 1)
+                r.color[0] = (r.color[0] * r.n + color[0]) / (r.n + 1)
+                r.color[1] = (r.color[1] * r.n + color[1]) / (r.n + 1)
+                r.color[2] = (r.color[2] * r.n + color[2]) / (r.n + 1)
+                r.n += 1
+                return 
+        c = RingCandidate(pose, color)
+        self.candidates.append(c)
 
 
     def publish_markers(self):
         pub_markers = MarkerArray()
-        for i, m in enumerate(self.marker_array.markers):
-            if self.marker_n[i] > 3:
-                pub_markers.markers.append(m)
+        for i, r in enumerate(self.candidates):
+            if r.n > 3:
+                marker = Marker()
+                marker.header.stamp = r.pose.header.stamp
+                marker.header.frame_id = r.pose.header.frame_id
+                marker.pose = r.pose.pose
+                marker.type = Marker.CUBE
+                marker.action = Marker.ADD
+                marker.frame_locked = False
+                marker.lifetime = rospy.Duration(0)
+                marker.id = i
+                marker.scale = Vector3(0.1, 0.1, 0.1)
+                marker.color = ColorRGBA(r.color[2], r.color[1], r.color[0], 1)
+                pub_markers.markers.append(marker)
         self.markers_pub.publish(pub_markers)
 
 
@@ -95,36 +113,15 @@ class The_Ring:
             return
         
         # Create a Pose object with the same position
-        pose = Pose()
-        pose.position.x = point_world.point.x
-        pose.position.y = point_world.point.y
-        pose.position.z = point_world.point.z
-        pose.orientation.w = 1.0
+        pose = PoseStamped()
+        pose.pose.position.x = point_world.point.x
+        pose.pose.position.y = point_world.point.y
+        pose.pose.position.z = point_world.point.z
+        pose.header.frame_id = point_world.header.frame_id
+        pose.header.stamp = point_world.header.stamp
+        pose.pose.orientation.w = 1.0
 
-        if self.update_marker_array(pose):
-            self.marker_n.append(1)
-
-            marker_color = ColorRGBA(0, 0, 0, 1)
-            if color == 0:
-                marker_color = ColorRGBA(0, 0, 1, 1)
-            elif color == 1:
-                marker_color = ColorRGBA(0, 1, 0, 1)
-            elif color == 2:
-                marker_color = ColorRGBA(1, 0, 0, 1)
-            # Create a marker used for visualization
-            self.marker_num += 1
-            marker = Marker()
-            marker.header.stamp = point_world.header.stamp
-            marker.header.frame_id = point_world.header.frame_id
-            marker.pose = pose
-            marker.type = Marker.CUBE
-            marker.action = Marker.ADD
-            marker.frame_locked = False
-            marker.lifetime = rospy.Duration(0)
-            marker.id = self.marker_num
-            marker.scale = Vector3(0.1, 0.1, 0.1)
-            marker.color = marker_color
-            self.marker_array.markers.append(marker)
+        self.update_marker_array(pose, color)
     
 
     def find_ring(self):
@@ -235,23 +232,18 @@ class The_Ring:
             #cv2.waitKey(1)
 
             ring_image = cv_image[y_min:y_max,x_min:x_max,:]
-            blue = np.mean(ring_image[:,:,0])
-            green = np.mean(ring_image[:,:,1])
-            red = np.mean(ring_image[:,:,2])
-            
-            #print(f'B: {blue} G: {green} R: {red}')
-            
-            colors = [blue - 155, green - 155, red - 155]
-            if max(colors) < 0:
-                color = -1
-            else:
-                color = colors.index(max(colors))
+            exclude = np.all(ring_image == 178, axis=2)
 
+            color = np.mean(ring_image[~exclude], axis=0)
+            # print(f'B: {color[0]} G: {color[1]} R: {color[2]}')
             
-
+            if (np.any(np.isnan(color))):
+                return 
+            
+            color = color / 255
             self.get_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, color)
-
-
+           
+            
 
 
 def main():

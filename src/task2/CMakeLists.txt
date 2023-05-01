@@ -123,10 +123,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  #  INCLUDE_DIRS include
-  #  LIBRARIES task2
-  #  CATKIN_DEPENDS roscpp rospy
-  #  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES task2
+  CATKIN_DEPENDS roscpp rospy
+  DEPENDS system_lib
   LIBRARIES
     pcl_ros_filters
     pcl_ros_io
@@ -184,6 +184,7 @@ link_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/task2_node.cpp)
 add_executable(mozgancki src/mozgancki.cpp)
+add_executable(cylinder_detection_node src/cylinder_detection_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -207,7 +208,19 @@ target_link_libraries(
   ${Eigen_LIBRARIES}
   ${PCL_LIBRARIES}
   ${catkin_LIBRARIES}
+)
+
+target_link_libraries(
+  cylinder_detection_node 
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBRARIES}
+  ${Boost_LIBRARIES}
+  ${Eigen_LIBRARIES}
+  ${PCL_LIBRARIES}
+  ${catkin_LIBRARIES}
   )
+
+link_libraries(${Boost_LIBRARIES} ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 #############
 ## Install ##
