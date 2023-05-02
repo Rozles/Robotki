@@ -25,14 +25,10 @@ int DETECTION_THRESHOLD = 3;
 ros::Publisher pub_pcl;
 ros::Publisher cylinder_publisher;
 
-class CylinderContender {
-  public:
-    geometry_msgs::PointStamped point;
-    std_msgs::ColorRGBA color;
-    int n;
-};
 
-std::vector<CylinderContender> detected_cylinders;
+
+visualization_msgs::MarkerArray* detected_cylinders;
+std::vector<int> cylinder_n;
 
 tf2_ros::Buffer tf2_buffer;
 
@@ -43,55 +39,47 @@ typedef pcl::PointXYZRGB PointT;
 void update_contenders(geometry_msgs::PointStamped point, std_msgs::ColorRGBA color) {
   visualization_msgs::MarkerArray marker_array;
   bool new_cylinder = true;
-  int id = 0;
-  CylinderContender c;
-  for (int i = 0; i < detected_cylinders.size(); i++) {
-    c = detected_cylinders[i];
-    if (sqrt((c.point.point.x - point.point.x) * (c.point.point.x - point.point.x) + (c.point.point.y - point.point.y) * (c.point.point.y - point.point.y) + (c.point.point.z - point.point.z) * (c.point.point.z - point.point.z)) < 0.5) {
-      ROS_INFO("POPRAVLAM ISTIGA");
+  for(int i = 0; i < detected_cylinders->markers.size(); i++) {
+    visualization_msgs::Marker m = detected_cylinders->markers[i];
+    if (sqrt((m.pose.position.x - point.point.x) * (m.pose.position.x - point.point.x) + (m.pose.position.y - point.point.y) * (m.pose.position.y - point.point.y) + (m.pose.position.z - point.point.z) * (m.pose.position.z - point.point.z)) < 0.5) {   
       new_cylinder = false;
-      c.point.point.x = (c.point.point.x * c.n + point.point.x) / (c.n + 1);
-      c.point.point.y = (c.point.point.y * c.n + point.point.y) / (c.n + 1);
-      c.point.point.z = (c.point.point.z * c.n + point.point.z) / (c.n + 1);
-      c.color.r = (c.color.r * c.n + color.r) / (c.n + 1);
-      c.color.g = (c.color.g * c.n + color.g) / (c.n + 1);
-      c.color.b = (c.color.b * c.n + color.b) / (c.n + 1);
-      c.n = c.n + 1;
-      ROS_INFO("n: %d", c.n);
+      m.pose.position.x = (m.pose.position.x * cylinder_n[i] + point.point.x) / (cylinder_n[i] + 1);
+      m.pose.position.y = (m.pose.position.y * cylinder_n[i] + point.point.y) / (cylinder_n[i] + 1);
+      m.pose.position.z = (m.pose.position.z * cylinder_n[i] + point.point.z) / (cylinder_n[i] + 1);
+      m.color.r = static_cast<float>((m.color.r * cylinder_n[i] + color.r) / (cylinder_n[i] + 1));
+      m.color.g = static_cast<float>((m.color.g * cylinder_n[i] + color.g) / (cylinder_n[i] + 1));
+      m.color.b = static_cast<float>((m.color.b * cylinder_n[i] + color.b) / (cylinder_n[i] + 1));
+      cylinder_n[i]++;
     }
-    ROS_INFO("HELLO %d | %d", id, c.n);
-    if (c.n >= DETECTION_THRESHOLD){
-      visualization_msgs::Marker marker;
-      marker.header.frame_id = c.point.header.frame_id;
-      marker.header.stamp = c.point.header.stamp;
-      marker.ns = "cylinder";
-      marker.id = id;
-      marker.type = visualization_msgs::Marker::CYLINDER;
-      marker.action = visualization_msgs::Marker::ADD;
-      marker.pose.position.x = c.point.point.x;
-      marker.pose.position.y = c.point.point.y;
-      marker.pose.position.z = c.point.point.z;
-      marker.pose.orientation.x = 0.0;
-      marker.pose.orientation.y = 0.0;
-      marker.pose.orientation.z = 0.0;
-      marker.pose.orientation.w = 1.0;
-      marker.scale.x = 0.1;
-      marker.scale.y = 0.1;
-      marker.scale.z = 0.1;
-      marker.color = c.color;
-      marker.lifetime = ros::Duration();
-      marker_array.markers.push_back(marker);
-      ROS_INFO("HERE I AM %d",marker_array.markers.size());
-      id++;
+    if (cylinder_n[i] >= DETECTION_THRESHOLD){
+      marker_array.markers.push_back(m);
     }
   }
   if (new_cylinder) {
-    ROS_INFO("DODAM NOUGA");
-    CylinderContender new_c;
-    new_c.point = point;
-    new_c.color = color;
-    new_c.n = 1;
-    detected_cylinders.push_back(new_c);
+    visualization_msgs::Marker marker;
+    marker.header.frame_id = point.header.frame_id;
+    marker.header.stamp = point.header.stamp;
+    marker.ns = "cylinder";
+    marker.id = detected_cylinders->markers.size();
+    marker.type = visualization_msgs::Marker::CYLINDER;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker.pose.position.x = point.point.x;
+    marker.pose.position.y = point.point.y;
+    marker.pose.position.z = point.point.z;
+    marker.pose.orientation.x = 0.0;
+    marker.pose.orientation.y = 0.0;
+    marker.pose.orientation.z = 0.0;
+    marker.pose.orientation.w = 1.0;
+    marker.scale.x = 0.1;
+    marker.scale.y = 0.1;
+    marker.scale.z = 0.1;
+    marker.color.r = color.r;
+    marker.color.g = color.g;
+    marker.color.b = color.b;
+    marker.color.a = color.a;
+    marker.lifetime = ros::Duration();
+    detected_cylinders->markers.push_back(marker);
+    cylinder_n.push_back(1);
   }
   cylinder_publisher.publish(marker_array);
 }
@@ -184,7 +172,7 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
     seg.setModelType(pcl::SACMODEL_CYLINDER);
     seg.setMethodType(pcl::SAC_RANSAC);
     seg.setNormalDistanceWeight(0.1);
-    seg.setMaxIterations(10000);
+    seg.setMaxIterations(1000);
     seg.setDistanceThreshold(0.005);
     seg.setRadiusLimits(0.115, 0.125);
     seg.setInputCloud(cloud_filtered);
@@ -243,10 +231,12 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
 
 
     std_msgs::ColorRGBA color;
-    color.r = r/255;
-    color.g = r/255;
-    color.b = r/255;
+    color.r = static_cast<float>(r) / static_cast<float>(255);
+    color.g = static_cast<float>(g) / static_cast<float>(255);
+    color.b = static_cast<float>(b) / static_cast<float>(255);
     color.a = 1;
+    // ROS_INFO("R: %f G: %f B: %f A: %f", color.r, color.g, color.b, color.a);
+
     update_contenders(point_map, color);
 
     pcl::PCLPointCloud2 outcloud_cylinder;
@@ -264,10 +254,10 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "cylinder_segmentation");
     ros::NodeHandle nh;
 
-    std::cout << "Started" << std::endl;
-
     // For transforming between coordinate frames
     tf2_ros::TransformListener tf2_listener(tf2_buffer);
+
+    detected_cylinders = new visualization_msgs::MarkerArray();
 
     nh.param<double>("min_y", min_y, -0.3);
     nh.param<double>("max_y", max_y, 0.09);
