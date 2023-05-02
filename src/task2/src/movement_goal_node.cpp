@@ -37,6 +37,7 @@ pcl::PointCloud<PointT>::Ptr cloud(new pcl::PointCloud<PointT>);
 pcl::PointCloud<pcl::Normal>::Ptr cloud_normals(new pcl::PointCloud<pcl::Normal>);
 pcl::search::KdTree<PointT>::Ptr tree(new pcl::search::KdTree<PointT>());
 pcl::IntegralImageNormalEstimation<PointT, pcl::Normal> ne;
+ros::Time cloud_stamp;
 
 void mark_point(int x, int y)
 {
@@ -51,35 +52,63 @@ void mark_point(int x, int y)
 }
 
 bool serviceCallBack(task2::NewGoalService::Request& req, task2::NewGoalService::Response& res) {
-    pcl::Normal n = cloud_normals->at(320, 240);
-    PointT p = cloud->at(320, 240);
-    float angle = std::acos((n.normal_x * p.x + n.normal_y * p.y) / (std::sqrt(p.x * p.x + p.y * p.y) * std::sqrt(n.normal_x * n.normal_x + n.normal_y * n.normal_y)));
-    geometry_msgs::Quaternion quaternion;
-    tf2::Quaternion q;
-    q.setRPY(0.0, 0.0, -angle);
-    tf2::convert(q, quaternion);
-    
-    geometry_msgs::PoseStamped pose_base;
-    pose_base.pose.position.x = p.z + n.normal_x * 0.5;
-    pose_base.pose.position.y = p.y + n.normal_y * 0.5;
-    pose_base.pose.orientation = quaternion;
-    pose_base.header.stamp = req.time;
-    pose_base.header.frame_id = "base_link";
-    
-    geometry_msgs::PoseStamped pose_map;
-    try{
-        pose_map = tf2_buffer.transform(pose_base, "map");
+    pcl::Normal n_cloud = cloud_normals->at(320, 240);
+    PointT p_cloud = cloud->at(320, 240);
+    geometry_msgs::PointStamped p1;
+    geometry_msgs::PointStamped p2;
+    geometry_msgs::PointStamped p;
+    geometry_msgs::PointStamped n;
+    p1.point.x = p_cloud.x;
+    p1.point.y = p_cloud.y;
+    p1.point.z = p_cloud.z;
+    p1.header.stamp = cloud_stamp;
+    p1.header.frame_id = cloud->header.frame_id;
+    try {
+        p = tf2_buffer.transform(p1, "map");
     } catch (tf2::TransformException &e) {
         ROS_WARN("Transform warning: %s\n", e.what());
         return false;
     }
 
-    res.goal = pose_map;
+    float normal_x = n_cloud.normal_x;
+    float normal_y = n_cloud.normal_y;
+    float len = std::sqrt(normal_x * normal_x + normal_y * normal_y);
+    normal_x = -normal_x / len;
+    normal_y = -normal_y / len;
+
+    // try { 
+    //     n = tf2_buffer.transform(p2, "map");
+    // }
+    // catch (tf2::TransformException &e) {
+    //     ROS_WARN("Transform warning: %s\n", e.what());
+    //     return false;
+    // }
+    ROS_INFO("Point X: %f, Y: %f, Z: %f", p.point.x, p.point.y, p.point.z);
+    ROS_INFO("Normal X: %f, Y: %f, Z: %f", normal_x, normal_y, n.point.z);
+
+    float angle = std::acos((normal_x * p.point.x + normal_y * p.point.y) / (std::sqrt(p.point.x * p.point.x + p.point.y * p.point.y) * std::sqrt(normal_x * normal_x + normal_y * normal_y)));
+    
+    ROS_INFO("Angle: %f", angle);
+    geometry_msgs::Quaternion quaternion;
+    tf2::Quaternion q;
+    q.setRPY(0.0, 0.0, -angle);
+    tf2::convert(q, quaternion);
+    
+    geometry_msgs::PoseStamped goal_pose;
+    goal_pose.pose.position.x = p.point.x + normal_x * 0.5;
+    goal_pose.pose.position.y = p.point.y + normal_y * 0.5;
+    goal_pose.pose.orientation = quaternion;
+    goal_pose.header.stamp = req.time;
+    goal_pose.header.frame_id = "map";
+
+
+    res.goal = goal_pose;
     return true;
    
 }
 
 void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob) {
+    cloud_stamp = ros::Time::now();
 
     pcl::fromPCLPointCloud2(*cloud_blob, *cloud);
 

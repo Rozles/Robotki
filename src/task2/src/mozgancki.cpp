@@ -83,7 +83,6 @@ void markerCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray
 
 void moveToGoals() {
     if (goals.empty()) generateNewGoal();
-    if (goals.empty()) return;
 
     geometry_msgs::PoseStamped goal = goals[0];
     move_base_msgs::MoveBaseGoal target;
@@ -92,30 +91,11 @@ void moveToGoals() {
     acPtr->waitForResult();
     
     if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-        // ROS_INFO("Reached goal: %f : %f", goal.pose.position.x, goal.pose.position.y);
-        if (face_goal_indices[0] >= 0) {
-            known_faces[face_goal_indices[0]] = true;
-            ROS_INFO("Greetings, face: %d", face_goal_indices[0]);
-            NUMBER_OF_FACES--;
-            ros::Duration(2).sleep();
-        }
-
-        goals.erase(goals.begin());
-        face_goal_indices.erase(face_goal_indices.begin());
-        if (NUMBER_OF_FACES == 0) {
-            goals.clear();
-            ROS_INFO("Found all faces");
-            acPtr->cancelGoal();
-            ros::shutdown();
-        }
-        moveToGoals();
+        generateNewGoal();
     } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
         moveToGoals();
     } else {
-        ROS_WARN("Goal could not ne reached");
-        goals.erase(goals.begin());
-        face_goal_indices.erase(face_goal_indices.begin());
-        moveToGoals();
+        ROS_WARN("Goal could not ne reached");    
     }
 }
 
