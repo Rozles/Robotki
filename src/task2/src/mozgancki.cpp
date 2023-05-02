@@ -15,6 +15,8 @@
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include <vector>
 
+#include "task2/NewGoalService.h"
+
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 std::vector<geometry_msgs::PoseStamped> goals;
@@ -22,15 +24,25 @@ std::vector<int> face_goal_indices;
 std::vector<bool> known_faces;
 
 MoveBaseClient *acPtr;
+ros::ServiceClient newGoalClient;
 
 float robot_x;
 float robot_y;
 
 int NUMBER_OF_FACES = 3;
 
-void depthCallBack(const sensor_msgs::Image) {
 
-};
+void generateNewGoal() {
+    task2::NewGoalService srv;
+    srv.request.time = ros::Time::now();
+
+    if (newGoalClient.call(srv)){
+        goals.insert(goals.begin(), srv.response.goal);
+    } else {
+        ROS_ERROR("New goal service failed.");
+    }
+}
+
 
 void positionCallBack(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg) {
     robot_x = msg->pose.pose.position.x;
@@ -70,6 +82,7 @@ void markerCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray
 }
 
 void moveToGoals() {
+    if (goals.empty()) generateNewGoal();
     if (goals.empty()) return;
 
     geometry_msgs::PoseStamped goal = goals[0];
@@ -119,11 +132,12 @@ int main(int argc, char **argv) {
 
     MoveBaseClient actionClient("/move_base", true);
     acPtr = &actionClient;
-    ros::Subscriber sub = n.subscribe("face_markers", 100, markerCallBack);
-    ros::Subscriber depthSub = n.subscribe("camera_depth_image", 1, depthCallBack);
 
+    ros::Subscriber sub = n.subscribe("face_markers", 100, markerCallBack);
 
     ros::Subscriber position = n.subscribe("amcl_pose", 1, positionCallBack);
+
+    newGoalClient = n.serviceClient<task2::NewGoalService>("new_goal_service");
 
     boost::thread thread(boost::bind(&actionClientThread, &actionClient));
 

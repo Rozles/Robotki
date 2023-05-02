@@ -25,8 +25,6 @@ int DETECTION_THRESHOLD = 3;
 ros::Publisher pub_pcl;
 ros::Publisher cylinder_publisher;
 
-
-
 visualization_msgs::MarkerArray* detected_cylinders;
 std::vector<int> cylinder_n;
 
@@ -223,8 +221,7 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
 
     try {
         point_map = tf2_buffer.transform(point_camera, "map");
-    }
-    catch (tf2::TransformException &e) {
+    } catch (tf2::TransformException &e) {
         ROS_WARN("Transform warning: %s\n", e.what());
         return;
     }

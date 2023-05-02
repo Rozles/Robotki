@@ -29,7 +29,8 @@ class The_Ring:
         self.dims = (0, 0, 0)
 
         # Marker array object used for visualizations
-        self.candidates = []
+        self.candidates = MarkerArray()
+        self.ring_n = []
 
         # Publiser for the visualization markers
         self.markers_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
@@ -41,37 +42,36 @@ class The_Ring:
 
 
     def update_marker_array(self, pose, color):
-        for r in self.candidates:
-            if np.sqrt((r.pose.pose.position.x - pose.pose.position.x)**2 + (r.pose.pose.position.y - pose.pose.position.y)**2) < 0.5:
-                r.pose.pose.position.x = (r.pose.pose.position.x * r.n + pose.pose.position.x) / (r.n + 1)
-                r.pose.pose.position.y = (r.pose.pose.position.y * r.n + pose.pose.position.y) / (r.n + 1)
-                r.pose.pose.position.z = (r.pose.pose.position.z * r.n + pose.pose.position.z) / (r.n + 1)
-                r.color[0] = (r.color[0] * r.n + color[0]) / (r.n + 1)
-                r.color[1] = (r.color[1] * r.n + color[1]) / (r.n + 1)
-                r.color[2] = (r.color[2] * r.n + color[2]) / (r.n + 1)
-                r.n += 1
-                return 
-        c = RingCandidate(pose, color)
-        self.candidates.append(c)
+        new_ring = True
+        marker_array = MarkerArray()
+        for i, r in enumerate(self.candidates.markers):
+            if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.5:
+                new_ring = False
+                r.pose.position.x = (r.pose.position.x * self.ring_n[i] + pose.pose.position.x) / (self.ring_n[i] + 1)
+                r.pose.position.y = (r.pose.position.y * self.ring_n[i] + pose.pose.position.y) / (self.ring_n[i] + 1)
+                r.pose.position.z = (r.pose.position.z * self.ring_n[i] + pose.pose.position.z) / (self.ring_n[i] + 1)
+                r.color.r = (r.color.r * self.ring_n[i] + color.r) / (self.ring_n[i] + 1)
+                r.color.g = (r.color.g * self.ring_n[i] + color.g) / (self.ring_n[i] + 1)
+                r.color.b = (r.color.b * self.ring_n[i] + color.b) / (self.ring_n[i] + 1)
+                self.ring_n[i] += 1
+            if self.ring_n[i] >= 3:
+                marker_array.markers.append(r)
+        if new_ring:
+            marker = Marker()
+            marker.header.stamp = pose.header.stamp
+            marker.header.frame_id = pose.header.frame_id
+            marker.pose = pose.pose
+            marker.type = Marker.SPHERE
+            marker.action = Marker.ADD
+            marker.frame_locked = False
+            marker.lifetime = rospy.Duration(0)
+            marker.id = len(self.candidates.markers)
+            marker.scale = Vector3(0.1, 0.1, 0.1)
+            marker.color = color
+            self.candidates.markers.append(marker)
+            self.ring_n.append(1)
+        self.markers_pub.publish(marker_array)
 
-
-    def publish_markers(self):
-        pub_markers = MarkerArray()
-        for i, r in enumerate(self.candidates):
-            if r.n > 3:
-                marker = Marker()
-                marker.header.stamp = r.pose.header.stamp
-                marker.header.frame_id = r.pose.header.frame_id
-                marker.pose = r.pose.pose
-                marker.type = Marker.SPHERE
-                marker.action = Marker.ADD
-                marker.frame_locked = False
-                marker.lifetime = rospy.Duration(0)
-                marker.id = i
-                marker.scale = Vector3(0.1, 0.1, 0.1)
-                marker.color = ColorRGBA(r.color[2], r.color[1], r.color[0], 1)
-                pub_markers.markers.append(marker)
-        self.markers_pub.publish(pub_markers)
 
 
     def get_pose(self,e,dist, timestamp, color):
@@ -240,8 +240,9 @@ class The_Ring:
             if (np.any(np.isnan(color))):
                 return 
             
-            color = color / 255
-            self.get_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, color)
+            color = color /255
+            colorRGB = ColorRGBA(color[2], color[1], color[0], 1.0)
+            self.get_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
            
             
 
@@ -254,8 +255,6 @@ def main():
     while not rospy.is_shutdown():
         rate.sleep()
         ring_finder.find_ring()
-        ring_finder.publish_markers()
-        
 
     cv2.destroyAllWindows()
 
