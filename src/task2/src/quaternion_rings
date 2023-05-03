@@ -35,6 +35,13 @@ class The_Ring:
         # Object we use for transforming between coordinate frames
         self.tf_buf = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+        self.tf_listener
+
+    def angle_between(self, q1, q2):
+        a1 = tft.euler_from_quaternion([q1.x, q1.y, q1.z, q1.w])[2]
+        a2 = tft.euler_from_quaternion([q2.x, q2.y, q2.z, q2.w])[2]
+        return abs(a1 - a2)
+
 
     def update_marker_array(self, pose, color):
         new_ring = True
@@ -42,6 +49,18 @@ class The_Ring:
         for i, r in enumerate(self.candidates.markers):
             if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.5:
                 new_ring = False
+                if self.angle_between(r.pose.orientation, pose.pose.orientation) < 1.57:
+                    r.pose.orientation.x = (r.pose.orientation.x * self.ring_n[i] + pose.pose.orientation.x) / (self.ring_n[i] + 1)
+                    r.pose.orientation.y = (r.pose.orientation.y * self.ring_n[i] + pose.pose.orientation.y) / (self.ring_n[i] + 1)
+                    r.pose.orientation.z = (r.pose.orientation.z * self.ring_n[i] + pose.pose.orientation.z) / (self.ring_n[i] + 1)
+                    r.pose.orientation.w = (r.pose.orientation.w * self.ring_n[i] + pose.pose.orientation.w) / (self.ring_n[i] + 1)
+                else:
+                    angle = tft.euler_from_quaternion([pose.pose.orientation.x, pose.pose.orientation.y, pose.pose.orientation.z, pose.pose.orientation.w])[2] + 1.57
+                    q = tft.quaternion_from_euler(0.0, 0.0, angle)
+                    r.pose.orientation.x = (r.pose.orientation.x * self.ring_n[i] + q[0]) / (self.ring_n[i] + 1)
+                    r.pose.orientation.y = (r.pose.orientation.y * self.ring_n[i] + q[1]) / (self.ring_n[i] + 1)
+                    r.pose.orientation.z = (r.pose.orientation.z * self.ring_n[i] + q[2]) / (self.ring_n[i] + 1)
+                    r.pose.orientation.w = (r.pose.orientation.w * self.ring_n[i] + q[3]) / (self.ring_n[i] + 1)
                 r.pose.position.x = (r.pose.position.x * self.ring_n[i] + pose.pose.position.x) / (self.ring_n[i] + 1)
                 r.pose.position.y = (r.pose.position.y * self.ring_n[i] + pose.pose.position.y) / (self.ring_n[i] + 1)
                 r.pose.position.z = (r.pose.position.z * self.ring_n[i] + pose.pose.position.z) / (self.ring_n[i] + 1)
@@ -69,26 +88,41 @@ class The_Ring:
 
 
 
-    def get_pose(self,e,dist, timestamp, color):
+    def get_pose(self,e,depth_image, center, timestamp, color):
         # Calculate the position of the detected ellipse
+        dist = float(np.nanmean(depth_image))
+
         k_f = 525 # kinect focal length in pixels
 
         elipse_x = self.dims[1] / 2 - e[0][0]
         elipse_y = self.dims[0] / 2 - e[0][1]
-    
+        elipse_left = elipse_x - center // 2
+        elipse_right = elipse_x + (depth_image.shape[1] - center) // 2
+        dist_left = float(np.nanmean(depth_image[:,:center]))
+        dist_right = float(np.nanmean(depth_image[:,center:]))
+
         angle_to_target = np.arctan2(elipse_x,k_f)
         angle_height = np.arctan2(elipse_y, k_f)
-    
+        angle_left = np.arctan2(elipse_left,k_f)
+        angle_right = np.arctan2(elipse_right,k_f)
+
         # Get the angles in the base_link relative coordinate system
         x,y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
         z = dist*np.sin(angle_height)
-       
+        lx, ly = dist_left*np.cos(angle_left), dist_left*np.sin(angle_left)
+        rx, ry = dist_right*np.cos(angle_right), dist_right*np.sin(angle_right)
+        normalAngle = np.arctan2(-(lx - rx), (ly - ry)) + math.pi
+        q = tft.quaternion_from_euler(0.0, 0.0, normalAngle)
+
         ### Define a stamped message for transformation - directly in "base_frame"
         pose_s = PoseStamped()
         pose_s.pose.position.x = x
         pose_s.pose.position.y = y
         pose_s.pose.position.z = z + 0.30
-        pose_s.pose.orientation.w = 1
+        pose_s.pose.orientation.x = q[0]
+        pose_s.pose.orientation.y = q[1]
+        pose_s.pose.orientation.z = q[2]
+        pose_s.pose.orientation.w = q[3]
         pose_s.header.frame_id = "base_link"
         pose_s.header.stamp = timestamp
 
@@ -230,7 +264,9 @@ class The_Ring:
             
             color = color /255
             colorRGB = ColorRGBA(color[2], color[1], color[0], 1.0)
-            self.get_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
+
+            middle = int(center[1] - x_min)
+            self.get_pose(e1, depth_image[y_min:y_max,x_min:x_max], middle, timestamp, colorRGB)
            
             
 

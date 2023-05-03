@@ -1,0 +1,213 @@
+#!/usr/bin/python3
+
+import sys
+import rospy
+import time
+import cv2
+import numpy as np
+import tf2_geometry_msgs
+import tf2_ros
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import PointStamped, Twist, Vector3
+from cv_bridge import CvBridge, CvBridgeError
+from visualization_msgs.msg import Marker, MarkerArray
+from std_msgs.msg import ColorRGBA 
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from std_msgs.msg import String, ColorRGBA
+        
+    
+
+class Parking():
+    def __init__(self):
+
+        rospy.init_node('arm_mover', anonymous=True)
+
+       
+        
+        self.arm_movement_pub = rospy.Publisher('/turtlebot_arm/arm_controller/command', JointTrajectory, queue_size=1)
+        self.start = rospy.Subscriber("/start_parking", String, self.startParkingCB)
+        self.movement_pub = rospy.Publisher("/cmd_vel_mux/input/teleop", Twist, queue_size=10)
+        self.test = rospy.Publisher("/test", Marker, queue_size=1)
+
+        self.dims = (0, 0)
+
+        self.center_x = 0
+        self.center_y = 0
+
+        # Pre-defined positions for the arm
+        self.retract = JointTrajectory()
+        self.retract.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.retract.points = [JointTrajectoryPoint(positions=[0,-1.3,2.2,1],
+                                                    time_from_start = rospy.Duration(1))]
+
+        self.extend = JointTrajectory()
+        self.extend.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.extend.points = [JointTrajectoryPoint(positions=[0,0.3,1,0],
+                                                    time_from_start = rospy.Duration(1))]
+        
+        self.right = JointTrajectory()
+        self.right.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.right.points = [JointTrajectoryPoint(positions=[-1.57,0.3,1,0],
+                                                    time_from_start = rospy.Duration(1))]
+        
+        self.bridge = CvBridge()
+        self.tf_buf = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+
+    def startParkingCB(self, data):
+        self.getCenter()
+
+    def getCenter(self):
+        self.arm_movement_pub.publish(self.extend)
+        
+        for n in range(5):
+
+            try:
+                rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
+            except Exception as e:
+                print(e)
+                return 
+
+            # Convert the images into a OpenCV (numpy) format
+            try:
+                cv_image = self.bridge.imgmsg_to_cv2(rgb_image_message, "bgr8")
+            except CvBridgeError as e:
+                print(e)
+                return 
+
+            
+            gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+
+            img = cv2.equalizeHist(gray)
+
+            self.dims = img.shape
+
+            circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, dp=1, minDist=100,
+                            param1=50, param2=30, minRadius=0, maxRadius=0)
+            
+            if circles is not None:
+                circles = np.round(circles[0, :]).astype("int")
+                for (x, y, r) in circles:
+                    self.center_x = (self.center_x * n + x) / (n + 1)
+                    self.center_y = (self.center_y * n + y) / (n + 1)
+
+        self.parking()
+
+
+    def parking(self):
+        try:
+            depth_image_message = rospy.wait_for_message("/camera/depth/image_raw", Image)
+        except Exception as e:
+            print(e)
+            return 
+        
+        try:
+            depth_image = self.bridge.imgmsg_to_cv2(depth_image_message, "32FC1")
+        except CvBridgeError as e:
+            print(e)
+            return 
+        
+        dist = float(np.nanmean(depth_image[int(self.center_y-10):int(self.center_y+10),int(self.center_x-10):int(self.center_x+10)]))
+
+        k_f = 525 # kinect focal length in pixels
+
+        goal_x = self.dims[1] / 2 - self.center_x
+        goal_y = self.dims[0] / 2 - self.center_y
+    
+        angle_to_target = np.arctan2(goal_x, k_f)
+        angle_height = np.arctan2(goal_y, k_f)
+    
+        # Get the angles in the base_link relative coordinate system
+        x,y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
+        z = dist*np.sin(angle_height)
+
+        point_c = PointStamped()
+        point_c.point.x = -y
+        point_c.point.y = z
+        point_c.point.z = x
+        point_c.header.frame_id = "arm_camera_rgb_optical_frame"
+        point_c.header.stamp = rospy.Time(0)
+
+        try:
+            target = self.tf_buf.transform(point_c, "base_link")
+        except Exception as e:
+            print(e)
+            return
+        
+        try:
+            m = self.tf_buf.transform(point_c, "map")
+        except Exception as e:
+            print(e)
+            return
+        
+        self.arm_movement_pub.publish(self.retract)
+        
+        marker = Marker()
+        marker.header.stamp = rospy.Time.now()
+        marker.header.frame_id = "map"
+        marker.pose.position.x = m.point.x
+        marker.pose.position.y = m.point.y
+        marker.pose.position.z = m.point.z
+        marker.type = Marker.CUBE
+        marker.action = Marker.ADD
+        marker.frame_locked = False
+        marker.lifetime = rospy.Duration(0)
+        marker.id = 0
+        marker.scale = Vector3(0.1, 0.1, 0.1)
+        marker.color = ColorRGBA(0, 1, 0, 1)
+
+        self.test.publish(marker)
+
+        #print(f'X: {point_b.point.x} Y: {point_b.point.y} Z: {point_b.point.z}')
+        angle = np.arcsin(target.point.y / target.point.x)
+        dist_lin = np.sqrt(target.point.x**2 + target.point.y**2)
+        print("Angle: ", angle)
+        print("Dist", dist_lin)
+        
+        twist_msg = Twist()
+        twist_msg.angular.z = angle / 3
+
+       
+
+        rate = rospy.Rate(10)
+        start_time = rospy.Time.now()
+        while (rospy.Time.now() - start_time).to_sec() < 3.0:
+            self.movement_pub.publish(twist_msg)
+            rate.sleep()
+
+        twist_msg.angular.z = 0.0
+        self.movement_pub.publish(twist_msg)
+
+        twist_msg.linear.x = dist_lin / 5.0
+        start_time = rospy.Time.now()
+        while (rospy.Time.now() - start_time).to_sec() < 5.0:
+            self.movement_pub.publish(twist_msg)
+            rate.sleep()
+
+        twist_msg.angular.x = 0.0
+        self.movement_pub.publish(twist_msg)
+        
+
+
+
+        
+
+        
+        
+
+
+
+def main():
+    p = Parking()
+    time.sleep(.5)
+    p.arm_movement_pub.publish(p.retract)
+    
+    r = rospy.Rate(1)
+    while not rospy.is_shutdown():
+        r.sleep()
+
+    p.arm_movement_pub.publish(p.retract)
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()

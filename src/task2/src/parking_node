@@ -1,0 +1,137 @@
+#!/usr/bin/python3
+
+import sys
+import math
+import rospy
+import time
+import cv2
+import numpy as np
+import tf2_geometry_msgs
+import tf2_ros
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import PointStamped, Twist, Vector3
+from cv_bridge import CvBridge, CvBridgeError
+from visualization_msgs.msg import Marker, MarkerArray
+from std_msgs.msg import ColorRGBA 
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from std_msgs.msg import String, ColorRGBA
+        
+    
+
+class Parking():
+    def __init__(self):
+
+        rospy.init_node('arm_mover', anonymous=True)
+
+       
+        
+        self.arm_movement_pub = rospy.Publisher('/turtlebot_arm/arm_controller/command', JointTrajectory, queue_size=1)
+        self.start = rospy.Subscriber("/start_parking", String, self.startParkingCB)
+        self.movement_pub = rospy.Publisher("/cmd_vel_mux/input/teleop", Twist, queue_size=10)
+
+
+        # Pre-defined positions for the arm
+        self.retract = JointTrajectory()
+        self.retract.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.retract.points = [JointTrajectoryPoint(positions=[0,-1.3,2.2,1],
+                                                    time_from_start = rospy.Duration(1))]
+
+        self.extend = JointTrajectory()
+        self.extend.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.extend.points = [JointTrajectoryPoint(positions=[0,0.3,1,0],
+                                                    time_from_start = rospy.Duration(1))]
+        
+        self.right = JointTrajectory()
+        self.right.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.right.points = [JointTrajectoryPoint(positions=[-1.57,0.3,1,0],
+                                                    time_from_start = rospy.Duration(1))]
+        
+        self.bridge = CvBridge()
+        self.tf_buf = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+
+    def stop(self):
+        twist = Twist()
+        twist.linear.x = 0.0
+        twist.linear.z = 0.0
+        self.movement_pub.publish(twist)
+
+    def startParkingCB(self, data):
+        self.arm_movement_pub.publish(self.extend)
+        
+        while(True):
+            target_x = 0
+            target_y = 0
+            try:
+                rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
+            except Exception as e:
+                print(e)
+                return 
+
+            try:
+                cv_image = self.bridge.imgmsg_to_cv2(rgb_image_message, "bgr8")
+            except CvBridgeError as e:
+                print(e)
+                return 
+
+            
+            gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+            img = cv2.equalizeHist(gray)
+            self.dims = img.shape
+            circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, dp=1, minDist=100,
+                            param1=50, param2=30, minRadius=0, maxRadius=0)
+
+                
+            if circles is not None:
+                circles = np.round(circles[0, :]).astype("int")
+                for (x, y, r) in circles:
+                    target_x += x
+                    target_y += y
+
+                target_x = int(target_x / len(circles))
+                target_y = int(target_y / len(circles))
+            r = rospy.Rate(10)
+            twist_msg = Twist()
+            if target_x < 310 and not target_x == 0:
+                twist_msg.angular.z = math.pi/10
+                self.movement_pub.publish(twist_msg)
+            elif target_x > 330 and not target_y == 0:
+                twist_msg.angular.z = -math.pi/10
+                self.movement_pub.publish(twist_msg)
+            elif target_y < 440:
+                twist_msg.linear.x = 0.1
+                twist_msg.angular.z = 0.0
+                self.movement_pub.publish(twist_msg)
+            else:
+                self.arm_movement_pub.publish(self.retract)
+                twist_msg.linear.x = 0.1
+                twist_msg.linear.z = 0.0
+                start_time = rospy.Time.now()
+                while (rospy.Time.now() - start_time).to_sec() < 2.0:
+                    self.movement_pub.publish(twist_msg)
+                    r.sleep()
+                self.stop()
+                return
+            r.sleep()
+            self.stop()
+        
+
+        
+        
+
+
+
+def main():
+    p = Parking()
+    time.sleep(.5)
+    p.arm_movement_pub.publish(p.retract)
+    
+    r = rospy.Rate(1)
+    while not rospy.is_shutdown():
+        r.sleep()
+
+    p.arm_movement_pub.publish(p.retract)
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()

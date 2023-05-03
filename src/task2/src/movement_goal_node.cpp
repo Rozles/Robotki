@@ -31,6 +31,9 @@
 tf2_ros::Buffer tf2_buffer;
 ros::Publisher pubx;
 
+int CENTER_X = 320;
+int CENTER_Y = 240;
+
 typedef pcl::PointXYZRGB PointT;
 
 pcl::PointCloud<PointT>::Ptr cloud(new pcl::PointCloud<PointT>);
@@ -52,10 +55,26 @@ void mark_point(int x, int y)
 }
 
 bool serviceCallBack(task2::NewGoalService::Request& req, task2::NewGoalService::Response& res) {
+    if (cloud->size() == 0) return false;
+
+    std::cout << cloud->header.frame_id;
+    
     pcl::Normal n_cloud = cloud_normals->at(320, 240);
     PointT p_cloud = cloud->at(320, 240);
     geometry_msgs::PointStamped p1;
-    geometry_msgs::PointStamped p2;
+    geometry_msgs::PointStamped normal_cloud;
+    for (int i = CENTER_X - 10; i < CENTER_X + 10; i++) {
+        for (int j = CENTER_Y - 10; j < CENTER_Y + 10; j++) {
+            pcl::Normal n_cloud = cloud_normals->at(i, j);
+            normal_cloud.point.x += n_cloud.normal_x;
+            normal_cloud.point.y += n_cloud.normal_y;
+            normal_cloud.point.z += n_cloud.normal_z;
+        }
+    }
+    normal_cloud.point.x = normal_cloud.point.x /100;
+    normal_cloud.point.y = normal_cloud.point.y /100;
+    normal_cloud.point.z = normal_cloud.point.z /100;
+
     geometry_msgs::PointStamped p;
     geometry_msgs::PointStamped n;
     p1.point.x = p_cloud.x;
@@ -70,23 +89,48 @@ bool serviceCallBack(task2::NewGoalService::Request& req, task2::NewGoalService:
         return false;
     }
 
-    float normal_x = n_cloud.normal_x;
-    float normal_y = n_cloud.normal_y;
-    float len = std::sqrt(normal_x * normal_x + normal_y * normal_y);
-    normal_x = -normal_x / len;
-    normal_y = -normal_y / len;
+    normal_cloud.header.stamp = cloud_stamp;
+    normal_cloud.header.frame_id = cloud->header.frame_id; 
+    try { 
+        n = tf2_buffer.transform(normal_cloud, "map");
+    }
+    catch (tf2::TransformException &e) {
+        ROS_WARN("Transform warning: %s\n", e.what());
+        return false;
+    }
 
-    // try { 
-    //     n = tf2_buffer.transform(p2, "map");
-    // }
-    // catch (tf2::TransformException &e) {
-    //     ROS_WARN("Transform warning: %s\n", e.what());
-    //     return false;
-    // }
+    geometry_msgs::PointStamped robot;
+    robot.point.x = 0;
+    robot.point.y = 0;
+    robot.point.z = 0;
+    robot.header.stamp = cloud_stamp;
+    robot.header.frame_id = "base_link";
+    try { 
+        robot = tf2_buffer.transform(robot, "map");
+    }
+    catch (tf2::TransformException &e) {
+        ROS_WARN("Transform warning: %s\n", e.what());
+        return false;
+    }
+
+    ROS_INFO("Robot X: %f, Y: %f, Z: %f", robot.point.x, robot.point.y, robot.point.z);
+
+    
+    float len = std::sqrt(n.point.x * n.point.x + n.point.y * n.point.y + n.point.z * n.point.z); 
+    n.point.x = n.point.x / len;
+    n.point.y = n.point.y / len;
+    n.point.z = n.point.z / len;
+    
+    
+
+
     ROS_INFO("Point X: %f, Y: %f, Z: %f", p.point.x, p.point.y, p.point.z);
-    ROS_INFO("Normal X: %f, Y: %f, Z: %f", normal_x, normal_y, n.point.z);
+    ROS_INFO("Normal X: %f, Y: %f, Z: %f", n.point.x, n.point.y, n.point.z);
 
-    float angle = std::acos((normal_x * p.point.x + normal_y * p.point.y) / (std::sqrt(p.point.x * p.point.x + p.point.y * p.point.y) * std::sqrt(normal_x * normal_x + normal_y * normal_y)));
+    float vec_x = -(p.point.x - robot.point.x);
+    float vec_y = -(p.point.x - robot.point.x);
+
+    float angle = std::acos((n.point.x * vec_x + n.point.y * vec_y) / (std::sqrt(vec_x * vec_x + vec_y * vec_y) * std::sqrt(n.point.x * n.point.x + n.point.y * n.point.y)));
     
     ROS_INFO("Angle: %f", angle);
     geometry_msgs::Quaternion quaternion;
@@ -95,8 +139,8 @@ bool serviceCallBack(task2::NewGoalService::Request& req, task2::NewGoalService:
     tf2::convert(q, quaternion);
     
     geometry_msgs::PoseStamped goal_pose;
-    goal_pose.pose.position.x = p.point.x + normal_x * 0.5;
-    goal_pose.pose.position.y = p.point.y + normal_y * 0.5;
+    goal_pose.pose.position.x = p.point.x + n.point.x * 0.5;
+    goal_pose.pose.position.y = p.point.y + n.point.y * 0.5;
     goal_pose.pose.orientation = quaternion;
     goal_pose.header.stamp = req.time;
     goal_pose.header.frame_id = "map";
