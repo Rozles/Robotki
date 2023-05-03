@@ -156,13 +156,14 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${OpenCV_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
   ${Eigen_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
+  ${system_lib_INCLUDE_DIRS}
 )
 
 link_directories(
@@ -171,6 +172,7 @@ link_directories(
   ${Eigen_LIBRARY_DIRS}
   ${PCL_LIBRARY_DIRS}
   ${catkin_LIBRARY_DIRS}
+  ${system_lib_LIBRARY_DIRS}
 )
 
 ## Declare a C++ library
