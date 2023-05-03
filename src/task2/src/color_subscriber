@@ -1,0 +1,95 @@
+#!/usr/bin/python3
+
+import rospy
+from visualization_msgs.msg import Marker, MarkerArray
+import subprocess
+
+ring_colors = {"green": False,
+        "red": False,
+        "blue": False,
+        "black": False}
+
+cylinder_colors = {"green": False,
+        "red": False,
+        "blue": False,
+        "yellow": False}
+
+def play_sound(text):
+    subprocess.run(["rosrun", "sound_play", "say.py", text])
+
+def rings_callback(data):
+
+    def check_threshold(tup, threshold):
+        max_val = max(tup)
+        max_val_str = "{:.20f}".format(max_val)  # Convert max_val to a string with 20 decimal places
+        for val in tup:
+            val_str = "{:.20f}".format(val)  # Convert each value to a string with 20 decimal places
+            if val_str[:threshold+2] != max_val_str[:threshold+2]:  # Check if the first threshold+2 characters are equal
+                return False
+        return True
+
+    black_diff_threshold = 3
+
+    if len(data.markers) > 0:
+        new_marker = data.markers[-1] # get the latest marker
+        color = new_marker.color
+        rgb = (color.r, color.g, color.b)
+
+        if check_threshold(rgb, black_diff_threshold):
+            if ring_colors["black"] == False:
+                ring_colors["black"] = True
+                play_sound("Black ring found!")
+        else:
+            if rgb.index(max(rgb)) == 0 and ring_colors["red"] == False:
+                ring_colors["red"] = True
+                play_sound("Red ring found!")
+            if rgb.index(max(rgb)) == 1 and ring_colors["green"] == False:
+                ring_colors["green"] = True
+                play_sound("Green ring found!")
+            if rgb.index(max(rgb)) == 2 and ring_colors["blue"] == False:
+                ring_colors["blue"] = True
+                play_sound("Blue ring found!")
+
+def cylinders_callback(data):
+
+    def check_threshold(tup, threshold):
+        first_val_str = "{:.20f}".format(tup[0])  # Convert the first value to a string with 20 decimal places
+        second_val_str = "{:.20f}".format(tup[1])  # Convert the second value to a string with 20 decimal places
+        if first_val_str[:threshold+3] == second_val_str[:threshold+3]:  # Check if the first threshold+3 characters are equal
+            return True
+        else:
+            return False
+        
+    yellow_diff_threshold = 1
+
+
+    if len(data.markers) > 0:
+        new_marker = data.markers[-1] # get the latest marker
+        color = new_marker.color
+        rgb = (color.r, color.g, color.b)
+
+        if check_threshold(rgb, yellow_diff_threshold):
+            if cylinder_colors["yellow"] == False:
+                cylinder_colors["yellow"] = True
+                play_sound("Yellow cylinder found!")
+        else:
+            if rgb.index(max(rgb)) == 0 and cylinder_colors["red"] == False:
+                cylinder_colors["red"] = True
+                play_sound("Red cylinder found!")
+            if rgb.index(max(rgb)) == 1 and cylinder_colors["green"] == False:
+                cylinder_colors["green"] = True
+                play_sound("Green cylinder found!")
+            if rgb.index(max(rgb)) == 2 and cylinder_colors["blue"] == False:
+                cylinder_colors["blue"] = True
+                play_sound("Blue cylinder found!")
+
+
+
+def listener():
+    rospy.init_node('color_subscriber', anonymous=True)
+    rospy.Subscriber("ring_markers", MarkerArray, rings_callback)
+    rospy.Subscriber("cylinder_markers", MarkerArray, cylinders_callback)
+    rospy.spin()
+
+if __name__ == '__main__':
+    listener()

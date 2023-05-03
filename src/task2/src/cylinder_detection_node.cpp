@@ -204,7 +204,7 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
     g = g / 100;
     b = b / 100;
 
-    ROS_INFO("Cylinder detected, R: %d, G: %d, B: %d", r, g, b);
+    // ROS_INFO("Cylinder detected, R: %d, G: %d, B: %d", r, g, b);
 
     pcl::compute3DCentroid(*cloud_cylinder, centroid);
 
