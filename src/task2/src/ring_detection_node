@@ -49,7 +49,7 @@ class The_Ring:
                 r.color.g = (r.color.g * self.ring_n[i] + color.g) / (self.ring_n[i] + 1)
                 r.color.b = (r.color.b * self.ring_n[i] + color.b) / (self.ring_n[i] + 1)
                 self.ring_n[i] += 1
-            if self.ring_n[i] >= 3:
+            if self.ring_n[i] >= 2:
                 marker_array.markers.append(r)
         if new_ring:
             marker = Marker()

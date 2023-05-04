@@ -20,7 +20,7 @@
 #include "std_msgs/ColorRGBA.h"
 #include "geometry_msgs/PointStamped.h"
 
-int DETECTION_THRESHOLD = 3;
+int DETECTION_THRESHOLD = 2;
 
 ros::Publisher pub_pcl;
 ros::Publisher cylinder_publisher;
