@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(task2)
+project(task3)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -192,6 +192,7 @@ link_directories(
 add_executable(mozgancki src/mozgancki.cpp)
 add_executable(cylinder_detection_node src/cylinder_detection_node.cpp)
 add_executable(movement_goal_node src/movement_goal_node.cpp)
+add_executable(pointcloud_node src/pointcloud_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -217,6 +218,15 @@ target_link_libraries(
 
 target_link_libraries(
   cylinder_detection_node 
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBRARIES}
+  ${Boost_LIBRARIES}
+  ${Eigen_LIBRARIES}
+  ${PCL_LIBRARIES}
+)
+
+target_link_libraries(
+  pointcloud_node 
   ${catkin_LIBRARIES} 
   ${OpenCV_LIBRARIES}
   ${Boost_LIBRARIES}

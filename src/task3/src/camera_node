@@ -1,0 +1,370 @@
+#!/usr/bin/python3
+
+import sys
+import math
+import rospy
+import cv2
+import numpy as np
+import tf2_geometry_msgs
+import tf2_ros
+import tf.transformations as tft
+import message_filters
+
+from os.path import join, dirname
+
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
+from cv_bridge import CvBridge, CvBridgeError
+from visualization_msgs.msg import Marker, MarkerArray
+from std_msgs.msg import ColorRGBA
+
+
+class CameraNode:
+    def __init__(self):
+        rospy.init_node('camera_node', anonymous=True)
+
+        # An object we use for converting images between ROS format and OpenCV format
+        self.bridge = CvBridge()
+
+        # The function for performin HOG face detection
+        #self.face_detector = dlib.get_frontal_face_detector()
+        protoPath = join(dirname(__file__), "deploy.prototxt.txt")
+        modelPath = join(dirname(__file__), "res10_300x300_ssd_iter_140000.caffemodel")
+
+        self.face_net = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
+
+        self.dims = (0, 0, 0)
+
+        # Marker array object used for visualizations
+        self.ring_candidates = MarkerArray()
+        self.face_candidates = MarkerArray()
+        self.face_n = []
+        self.ring_n = []
+
+        # Publiser for the visualization markers
+        self.ring_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
+        self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
+
+        # Subscribers for the images
+        self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
+        self.depth_sub = message_filters.Subscriber('camera/depth/image_raw', Image)
+
+        # Synchronize the subscriptions into one callback
+        self.ts = message_filters.ApproximateTimeSynchronizer([self.image_sub, self.depth_sub], 10, 0.1)
+        self.ts.registerCallback(self.image_callback)
+
+        # Object we use for transforming between coordinate frames
+        self.tf_buf = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+
+
+    def angle_between(self, q1, q2):
+        a1 = tft.euler_from_quaternion([q1.x, q1.y, q1.z, q1.w])[2]
+        a2 = tft.euler_from_quaternion([q2.x, q2.y, q2.z, q2.w])[2]
+        return abs(a1 - a2)
+
+    def update_ring_array(self, pose, color):
+        new_ring = True
+        marker_array = MarkerArray()
+        for i, r in enumerate(self.ring_candidates.markers):
+            if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.5:
+                new_ring = False
+                r.pose.position.x = (r.pose.position.x * self.ring_n[i] + pose.pose.position.x) / (self.ring_n[i] + 1)
+                r.pose.position.y = (r.pose.position.y * self.ring_n[i] + pose.pose.position.y) / (self.ring_n[i] + 1)
+                r.pose.position.z = (r.pose.position.z * self.ring_n[i] + pose.pose.position.z) / (self.ring_n[i] + 1)
+                r.color.r = (r.color.r * self.ring_n[i] + color.r) / (self.ring_n[i] + 1)
+                r.color.g = (r.color.g * self.ring_n[i] + color.g) / (self.ring_n[i] + 1)
+                r.color.b = (r.color.b * self.ring_n[i] + color.b) / (self.ring_n[i] + 1)
+                self.ring_n[i] += 1
+            if self.ring_n[i] >= 2:
+                marker_array.markers.append(r)
+        if new_ring:
+            marker = Marker()
+            marker.header.stamp = pose.header.stamp
+            marker.header.frame_id = pose.header.frame_id
+            marker.pose = pose.pose
+            marker.type = Marker.SPHERE
+            marker.action = Marker.ADD
+            marker.frame_locked = False
+            marker.lifetime = rospy.Duration(0)
+            marker.id = len(self.ring_candidates.markers)
+            marker.scale = Vector3(0.1, 0.1, 0.1)
+            marker.color = color
+            self.ring_candidates.markers.append(marker)
+            self.ring_n.append(1)
+        self.ring_pub.publish(marker_array)
+
+    
+    def update_face_array(self, pose):
+        if pose is not None:
+            new_face = True
+            marker_array = MarkerArray()
+            # Create a marker used for visualization
+            for i, m in enumerate(self.face_candidates.markers):
+                angle = self.angle_between(m.pose.orientation, pose.pose.orientation)
+                if (np.sqrt((m.pose.position.x - pose.pose.position.x)**2 + (m.pose.position.y - pose.pose.position.y)**2) < 0.5 and angle < 1.57):
+                    new_face = False
+                    m.pose.position.x = (m.pose.position.x * self.face_n[i] + pose.pose.position.x) / (self.face_n[i] + 1)
+                    m.pose.position.y = (m.pose.position.y * self.face_n[i] + pose.pose.position.y) / (self.face_n[i] + 1)
+                    m.pose.position.z = (m.pose.position.z * self.face_n[i] + pose.pose.position.z) / (self.face_n[i] + 1)
+                    m.pose.orientation.x = (m.pose.orientation.x * self.face_n[i] + pose.pose.orientation.x) / (self.face_n[i] + 1)
+                    m.pose.orientation.y = (m.pose.orientation.y * self.face_n[i] + pose.pose.orientation.y) / (self.face_n[i] + 1)
+                    m.pose.orientation.z = (m.pose.orientation.z * self.face_n[i] + pose.pose.orientation.z) / (self.face_n[i] + 1)
+                    m.pose.orientation.w = (m.pose.orientation.w * self.face_n[i] + pose.pose.orientation.w) / (self.face_n[i] + 1)
+                    # normalize the quaternion
+                    norm = np.sqrt(m.pose.orientation.x**2 + m.pose.orientation.y**2 + m.pose.orientation.z**2 + m.pose.orientation.w**2)
+                    m.pose.orientation.x /= norm
+                    m.pose.orientation.y /= norm
+                    m.pose.orientation.z /= norm
+                    m.pose.orientation.w /= norm
+                    self.face_n[i] += 1
+                if self.face_n[i] >= 2:
+                    marker_array.markers.append(m)
+            if new_face:
+                marker = Marker()
+                marker.header.stamp = rospy.Time(0)
+                marker.header.frame_id = 'map'
+                marker.pose = pose.pose
+                marker.type = Marker.ARROW
+                marker.action = Marker.ADD
+                marker.frame_locked = False
+                marker.lifetime = rospy.Duration(0)
+                marker.id = len(self.face_candidates.markers)
+                marker.scale = Vector3(0.15, 0.1, 0.1)
+                marker.color = ColorRGBA(1, 0.7, 0.2, 1)
+                self.face_candidates.markers.append(marker)
+                self.face_n.append(1)
+            
+            self.face_pub.publish(marker_array)
+
+
+    def get_ring_pose(self,e,dist, timestamp, color):
+        # Calculate the position of the detected ellipse
+        k_f = 525 # kinect focal length in pixels
+
+        elipse_x = self.dims[1] / 2 - e[0][0]
+        elipse_y = self.dims[0] / 2 - e[0][1]
+    
+        angle_to_target = np.arctan2(elipse_x,k_f)
+        angle_height = np.arctan2(elipse_y, k_f)
+    
+        # Get the angles in the base_link relative coordinate system
+        x,y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
+        z = dist*np.sin(angle_height)
+       
+        ### Define a stamped message for transformation - directly in "base_frame"
+        pose_s = PoseStamped()
+        pose_s.pose.position.x = x
+        pose_s.pose.position.y = y
+        pose_s.pose.position.z = z + 0.30
+        pose_s.pose.orientation.w = 1
+        pose_s.header.frame_id = "base_link"
+        pose_s.header.stamp = timestamp
+
+        # Define a stamped message for transformation - in the "camera rgb frame"
+        # point_s = PointStamped()
+        # point_s.point.x = -y
+        # point_s.point.y = 0
+        # point_s.point.z = x
+        # point_s.header.frame_id = "camera_rgb_frame"
+        # point_s.header.stamp = timestamp
+
+        # Get the point in the "map" coordinate system
+        try:
+            pose_world = self.tf_buf.transform(pose_s, "map")
+        except Exception as e:
+            print(e)
+            return
+        
+        # Create a Pose object with the same position
+
+        self.update_ring_array(pose_world, color)
+
+    def get_face_pose(self,coords,dist,stamp,depth_image):
+        # Calculate the position of the detected face
+
+        k_f = 554 # kinect focal length in pixels
+
+        x1, x2, y1, y2 = coords
+
+        face_x = self.dims[1] / 2 - (x1+x2)/2.
+        face_y = self.dims[0] / 2 - (y1+y2)/2.
+        right_x = face_x - (x2-x1)/4
+        left_x = face_x + (x2-x1)/4
+        left_dist = np.nanmean(depth_image[:,:(x2-x1)//2])
+        right_dist = np.nanmean(depth_image[:,(x2-x1)//2:])
+
+        left_angle = np.arctan2(left_x, k_f)
+        right_angle = np.arctan2(right_x, k_f)
+        angle_to_target = np.arctan2(face_x,k_f)
+
+        # Get the angles in the base_link relative coordinate system
+        x, y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
+        lx, ly = left_dist*np.cos(left_angle), left_dist*np.sin(left_angle)
+        rx, ry = right_dist*np.cos(right_angle), right_dist*np.sin(right_angle)
+        normalAngle = np.arctan2(-(lx - rx), (ly - ry)) + math.pi
+        q = tft.quaternion_from_euler(0.0, 0.0, normalAngle)
+
+        pose_s = PoseStamped()
+        pose_s.pose.position.x = x
+        pose_s.pose.position.y = y
+        pose_s.pose.position.z = 0.33
+        pose_s.pose.orientation.x = q[0]
+        pose_s.pose.orientation.y = q[1]
+        pose_s.pose.orientation.z = q[2]
+        pose_s.pose.orientation.w = q[3]
+        pose_s.header.frame_id = "base_link"
+        pose_s.header.stamp = stamp
+
+        # Get the point in the "map" coordinate system
+        try:
+            pose_world = self.tf_buf.transform(pose_s, "map")
+
+            if np.isnan(np.array([pose_world.pose.position.x, pose_world.pose.position.y, pose_world.pose.position.z, pose_world.pose.orientation.x, pose_world.pose.orientation.y, pose_world.pose.orientation.z, pose_world.pose.orientation.w])).any():
+                pose_world = None
+        except Exception as e:
+            print(e)
+            pose_world = None    
+        
+        self.update_face_array(pose_world)
+            
+    
+    def image_callback(self, rgb_data, depth_data):
+        try:
+            rgb_image = self.bridge.imgmsg_to_cv2(rgb_data, "bgr8")
+            depth_image = self.bridge.imgmsg_to_cv2(depth_data, "32FC1")
+        except CvBridgeError as e:
+            print(e)
+            return
+        
+        timestamp = rgb_data.header.stamp
+        
+        # Get the dimensions of the image
+        self.dims = rgb_image.shape
+        h = self.dims[0]
+        w = self.dims[1]
+
+        # Tranform image to gayscale
+        #gray = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2GRAY)
+
+        # Do histogram equlization
+        #img = cv2.equalizeHist(gray)
+
+        # Detect the faces in the image
+        #face_rectangles = self.face_detector(rgb_image, 0)
+        blob = cv2.dnn.blobFromImage(cv2.resize(rgb_image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
+        self.face_net.setInput(blob)
+        face_detections = self.face_net.forward()
+
+        for i in range(0, face_detections.shape[2]):
+            confidence = face_detections[0, 0, i, 2]
+            if confidence>0.5:
+                box = face_detections[0,0,i,3:7] * np.array([w,h,w,h])
+                box = box.astype('int')
+                x1, y1, x2, y2 = box[0], box[1], box[2], box[3]
+
+                # Extract region containing face
+                face_region = rgb_image[y1:y2, x1:x2]
+
+                # Visualize the extracted face
+                # cv2.imshow("ImWindow", face_region)
+                # cv2.waitKey(1)
+
+                # Find the distance to the detected face
+                face_distance = float(np.nanmean(depth_image[y1:y2,x1:x2]))
+
+                # Find the location of the detected face
+                self.get_face_pose((x1,x2,y1,y2), face_distance, timestamp, depth_image[y1:y2,x1:x2])
+        
+        depth_norm = cv2.normalize(depth_image, None, 255, 0, cv2.NORM_MINMAX, cv2.CV_8U)      
+
+        canny = cv2.Canny(depth_norm, 100, 200)
+        #cv2.imshow('canny', canny)
+        #cv2.waitKey(1)
+
+        ### Extract contours
+        contours, hierarchy = cv2.findContours(canny, cv2.RETR_TREE , cv2.CHAIN_APPROX_SIMPLE)
+
+        ### Example how to draw the contours, only for visualization purposes
+        # cv2.drawContours(cv_image, contours, -1, (255, 0, 0), 2)
+        #cv2.imshow("Contour window",cv_image)
+        #cv2.waitKey(0)
+
+        ### Fit elipses to all extracted contours
+        elps = []
+        for cnt in contours:
+            #     print cnt
+            #     print cnt.shape
+            if cnt.shape[0] >= 20:
+                ellipse = cv2.fitEllipse(cnt)
+                elps.append(ellipse)
+
+
+        ### Find two elipses with same centers
+        ring_candidates = []
+        for n in range(len(elps)):
+            for m in range(n + 1, len(elps)):
+                e1 = elps[n]
+                e2 = elps[m]
+                dista = abs(e1[1][0] - e2[1][0])
+                distb = abs(e1[1][1] - e2[1][1])
+                dist = np.sqrt(((e1[0][0] - e2[0][0]) ** 2 + (e1[0][1] - e2[0][1]) ** 2))
+                #             print dist
+                if dist < 5 and dista > 3 and distb > 3:
+                    ring_candidates.append((e1,e2))
+
+        # Extract the depth from the depth image
+        for c in ring_candidates:
+
+            # the centers of the ellipses
+            e1 = c[0]
+            e2 = c[1]
+
+            # drawing the ellipses on the image
+            #cv2.ellipse(cv_image, e1, (0, 255, 0), 2)
+            #cv2.ellipse(cv_image, e2, (0, 255, 0), 2)
+
+            sizea = e1[1][0] if e1[1][0] > e2[1][0] else e2[1][0]
+            sizeb = e1[1][1] if e1[1][1] > e2[1][1] else e2[1][1]
+            center = (e1[0][1], e1[0][0])
+
+            y1 = int(center[0] - sizeb /2)
+            y2 = int(center[0] + sizeb /2)
+            y_min = y1 if y1>0 else 0
+            y_max = y2 if y2<rgb_image.shape[0] else rgb_image.shape[0]
+
+            x1 = int(center[1] - sizea /2)
+            x2 = int(center[1] + sizea /2)
+            x_min = x1 if x1 > 0 else 0
+            x_max = x2 if x2 < rgb_image.shape[1] else rgb_image.shape[1]
+
+            #cv2.imshow('ring', cv_image[y_min:y_max,x_min:x_max])
+            #cv2.waitKey(1)
+
+            ring_image = rgb_image[y_min:y_max,x_min:x_max,:]
+            exclude = np.all(ring_image == 178, axis=2)
+
+            color = np.mean(ring_image[~exclude], axis=0)
+            # print(f'B: {color[0]} G: {color[1]} R: {color[2]}')
+            
+            if (np.any(np.isnan(color))):
+                return 
+            
+            color = color /255
+            colorRGB = ColorRGBA(color[2], color[1], color[0], 1.0)
+            self.get_ring_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
+
+
+def main():
+
+    camera = CameraNode()
+    
+    rate = rospy.Rate(1)
+    while not rospy.is_shutdown():
+        rate.sleep()
+
+    cv2.destroyAllWindows()
+
+
+if __name__ == '__main__':
+    main()
