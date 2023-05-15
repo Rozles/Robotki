@@ -2,6 +2,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <geometry_msgs/TransformStamped.h>
 #include "move_base_msgs/MoveBaseAction.h"
+#include <sensor_msgs/PointCloud2.h>
 #include "actionlib/client/simple_action_client.h"
 #include "std_msgs/String.h"
 #include "visualization_msgs/Marker.h"
@@ -88,13 +89,22 @@ void cylinderCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArr
 void moveToGoals() {
     if (goals.empty()) {
         task3::NewGoalService srv;
-        srv.request.time = ros::Time::now();
+        sensor_msgs::PointCloud2ConstPtr msg = ros::topic::waitForMessage<sensor_msgs::PointCloud2>("/camera/depth/points", ros::Duration(3));
+        if (msg == NULL) {
+            ROS_INFO("No point cloud");
+            return;
+        }
+        srv.request.cloud = *msg;
         if (client.call(srv)) {
             task3::NewGoalService::Response response = srv.response;
+            geometry_msgs::PoseStamped goal = response.goal;
+            goal.header.frame_id = "map";
+            goal.header.stamp = ros::Time::now();
+            ROS_INFO_STREAM("New goal: " << goal);
+            goals.push_back(goal);
         } else {
             ROS_ERROR("Failed to call service new_goal_service");
         }
-        return;
     }  
     
     geometry_msgs::PoseStamped goal = goals[0];
@@ -111,7 +121,7 @@ void moveToGoals() {
         moveToGoals();
     } else {
         ROS_WARN("Goal could not ne reached");
-        //goals.erase(goals.begin());
+        goals.erase(goals.begin());
         moveToGoals();
     }
 }
@@ -134,7 +144,6 @@ int main(int argc, char **argv) {
     park = n.advertise<std_msgs::String>("start_parking", 1);
 
     client = n.serviceClient<task3::NewGoalService>("new_goal_service");
-
 
     ros::Subscriber position = n.subscribe("amcl_pose", 1, positionCallBack);
 

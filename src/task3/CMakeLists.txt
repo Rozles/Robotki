@@ -94,6 +94,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs  # Or other packages containing msgs
   geometry_msgs
+  sensor_msgs
 )
 
 ################################################
@@ -126,8 +127,8 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES task2
+  INCLUDE_DIRS #include
+  LIBRARIES task3
   CATKIN_DEPENDS roscpp rospy
   DEPENDS system_lib
   LIBRARIES
@@ -156,7 +157,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+  #include
   ${OpenCV_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
@@ -192,7 +193,6 @@ link_directories(
 add_executable(mozgancki src/mozgancki.cpp)
 add_executable(cylinder_detection_node src/cylinder_detection_node.cpp)
 add_executable(movement_goal_node src/movement_goal_node.cpp)
-add_executable(pointcloud_node src/pointcloud_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -226,17 +226,11 @@ target_link_libraries(
 )
 
 target_link_libraries(
-  pointcloud_node 
+  movement_goal_node 
   ${catkin_LIBRARIES} 
   ${OpenCV_LIBRARIES}
   ${Boost_LIBRARIES}
   ${Eigen_LIBRARIES}
-  ${PCL_LIBRARIES}
-)
-
-target_link_libraries(
-  movement_goal_node 
-  ${catkin_LIBRARIES} 
   ${PCL_LIBRARIES}
 )
 
