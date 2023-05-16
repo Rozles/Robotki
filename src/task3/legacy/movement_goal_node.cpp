@@ -31,8 +31,6 @@
 
 tf2_ros::Buffer tf2_buffer;
 
-ros::Publisher test;
-
 int CENTER_X = 320;
 int CENTER_Y = 240;
 
@@ -117,28 +115,8 @@ bool serviceCallBack(task3::NewGoalService::Request& req, task3::NewGoalService:
     goal.pose.orientation = quat;
     goal.pose.position.z = 0.0;
 
+
     ROS_INFO_STREAM("Goal: " << goal);
-
-    visualization_msgs::MarkerArray marker_array;
-
-    visualization_msgs::Marker marker2;
-    marker2.header.frame_id = goal.header.frame_id;
-    marker2.header.stamp = goal.header.stamp;
-    marker2.ns = "test";
-    marker2.id = marker_array.markers.size();
-    marker2.type = visualization_msgs::Marker::ARROW;
-    marker2.action = visualization_msgs::Marker::ADD;
-    marker2.pose = goal.pose;
-    marker2.scale.x = 0.5;
-    marker2.scale.y = 0.1;
-    marker2.scale.z = 0.1;
-    marker2.color.r = 0.0f;
-    marker2.color.g = 1.0f;
-    marker2.color.b = 0.0f;
-    marker2.color.a = 1.0f;
-    marker_array.markers.push_back(marker2);
-
-    test.publish(marker_array);
 
     res.goal = goal;
 
@@ -156,8 +134,6 @@ int main(int argc, char **argv)
 
     // For transforming between coordinate frames
     tf2_ros::TransformListener tf2_listener(tf2_buffer);
-
-    test = nh.advertise<visualization_msgs::MarkerArray>("test", 1);
 
     ros::ServiceServer service = nh.advertiseService("new_goal_service", serviceCallBack);
 

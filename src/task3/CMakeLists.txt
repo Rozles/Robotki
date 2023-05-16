@@ -76,11 +76,11 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-  DIRECTORY srv
-  FILES
-  NewGoalService.srv
-)
+# add_service_files(
+#   DIRECTORY srv
+#   FILES
+#   NewGoalService.srv
+# )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -90,12 +90,12 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs  # Or other packages containing msgs
-  geometry_msgs
-  sensor_msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs  # Or other packages containing msgs
+#   geometry_msgs
+#   sensor_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -142,6 +142,7 @@ catkin_package(
     roscpp
     sensor_msgs
     std_msgs
+    nav_msgs
     message_generation
   DEPENDS
     Boost
@@ -192,7 +193,6 @@ link_directories(
 # add_executable(${PROJECT_NAME}_node src/task2_node.cpp)
 add_executable(mozgancki src/mozgancki.cpp)
 add_executable(cylinder_detection_node src/cylinder_detection_node.cpp)
-add_executable(movement_goal_node src/movement_goal_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -225,14 +225,6 @@ target_link_libraries(
   ${PCL_LIBRARIES}
 )
 
-target_link_libraries(
-  movement_goal_node 
-  ${catkin_LIBRARIES} 
-  ${OpenCV_LIBRARIES}
-  ${Boost_LIBRARIES}
-  ${Eigen_LIBRARIES}
-  ${PCL_LIBRARIES}
-)
 
 
 
