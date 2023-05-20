@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Start the exercise7 world -->
+  <include file="$(find exercise7)/launch/rins_world.launch"/>
+
+  <!-- Start the AMCL simulation -->
+  <include file="$(find turtlebot_custom_navigation)/launch/amcl_simulation.launch"/>
+
+  <!-- Start RViz with navigation configuration -->
+  <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+
+</launch>

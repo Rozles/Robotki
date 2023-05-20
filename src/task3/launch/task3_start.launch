@@ -1,0 +1,27 @@
+<launch>
+
+  <!-- Start the exercise7 world -->
+  <include file="$(find exercise7)/launch/rins_world.launch"/>
+
+  <!-- Start the AMCL simulation -->
+  <include file="$(find turtlebot_custom_navigation)/launch/amcl_simulation.launch"/>
+
+  <!-- Start RViz with navigation configuration -->
+  <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+
+  <!-- Start cylinder detection node -->
+  <node name="cylinder_detection_node" pkg="task2" type="cylinder_detection_node"/>
+
+  <!-- Start ring detection node -->
+  <node name="ring_detection_node" pkg="task2" type="ring_detection_node"/>
+
+  <!-- Start face detection node -->
+  <node name="face_detection_node" pkg="task2" type="face_detection_node"/>
+
+  <!-- Start parking node -->
+  <node name="parking_node" pkg="task2" type="parking_node"/>
+
+  <!-- Start mozgancki node -->
+  <node name="mozgancki" pkg="task2" type="mozgancki"/>
+
+</launch>
