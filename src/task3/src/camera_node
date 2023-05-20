@@ -18,6 +18,11 @@ from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
+import pytesseract
+import cv2
+
+import easyocr
+reader = easyocr.Reader(['en'])
 
 class CameraNode:
     def __init__(self):
@@ -38,12 +43,15 @@ class CameraNode:
         # Marker array object used for visualizations
         self.ring_candidates = MarkerArray()
         self.face_candidates = MarkerArray()
+        self.poster_candidates = MarkerArray()
         self.face_n = []
         self.ring_n = []
+        self.poster_n = []
 
         # Publiser for the visualization markers
         self.ring_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
         self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
+        self.poster_pub = rospy.Publisher('poster_markers', MarkerArray, queue_size=1)
 
         # Subscribers for the images
         self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
@@ -227,9 +235,37 @@ class CameraNode:
             pose_world = None    
         
         self.update_face_array(pose_world)
-            
-    
+           
     def image_callback(self, rgb_data, depth_data):
+
+        def find_poster(rgb_image, depth_image):
+
+            def crop_image(image, top, bottom, left, right):
+                cropped_image = np.copy(image)
+                height, width = cropped_image.shape[:2]
+                cropped_image = cropped_image[top:height-bottom, left:width-right]
+                return cropped_image
+            
+            cropped = crop_image(rgb_image, 100, 200, 100, 100)
+            gray = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
+
+            # cv2.imshow("ImWindow", cropped)
+            # cv2.waitKey(1)
+
+            result = reader.readtext(gray)
+
+            for detection in result:
+                bbox = detection[0]
+                text = detection[1]
+                confidence = detection[2]
+
+                x1, y1 = int(bbox[0][0]), int(bbox[0][1])
+                x2, y2 = int(bbox[2][0]), int(bbox[2][1])
+
+                print((x1, y1))
+                print((x2, y2))
+                print(f"Text: {text}, Confidence: {confidence}")
+
         try:
             rgb_image = self.bridge.imgmsg_to_cv2(rgb_data, "bgr8")
             depth_image = self.bridge.imgmsg_to_cv2(depth_data, "32FC1")
@@ -255,6 +291,9 @@ class CameraNode:
         blob = cv2.dnn.blobFromImage(cv2.resize(rgb_image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
         self.face_net.setInput(blob)
         face_detections = self.face_net.forward()
+
+
+        find_poster(rgb_image, depth_image)
 
         for i in range(0, face_detections.shape[2]):
             confidence = face_detections[0, 0, i, 2]
