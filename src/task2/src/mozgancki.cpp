@@ -48,15 +48,16 @@ float goal_cords[GOAL_NUMBER][4] = {
   {0.0,  -1.70, 0.09, 0.99},
   {1.42,  -1.6, -0.36, 0.93},
   {3.37,  -1.0, -0.74, 0.67},
+  {3.3, -1, 0.97, 0.23},
   {2.55,  0.57, -0.93, 0.37},
-  {1.70,  0.27, 0.98, 0.10},
-  {1.18,  -0.32, -0.55, 0.83},
+  {2.50,  0.27, 0.98, 0.10},
+  //{2.30,  -0.32, -0.55, 0.83},
+  {3.14, -0.47, 0.95, 0.32},
   {2.44,  1.13, 0.40, 0.92},
   {2.44,  2.16, -0.92, 0.40},
   {1.58,  2.11, 0.96, 0.27},
-  {0.54,  2.05, -0.86, 0.52},
-  {0.38,  1.94, 0.92, 0.40},
-  {-1.36,  1.79, 0.44, 0.90},
+  {2.30,  2.05, -0.86, 0.52},
+  {2.4,  1.94, 0.92, 0.40},
   {-0.67,  1.39, -0.92, 0.40},
   {0.0, 0.0, 0.70, 0.70}
 };
@@ -70,7 +71,7 @@ void positionCallBack(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& 
 void ringCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
     rings = markerArray->markers.size();
     for(visualization_msgs::Marker m : markerArray->markers) {
-        if (m.color.g > 0.9 && m.color.b < 0.5 && !green_found) {
+        if (m.color.g > m.color.b && m.color.g > m.color.r && !green_found) {
             green_found = true;
             ROS_INFO("Green found");
             if (time_green == ros::Time(0)) 
@@ -87,11 +88,11 @@ void setGreenGoal(bool stuck) {
     float vy = green_y - robot_y;
     float dist = sqrt(vx * vx + vy * vy);
     if (stuck) {
-        vx = vx / dist * (dist + 0.5);
-        vy = vy / dist * (dist + 0.5); 
+        vx = vx / dist * (dist + 0.55);
+        vy = vy / dist * (dist + 0.55); 
     } else {
-        vx = vx / dist * (dist - 0.5);
-        vy = vy / dist * (dist - 0.5); 
+        vx = vx / dist * (dist - 0.55);
+        vy = vy / dist * (dist - 0.55); 
     }
     goal.pose.position.x = robot_x + vx;
     goal.pose.position.y = robot_y + vy;
@@ -112,7 +113,7 @@ void moveToGoals() {
     bool green_goal = false;
     if (green_found) {
         ros::Duration time_passed = ros::Time::now() - time_green;
-        if (rings == 4 && cylinders == 4 || time_passed > ros::Duration(120.0)) {
+        if (rings >= 4 || time_passed > ros::Duration(60.0)) {
             green_goal = true;
             setGreenGoal(false);
         }
