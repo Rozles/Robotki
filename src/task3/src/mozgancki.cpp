@@ -1,4 +1,7 @@
 #include "ros/ros.h"
+#include <termios.h>
+#include <unistd.h>
+#include <stdio.h>
 #include <tf2_ros/transform_listener.h>
 #include <geometry_msgs/TransformStamped.h>
 #include "move_base_msgs/MoveBaseAction.h"
@@ -30,8 +33,6 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 ros::Publisher park;
 ros::Publisher twist_pub;
-ros::Publisher test;
-visualization_msgs::MarkerArray testArray;
 //ros::ServiceClient goalClient;
 
 MoveBaseClient *acPtr;
@@ -58,16 +59,34 @@ public:
     ~GoalNode() {}
 
     void visit() {
-        this->visited = visited + 1;
+        visited = visited + 1; 
     }
 };
 
 std::vector<GoalNode> goalNodes;
 
+void setTerminalAttributes() {
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t);
+    t.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &t);
+}
+
+bool isKeyboardInputAvailable() {
+    struct timeval tv;
+    fd_set fds;
+    tv.tv_sec = 0;
+    tv.tv_usec = 0;
+    FD_ZERO(&fds);
+    FD_SET(STDIN_FILENO, &fds);
+    select(STDIN_FILENO + 1, &fds, NULL, NULL, &tv);
+    return FD_ISSET(STDIN_FILENO, &fds);
+}
+
+
 void costmapCallBack(const nav_msgs::OccupancyGrid::ConstPtr& costmapMsg) {
     if (costmapMsg == nullptr) return;
     costmap = *costmapMsg;
-    ROS_INFO_STREAM("Costmap: " << costmap);
 }
 
 void positionCallBack(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg) {
@@ -110,37 +129,35 @@ void averageCords(const GoalNode& node1, const GoalNode& node2, float &x, float 
 
 float nodeCost(const GoalNode& node, ros::Time t) {
     float timeCost = (t - stim).toSec() / 60;
-    if (timeCost > 5) timeCost = 5;
+    if (timeCost > 6) timeCost = 6;
     float dist = std::sqrt((robot_x - node.x) * (robot_x - node.x) + (robot_y - node.y) * (robot_y - node.y));
-    return dist + node.visited * (8 - timeCost);
+    return dist + node.visited * (10 - timeCost);
 }
 
 geometry_msgs::PoseStamped nextGoal() {
-    ROS_INFO("Generating next goal");
+    //ROS_INFO("Generating next goal");
     ros::Time goalTime = ros::Time::now();
-    ROS_INFO("Current time: %f", goalTime.toSec());
+    //ROS_INFO("Current time: %f", goalTime.toSec());
     float timeCost = (goalTime - stim).toSec() / 60;
-    ROS_INFO("Time cost: %f", timeCost);
-    GoalNode *n;
+    //ROS_INFO("Time cost: %f", timeCost);
+    int nodeIndex = 0;
     float min = 1000000;
     for (int i = 0; i < goalNodes.size(); i++) {
         GoalNode node = goalNodes[i];
         float cost = nodeCost(node, goalTime);
         if (cost < min){
             min = cost;
-            n = &node;
+            nodeIndex = i;
         }
     }
     geometry_msgs::PoseStamped goal;
     goal.header.frame_id = "map";
-    goal.pose.position.x = n->x;
-    goal.pose.position.y = n->y;
-    n->visit();
+    goal.pose.position.x = goalNodes[nodeIndex].x;
+    goal.pose.position.y = goalNodes[nodeIndex].y;
+    goalNodes[nodeIndex].visit();
     tf2::Quaternion q;
     q.setRPY(0, 0, atan2(goal.pose.position.y - robot_y, goal.pose.position.x - robot_x));
     goal.pose.orientation = tf2::toMsg(q);
-    ROS_INFO_STREAM("Next goal: \n" << goal);
-    ROS_INFO("VIsited %d", n->visited);
     return goal;
 }
 
@@ -175,32 +192,6 @@ void generateGoals() {
         goalNodes.erase(goalNodes.begin() + a);
         goalNodes.erase(goalNodes.begin() + b - 1);
     }
-
-    int i = 0;
-    for (GoalNode& node : goalNodes) {
-        visualization_msgs::Marker marker;
-        marker.pose.position.x = node.x;
-        marker.pose.position.y = node.y;
-        marker.pose.position.z = 0.0;
-        marker.pose.orientation.w = 1.0;
-        marker.header.frame_id = "map";
-        marker.header.stamp = ros::Time::now();
-        marker.lifetime = ros::Duration(0);
-        marker.ns = "goal";
-        marker.id = i;
-        marker.type = visualization_msgs::Marker::CUBE;
-        marker.action = visualization_msgs::Marker::ADD;
-        marker.scale.x = 0.1;
-        marker.scale.y = 0.1;
-        marker.scale.z = 0.1;
-        marker.color.a = 1.0;
-        marker.color.r = 1.0;
-        marker.color.g = 0.0;
-        marker.color.b = 0.5;
-        testArray.markers.push_back(marker);
-        i++;
-    }
-    
 }
 
 void actionClientThread(MoveBaseClient *actionClient) {
@@ -209,7 +200,6 @@ void actionClientThread(MoveBaseClient *actionClient) {
     }
     while (ros::ok()){
         if (STATE == 1) {
-            test.publish(testArray);
             move_base_msgs::MoveBaseGoal target;
             target.target_pose = nextGoal();
             acPtr->sendGoal(target);
@@ -231,6 +221,23 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "mozgancki");
     ros::NodeHandle n;
 
+    setTerminalAttributes();
+
+    if (isKeyboardInputAvailable()) {
+        char c;
+        read(STDIN_FILENO, &c, 1);
+
+        // Process the keyboard input
+        // ...
+
+        // Exit the program if the 'q' key is pressed
+        if (c == 's') {
+            STATE =  0;
+        }else if (c == 'g') {
+            STATE = 1;
+        }
+    }
+
     MoveBaseClient actionClient("/move_base", true);
     acPtr = &actionClient;
 
@@ -241,11 +248,8 @@ int main(int argc, char **argv) {
     }
     costmap = *costmapMsg;
 
-    test = n.advertise<visualization_msgs::MarkerArray>("test", 100);
-
     generateGoals();
     
-    test.publish(testArray);
     ros::Subscriber position = n.subscribe("amcl_pose", 1, positionCallBack);
     ros::Subscriber sub_ring = n.subscribe<visualization_msgs::MarkerArray>("ring_markers", 1, ringCallBack);
     ros::Subscriber sub_cylinder = n.subscribe<visualization_msgs::MarkerArray>("cylinder_markers", 1, cylinderCallBack);
