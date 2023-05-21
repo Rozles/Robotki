@@ -18,12 +18,8 @@ from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
-from nav_msgs.msg import Odometry
-
 import pytesseract
 
-import easyocr
-reader = easyocr.Reader(['en'])
 
 class CameraNode:
     def __init__(self):
@@ -44,25 +40,16 @@ class CameraNode:
         # Marker array object used for visualizations
         self.ring_candidates = MarkerArray()
         self.face_candidates = MarkerArray()
-        self.poster_candidates = MarkerArray()
         self.face_n = []
         self.ring_n = []
-        self.poster_n = []
 
         # Publiser for the visualization markers
         self.ring_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
         self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
-        self.poster_pub = rospy.Publisher('poster_markers', MarkerArray, queue_size=1)
-
-        self.found_poster = False # Global variable that manages when to check for posters
 
         # Subscribers for the images
         self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
         self.depth_sub = message_filters.Subscriber('camera/depth/image_raw', Image)
-
-        # Subscriber for getting robot movement
-        rospy.Subscriber('/odom', Odometry, self.odom_callback)
-        self.moving = False # Global value that checks whether we are moving or not
 
         # Synchronize the subscriptions into one callback
         self.ts = message_filters.ApproximateTimeSynchronizer([self.image_sub, self.depth_sub], 10, 0.1)
@@ -77,56 +64,12 @@ class CameraNode:
         a1 = tft.euler_from_quaternion([q1.x, q1.y, q1.z, q1.w])[2]
         a2 = tft.euler_from_quaternion([q2.x, q2.y, q2.z, q2.w])[2]
         return abs(a1 - a2)
-    
-    def find_poster(self, rgb_image):
-
-        def crop_image(image, top, bottom, left, right):
-            cropped_image = np.copy(image)
-            height, width = cropped_image.shape[:2]
-            cropped_image = cropped_image[top:height-bottom, left:width-right]
-            return cropped_image
-        
-        cropped = crop_image(rgb_image, 100, 200, 50, 50)
-        gray = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
-
-        result = reader.readtext(gray)
-
-        found_btc = False
-        found_color = False
-        reward = ""
-        color = ""
-
-        for detection in result:
-            bbox = detection[0]
-            text = detection[1]
-            confidence = detection[2]
-
-            x1, y1 = int(bbox[0][0]), int(bbox[0][1])
-            x2, y2 = int(bbox[2][0]), int(bbox[2][1])
-
-            # print((x1, y1))
-            # print((x2, y2))
-            # print(f"Text: {text}, Confidence: {confidence}")
-
-            if text.endswith("BTC"):
-                found_btc = True
-                reward = text
-
-            color_keywords = ["GREEN", "RED", "BLUE", "YELLOW", "BLACK"]
-            if text in color_keywords:
-                found_color = True
-                color = text
-
-        if found_btc and found_color:
-            return True, (reward, color)
-        else:
-            return False, ("", "")
 
     def update_ring_array(self, pose, color):
         new_ring = True
         marker_array = MarkerArray()
         for i, r in enumerate(self.ring_candidates.markers):
-            if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.25:
+            if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.5:
                 new_ring = False
                 r.pose.position.x = (r.pose.position.x * self.ring_n[i] + pose.pose.position.x) / (self.ring_n[i] + 1)
                 r.pose.position.y = (r.pose.position.y * self.ring_n[i] + pose.pose.position.y) / (self.ring_n[i] + 1)
@@ -153,28 +96,16 @@ class CameraNode:
             self.ring_n.append(1)
         self.ring_pub.publish(marker_array)
 
-    
+
     def update_face_array(self, pose):
         if pose is not None:
             new_face = True
             marker_array = MarkerArray()
-
-            # Check if we are trying to add a face marker where a poster marker already exists
-            close_to_poster = False
-            poster_marker = None
-            for i, m in enumerate(self.poster_candidates.markers):
-                angle = self.angle_between(m.pose.orientation, pose.pose.orientation)
-                if (np.sqrt((m.pose.position.x - pose.pose.position.x)**2 + (m.pose.position.y - pose.pose.position.y)**2) < 0.5 and angle < 1.57):
-                    poster_marker = m
-                    close_to_poster = True
-
             # Create a marker used for visualization
             for i, m in enumerate(self.face_candidates.markers):
                 angle = self.angle_between(m.pose.orientation, pose.pose.orientation)
                 if (np.sqrt((m.pose.position.x - pose.pose.position.x)**2 + (m.pose.position.y - pose.pose.position.y)**2) < 0.5 and angle < 1.57):
-                    
                     new_face = False
-
                     m.pose.position.x = (m.pose.position.x * self.face_n[i] + pose.pose.position.x) / (self.face_n[i] + 1)
                     m.pose.position.y = (m.pose.position.y * self.face_n[i] + pose.pose.position.y) / (self.face_n[i] + 1)
                     m.pose.position.z = (m.pose.position.z * self.face_n[i] + pose.pose.position.z) / (self.face_n[i] + 1)
@@ -188,11 +119,9 @@ class CameraNode:
                     m.pose.orientation.y /= norm
                     m.pose.orientation.z /= norm
                     m.pose.orientation.w /= norm
-                
                     self.face_n[i] += 1
-                if self.face_n[i] >= 2 and close_to_poster == False:
+                if self.face_n[i] >= 2:
                     marker_array.markers.append(m)
-
             if new_face:
                 marker = Marker()
                 marker.header.stamp = rospy.Time(0)
@@ -209,57 +138,6 @@ class CameraNode:
                 self.face_n.append(1)
 
             self.face_pub.publish(marker_array)
-    
-    def update_poster_array(self, pose):
-        if pose is not None:
-            new_poster = True
-            marker_array = MarkerArray()
-            # Create a marker used for visualization
-            for i, m in enumerate(self.poster_candidates.markers):
-                angle = self.angle_between(m.pose.orientation, pose.pose.orientation)
-                if (np.sqrt((m.pose.position.x - pose.pose.position.x)**2 + (m.pose.position.y - pose.pose.position.y)**2) < 0.5 and angle < 1.57):
-                    new_poster = False
-                    m.pose.position.x = (m.pose.position.x * self.poster_n[i] + pose.pose.position.x) / (self.poster_n[i] + 1)
-                    m.pose.position.y = (m.pose.position.y * self.poster_n[i] + pose.pose.position.y) / (self.poster_n[i] + 1)
-                    m.pose.position.z = (m.pose.position.z * self.poster_n[i] + pose.pose.position.z) / (self.poster_n[i] + 1)
-                    m.pose.orientation.x = (m.pose.orientation.x * self.poster_n[i] + pose.pose.orientation.x) / (self.poster_n[i] + 1)
-                    m.pose.orientation.y = (m.pose.orientation.y * self.poster_n[i] + pose.pose.orientation.y) / (self.poster_n[i] + 1)
-                    m.pose.orientation.z = (m.pose.orientation.z * self.poster_n[i] + pose.pose.orientation.z) / (self.poster_n[i] + 1)
-                    m.pose.orientation.w = (m.pose.orientation.w * self.poster_n[i] + pose.pose.orientation.w) / (self.poster_n[i] + 1)
-                    # normalize the quaternion
-                    norm = np.sqrt(m.pose.orientation.x**2 + m.pose.orientation.y**2 + m.pose.orientation.z**2 + m.pose.orientation.w**2)
-                    m.pose.orientation.x /= norm
-                    m.pose.orientation.y /= norm
-                    m.pose.orientation.z /= norm
-                    m.pose.orientation.w /= norm
-                    self.poster_n[i] += 1
-                if self.poster_n[i] >= 2:
-                    marker_array.markers.append(m)
-            if new_poster:
-                marker = Marker()
-                marker.header.stamp = rospy.Time(0)
-                marker.header.frame_id = 'map'
-                marker.pose = pose.pose
-                marker.type = Marker.ARROW
-                marker.action = Marker.ADD
-                marker.frame_locked = False
-                marker.lifetime = rospy.Duration(0)
-                marker.id = len(self.poster_candidates.markers)
-                marker.scale = Vector3(0.15, 0.1, 0.1)
-                marker.color = ColorRGBA(0.5, 0.7, 0.2, 1)
-                self.poster_candidates.markers.append(marker)
-                self.poster_n.append(1)
-
-                # Check for any face markers nearby
-                for i, m in enumerate(self.face_candidates.markers):
-                    angle = self.angle_between(m.pose.orientation, pose.pose.orientation)
-                    if (np.sqrt((m.pose.position.x - pose.pose.position.x)**2 + (m.pose.position.y - pose.pose.position.y)**2) < 0.5 and angle < 1.57):
-                        del self.face_n[i]
-                        self.face_candidates.markers.remove(m)
-                        self.face_pub.publish(self.face_candidates.markers)
-            
-            
-            self.poster_pub.publish(marker_array)
 
 
     def get_ring_pose(self,e,dist, timestamp, color):
@@ -268,14 +146,14 @@ class CameraNode:
 
         elipse_x = self.dims[1] / 2 - e[0][0]
         elipse_y = self.dims[0] / 2 - e[0][1]
-    
+
         angle_to_target = np.arctan2(elipse_x,k_f)
         angle_height = np.arctan2(elipse_y, k_f)
-    
+
         # Get the angles in the base_link relative coordinate system
         x,y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
         z = dist*np.sin(angle_height)
-       
+
         ### Define a stamped message for transformation - directly in "base_frame"
         pose_s = PoseStamped()
         pose_s.pose.position.x = x
@@ -299,12 +177,12 @@ class CameraNode:
         except Exception as e:
             print(e)
             return
-        
+
         # Create a Pose object with the same position
 
         self.update_ring_array(pose_world, color)
 
-    def get_face_pose(self,coords,dist,stamp,depth_image,rgb_image):
+    def get_face_pose(self,coords,dist,stamp,depth_image):
         # Calculate the position of the detected face
 
         k_f = 554 # kinect focal length in pixels
@@ -350,20 +228,8 @@ class CameraNode:
             print(e)
             pose_world = None    
 
-        
-        # if we are not moving, check if we are looking at a poster rather than
-        if self.moving == False and self.found_poster == False:
-            status, data = self.find_poster(rgb_image)
-            if status == True:
-                print(data)
-                self.found_poster = True
-                self.update_poster_array(pose_world)
-            # elif status == False and self.found_poster == False:
-            #     self.update_face_array(pose_world)
-        elif self.moving == False and self.found_poster == True:
-            self.update_poster_array(pose_world)
-        elif self.moving == True:
-            self.update_face_array(pose_world)
+        self.update_face_array(pose_world)
+
 
     def image_callback(self, rgb_data, depth_data):
         try:
@@ -372,9 +238,9 @@ class CameraNode:
         except CvBridgeError as e:
             print(e)
             return
-        
+
         timestamp = rgb_data.header.stamp
-        
+
         # Get the dimensions of the image
         self.dims = rgb_image.shape
         h = self.dims[0]
@@ -391,11 +257,6 @@ class CameraNode:
         blob = cv2.dnn.blobFromImage(cv2.resize(rgb_image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
         self.face_net.setInput(blob)
         face_detections = self.face_net.forward()
-
-        # if self.moving == False:
-        #     status, data = self.find_poster(rgb_image)
-        #     if status == True:
-        #         print(data)
 
         for i in range(0, face_detections.shape[2]):
             confidence = face_detections[0, 0, i, 2]
@@ -415,8 +276,8 @@ class CameraNode:
                 face_distance = float(np.nanmean(depth_image[y1:y2,x1:x2]))
 
                 # Find the location of the detected face
-                self.get_face_pose((x1,x2,y1,y2), face_distance, timestamp, depth_image[y1:y2,x1:x2], rgb_image)
-        
+                self.get_face_pose((x1,x2,y1,y2), face_distance, timestamp, depth_image[y1:y2,x1:x2])
+
         depth_norm = cv2.normalize(depth_image, None, 255, 0, cv2.NORM_MINMAX, cv2.CV_8U)      
 
         canny = cv2.Canny(depth_norm, 100, 200)
@@ -487,28 +348,19 @@ class CameraNode:
 
             color = np.mean(ring_image[~exclude], axis=0)
             # print(f'B: {color[0]} G: {color[1]} R: {color[2]}')
-            
+
             if (np.any(np.isnan(color))):
                 return 
-            
+
             color = color /255
             colorRGB = ColorRGBA(color[2], color[1], color[0], 1.0)
             self.get_ring_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
 
-    def odom_callback(self, odom):
-        linear_vel = odom.twist.twist.linear
-        is_moving = abs(linear_vel.x) > 0.1 or abs(linear_vel.y) > 0.1 or abs(linear_vel.z) > 0.1
-        
-        if is_moving:
-            self.moving = True
-            self.found_poster = False
-        else:
-            self.moving = False
 
 def main():
 
     camera = CameraNode()
-    
+
     rate = rospy.Rate(1)
     while not rospy.is_shutdown():
         rate.sleep()

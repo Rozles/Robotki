@@ -8,6 +8,7 @@ project(task3)
 find_package(Boost REQUIRED COMPONENTS system filesystem thread)
 find_package(Eigen3 REQUIRED)
 find_package(PCL REQUIRED)
+find_package(Curses REQUIRED)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -214,6 +215,7 @@ target_link_libraries(
   ${Boost_LIBRARIES}
   ${Eigen_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${CURSES_LIBRARIES}
 )
 
 target_link_libraries(

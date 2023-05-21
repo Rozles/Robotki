@@ -2,6 +2,10 @@
 #include <termios.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <termios.h>
+#include <sys/select.h>
+#include <signal.h>
+#include <fcntl.h>
 #include <tf2_ros/transform_listener.h>
 #include <geometry_msgs/TransformStamped.h>
 #include "move_base_msgs/MoveBaseAction.h"
@@ -15,6 +19,7 @@
 #include "geometry_msgs/Quaternion.h"
 #include "geometry_msgs/Vector3.h"
 #include "geometry_msgs/Twist.h"
+#include "nav_msgs/Odometry.h"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include "nav_msgs/OccupancyGrid.h"
@@ -24,6 +29,7 @@
 /* State of the robot
 *   0 - halt
 *   1 - explore
+*   2 - go to face
 */
 int STATE = 0;
 
@@ -40,10 +46,28 @@ MoveBaseClient *acPtr;
 float robot_x;
 float robot_y;
 
-int rings = 0;
-int cylinders = 0;
+visualization_msgs::MarkerArray rings;
+visualization_msgs::MarkerArray cylinders;
 
 nav_msgs::OccupancyGrid costmap;
+
+class Face {
+    public:
+        geometry_msgs::Pose pose;
+        int id;
+        bool visited;
+
+        Face(geometry_msgs::Pose pose = geometry_msgs::Pose(), int id = 0, bool visited = false)
+            : pose(pose), id(id), visited(visited) {}
+
+        ~Face() {}
+
+        void visit() {
+            visited = true;
+        }
+};
+
+std::vector<Face> faces;
 
 class GoalNode {
 public:
@@ -65,47 +89,64 @@ public:
 
 std::vector<GoalNode> goalNodes;
 
-void setTerminalAttributes() {
-    struct termios t;
-    tcgetattr(STDIN_FILENO, &t);
-    t.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &t);
-}
-
-bool isKeyboardInputAvailable() {
-    struct timeval tv;
-    fd_set fds;
-    tv.tv_sec = 0;
-    tv.tv_usec = 0;
-    FD_ZERO(&fds);
-    FD_SET(STDIN_FILENO, &fds);
-    select(STDIN_FILENO + 1, &fds, NULL, NULL, &tv);
-    return FD_ISSET(STDIN_FILENO, &fds);
-}
-
 
 void costmapCallBack(const nav_msgs::OccupancyGrid::ConstPtr& costmapMsg) {
     if (costmapMsg == nullptr) return;
     costmap = *costmapMsg;
 }
 
-void positionCallBack(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg) {
+void positionCallBack(const nav_msgs::Odometry::ConstPtr& msg) {
     robot_x = msg->pose.pose.position.x;
     robot_y = msg->pose.pose.position.y;
 }
 
+// void getRobotPose( ) {
+//     nav_msgs::Odometry::ConstPtr msg = ros::topic::waitForMessage<nav_msgs::Odometry>("odom", ros::Duration(1));
+//     robot_x = msg->pose.pose.position.x;
+//     robot_y = msg->pose.pose.position.y;
+    
+// }
+
 void ringCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
-    rings = markerArray->markers.size();
-    for(visualization_msgs::Marker m : markerArray->markers) {
-        if (m.color.g > 0.9 && m.color.b < 0.5) {
-            ROS_INFO("Green found");
-        }
-    }
+   rings = *markerArray;
 }
 
 
 void cylinderCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
-    cylinders = markerArray->markers.size();
+    cylinders = *markerArray;
+}
+
+void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
+    if (markerArray == nullptr) return;
+    for (int i = 0; i < markerArray->markers.size(); i++) {
+        if (i >= faces.size()) {
+            faces.push_back(Face(markerArray->markers[i].pose, i, false));
+        } else {
+            faces[i].pose = markerArray->markers[i].pose;
+            int id = i;
+        }
+        if (!faces[i].visited) {
+            STATE = 2;
+            ros::Duration(0.5).sleep();
+            acPtr->cancelGoal();
+        }
+    }
+}
+
+geometry_msgs::PoseStamped nextFaceGoal(Face face) {
+    geometry_msgs::PoseStamped goal;
+   
+    tf2::Vector3 vector(0.5, 0, 0);
+    tf2::Vector3 rotated = tf2::quatRotate(tf2::Quaternion(face.pose.orientation.x, face.pose.orientation.y, face.pose.orientation.z, face.pose.orientation.w), vector);
+    
+    goal.header.frame_id = "map";
+    goal.pose.position.x = face.pose.position.x + rotated[0];
+    goal.pose.position.y = face.pose.position.y + rotated[1];
+    tf2::Vector3 turn_to_marker(face.pose.position.x - goal.pose.position.x, face.pose.position.y - goal.pose.position.y, 0.0);
+    tf2::Quaternion turn_to_marker_q;
+    turn_to_marker_q.setRPY(0, 0, atan2(turn_to_marker.y(), turn_to_marker.x()));
+    goal.pose.orientation = tf2::toMsg(turn_to_marker_q);
+    return goal;
 }
 
 void indexToMapCoordiantes(int index, float &x, float &y) {
@@ -150,6 +191,7 @@ geometry_msgs::PoseStamped nextGoal() {
             nodeIndex = i;
         }
     }
+   
     geometry_msgs::PoseStamped goal;
     goal.header.frame_id = "map";
     goal.pose.position.x = goalNodes[nodeIndex].x;
@@ -162,7 +204,7 @@ geometry_msgs::PoseStamped nextGoal() {
 }
 
 void generateGoals() {
-    for (int i = 0; i < costmap.data.size(); i += 10) {
+    for (int i = 0; i < costmap.data.size(); i += 5) {
         if (costmap.data[i] == 0) {
             float x;
             float y;
@@ -171,7 +213,7 @@ void generateGoals() {
         }
     }
 
-    while (goalNodes.size() > 30) {
+    while (goalNodes.size() > 20) {
         float min = 1000000;
         int a = 0;
         int b = 0;
@@ -214,30 +256,100 @@ void actionClientThread(MoveBaseClient *actionClient) {
                 ROS_WARN("Goal could not be reached!");
             }
         }
+        if (STATE == 2) {
+            for (Face& face : faces) {
+                if (!face.visited) {
+                    move_base_msgs::MoveBaseGoal target;
+                    target.target_pose = nextFaceGoal(face);
+                    acPtr->sendGoal(target);
+                    acPtr->waitForResult();
+                    
+                    if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+                        face.visit();
+                        STATE = 1;
+                        break;
+                    } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
+            
+                    } else {
+            
+                        ROS_WARN("Goal could not be reached!");
+                    }
+                }
+            }
+        }
     }
+}
+
+boost::thread* threadPtr;
+
+void sigintHandler(int sig) {
+    threadPtr->interrupt();
+    threadPtr->join();
+    ros::shutdown();
+}
+
+int kbhit() {
+    struct termios oldt, newt;
+    int ch;
+    int oldf;
+
+    // Save current terminal settings
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
+
+    // Check if there's any input available
+    fd_set read_fds;
+    FD_ZERO(&read_fds);
+    FD_SET(STDIN_FILENO, &read_fds);
+    struct timeval timeout;
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 0;
+    int result = select(STDIN_FILENO + 1, &read_fds, NULL, NULL, &timeout);
+
+    if (result == -1) {
+        // Error occurred, handle it accordingly
+
+        // Restore terminal settings
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+        fcntl(STDIN_FILENO, F_SETFL, oldf);
+
+        return 0;
+    }
+
+    if (result > 0 && FD_ISSET(STDIN_FILENO, &read_fds)) {
+        // Input is available, read the character
+        ch = getchar();
+
+        // Restore terminal settings
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+        fcntl(STDIN_FILENO, F_SETFL, oldf);
+
+        if (ch != EOF) {
+            ungetc(ch, stdin);
+            return 1;
+        }
+    }
+
+    // No input available
+
+    // Restore terminal settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    fcntl(STDIN_FILENO, F_SETFL, oldf);
+
+    return 0;
 }
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "mozgancki");
     ros::NodeHandle n;
 
-    setTerminalAttributes();
+    signal(SIGINT, sigintHandler);
 
-    if (isKeyboardInputAvailable()) {
-        char c;
-        read(STDIN_FILENO, &c, 1);
-
-        // Process the keyboard input
-        // ...
-
-        // Exit the program if the 'q' key is pressed
-        if (c == 's') {
-            STATE =  0;
-        }else if (c == 'g') {
-            STATE = 1;
-        }
-    }
-
+    ros::Subscriber position = n.subscribe("odom", 1, positionCallBack);
     MoveBaseClient actionClient("/move_base", true);
     acPtr = &actionClient;
 
@@ -247,13 +359,14 @@ int main(int argc, char **argv) {
         return 1;
     }
     costmap = *costmapMsg;
-
-    generateGoals();
     
-    ros::Subscriber position = n.subscribe("amcl_pose", 1, positionCallBack);
     ros::Subscriber sub_ring = n.subscribe<visualization_msgs::MarkerArray>("ring_markers", 1, ringCallBack);
     ros::Subscriber sub_cylinder = n.subscribe<visualization_msgs::MarkerArray>("cylinder_markers", 1, cylinderCallBack);
-    
+    ros::Subscriber sub_face = n.subscribe<visualization_msgs::MarkerArray>("face_markers", 1, faceCallBack);
+   
+
+    generateGoals();
+
     park = n.advertise<std_msgs::String>("start_parking", 1);
     twist_pub = n.advertise<geometry_msgs::Twist>("cmd_vel_mux/input/teleop", 1);
     //goalClient = n.serviceClient<task3::NewGoalService>("next_goal_service");
@@ -264,9 +377,24 @@ int main(int argc, char **argv) {
     stim = ros::Time::now();
     ROS_INFO("Start time: %f", stim.toSec());
     boost::thread thread(boost::bind(&actionClientThread, &actionClient));
+    threadPtr = &thread;
+    
+    char input;
+    while(ros::ok()) {
+        ros::spinOnce();
+        if (kbhit()) {
+            char c = getchar();
+            if (c == 's') {
+                STATE = 0;
+                acPtr->cancelAllGoals();
+                ROS_INFO("Robot state chaned to stop");
+            } else if (c == 'e') {
+                STATE = 1;
+                ROS_INFO("Robot state chaned to explore");
+            } 
+        }
+    }
     
 
-    ros::spin();
-
-  return 0;
+    return 0;
 }
