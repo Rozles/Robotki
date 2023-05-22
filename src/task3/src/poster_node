@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import sys
-import os
 import math
 import rospy
 import cv2
@@ -9,9 +8,7 @@ import numpy as np
 import tf2_geometry_msgs
 import tf2_ros
 import tf.transformations as tft
-import message_filters
 
-from os.path import join, dirname
 
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
@@ -19,24 +16,13 @@ from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
-import pytesseract
 
-
-class FaceNode:
+class PosterNode:
     def __init__(self):
-        rospy.init_node('face_detection_node', anonymous=True)
+        rospy.init_node('poster_node', anonymous=True)
 
         # An object we use for converting images between ROS format and OpenCV format
         self.bridge = CvBridge()
-
-        # The function for performin HOG face detection
-        #self.face_detector = dlib.get_frontal_face_detector()
-        protoPath = join(dirname(__file__), "deploy.prototxt.txt")
-        modelPath = join(dirname(__file__), "res10_300x300_ssd_iter_140000.caffemodel")
-
-        self.face_net = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
-
-        self.dims = (0, 0, 0)
 
         # Marker array object used for visualizations
         self.face_candidates = MarkerArray()
@@ -45,13 +31,7 @@ class FaceNode:
         # Publiser for the visualization markers
         self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
 
-        # Subscribers for the images
-        self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
-        self.depth_sub = message_filters.Subscriber('camera/depth/image_raw', Image)
-
-        # Synchronize the subscriptions into one callback
-        self.ts = message_filters.ApproximateTimeSynchronizer([self.image_sub, self.depth_sub], 10, 0.1)
-        self.ts.registerCallback(self.image_callback)
+        self.client = rospy.ServiceProxy()
 
         # Object we use for transforming between coordinate frames
         self.tf_buf = tf2_ros.Buffer()
@@ -231,11 +211,10 @@ class FaceNode:
 
 def main():
 
-    face = FaceNode()
+    poster = PosterNode()
 
     rate = rospy.Rate(1)
     while not rospy.is_shutdown():
-        face.merge()
         rate.sleep()
 
     cv2.destroyAllWindows()

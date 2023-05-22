@@ -5,42 +5,71 @@ import math
 import rospy
 import cv2
 import numpy as np
-import tf2_geometry_msgs
 import tf2_ros
+import tf2_geometry_msgs
 import tf.transformations as tft
+import message_filters
+
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
+from geometry_msgs.msg import Vector3, PoseStamped
 from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 
 
-class The_Ring:
+
+class RingNode:
     def __init__(self):
-        rospy.init_node('ring_detection', anonymous=True)
+        rospy.init_node('ring_detection_node', anonymous=True)
 
         # An object we use for converting images between ROS format and OpenCV format
         self.bridge = CvBridge()
 
-        # A help variable for holding the dimensions of the image
         self.dims = (0, 0, 0)
 
         # Marker array object used for visualizations
-        self.candidates = MarkerArray()
+        self.ring_candidates = MarkerArray()
         self.ring_n = []
 
         # Publiser for the visualization markers
-        self.markers_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
+        self.ring_pub = rospy.Publisher('ring_markers', MarkerArray, queue_size=1)
+
+        # Subscribers for the images
+        self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
+        self.depth_sub = message_filters.Subscriber('camera/depth/image_raw', Image)
+
+        # Synchronize the subscriptions into one callback
+        self.ts = message_filters.ApproximateTimeSynchronizer([self.image_sub, self.depth_sub], 10, 0.1)
+        self.ts.registerCallback(self.image_callback)
 
         # Object we use for transforming between coordinate frames
         self.tf_buf = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
 
-    def update_marker_array(self, pose, color):
+    def dist(self, p1, p2):
+        return np.sqrt((p1.pose.position.x - p2.pose.position.x)**2 + (p1.pose.position.y - p2.pose.position.y)**2)
+
+
+    def merge(self):
+        for i, r in enumerate(self.ring_candidates.markers):
+            for j, r2 in enumerate(self.ring_candidates.markers):
+                if i != j and self.dist(r, r2) < 0.3:
+                    r.pose.position.x = (r.pose.position.x * self.ring_n[i] + r2.pose.position.x * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    r.pose.position.y = (r.pose.position.y * self.ring_n[i] + r2.pose.position.y * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    r.pose.position.z = (r.pose.position.z * self.ring_n[i] + r2.pose.position.z * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    r.color.r = (r.color.r * self.ring_n[i] + r2.color.r * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    r.color.g = (r.color.g * self.ring_n[i] + r2.color.g * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    r.color.b = (r.color.b * self.ring_n[i] + r2.color.b * self.ring_n[j]) / (self.ring_n[i] + self.ring_n[j])
+                    self.ring_n[i] += self.ring_n[j]
+                    del self.ring_candidates.markers[j]
+                    del self.ring_n[j]
+
+
+    def update_ring_array(self, pose, color):
         new_ring = True
         marker_array = MarkerArray()
-        for i, r in enumerate(self.candidates.markers):
-            if np.sqrt((r.pose.position.x - pose.pose.position.x)**2 + (r.pose.position.y - pose.pose.position.y)**2) < 0.5:
+        for i, r in enumerate(self.ring_candidates.markers):
+            if self.dist(r, pose) < 0.3:
                 new_ring = False
                 r.pose.position.x = (r.pose.position.x * self.ring_n[i] + pose.pose.position.x) / (self.ring_n[i] + 1)
                 r.pose.position.y = (r.pose.position.y * self.ring_n[i] + pose.pose.position.y) / (self.ring_n[i] + 1)
@@ -60,29 +89,28 @@ class The_Ring:
             marker.action = Marker.ADD
             marker.frame_locked = False
             marker.lifetime = rospy.Duration(0)
-            marker.id = len(self.candidates.markers)
+            marker.id = len(self.ring_candidates.markers)
             marker.scale = Vector3(0.1, 0.1, 0.1)
             marker.color = color
-            self.candidates.markers.append(marker)
+            self.ring_candidates.markers.append(marker)
             self.ring_n.append(1)
-        self.markers_pub.publish(marker_array)
+        self.ring_pub.publish(marker_array)
 
 
-
-    def get_pose(self,e,dist, timestamp, color):
+    def get_ring_pose(self,e,dist, timestamp, color):
         # Calculate the position of the detected ellipse
         k_f = 525 # kinect focal length in pixels
 
         elipse_x = self.dims[1] / 2 - e[0][0]
         elipse_y = self.dims[0] / 2 - e[0][1]
-    
+
         angle_to_target = np.arctan2(elipse_x,k_f)
         angle_height = np.arctan2(elipse_y, k_f)
-    
+
         # Get the angles in the base_link relative coordinate system
         x,y = dist*np.cos(angle_to_target), dist*np.sin(angle_to_target)
         z = dist*np.sin(angle_height)
-       
+
         ### Define a stamped message for transformation - directly in "base_frame"
         pose_s = PoseStamped()
         pose_s.pose.position.x = x
@@ -91,7 +119,6 @@ class The_Ring:
         pose_s.pose.orientation.w = 1
         pose_s.header.frame_id = "base_link"
         pose_s.header.stamp = timestamp
-
         # Define a stamped message for transformation - in the "camera rgb frame"
         # point_s = PointStamped()
         # point_s.point.x = -y
@@ -101,64 +128,35 @@ class The_Ring:
         # point_s.header.stamp = timestamp
 
         # Get the point in the "map" coordinate system
+        pose_world = PoseStamped()
         try:
             pose_world = self.tf_buf.transform(pose_s, "map")
         except Exception as e:
             print(e)
             return
-        
+
         # Create a Pose object with the same position
 
-        self.update_marker_array(pose_world, color)
-    
+        self.update_ring_array(pose_world, color)
 
-    def find_ring(self):
+    def image_callback(self, rgb_data, depth_data):
         try:
-            rgb_image_message = rospy.wait_for_message("/camera/rgb/image_raw", Image)
-        except Exception as e:
-            print(e)
-            return 0
-
-        try:
-            depth_image_message = rospy.wait_for_message("/camera/depth/image_raw", Image)
-        except Exception as e:
-            print(e)
-            return 0
-        
-        timestamp = depth_image_message.header.stamp
-
-        # Convert the images into a OpenCV (numpy) format
-        try:
-            cv_image = self.bridge.imgmsg_to_cv2(rgb_image_message, "bgr8")
+            rgb_image = self.bridge.imgmsg_to_cv2(rgb_data, "bgr8")
+            depth_image = self.bridge.imgmsg_to_cv2(depth_data, "32FC1")
         except CvBridgeError as e:
             print(e)
+            return
 
-        try:
-            depth_image = self.bridge.imgmsg_to_cv2(depth_image_message, "32FC1")
-        except CvBridgeError as e:
-            print(e)
+        timestamp = rgb_data.header.stamp
 
-        # Set the dimensions of the image
-        self.dims = cv_image.shape
+        # Get the dimensions of the image
+        self.dims = rgb_image.shape
 
-        # Tranform image to gayscale
-        #gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
-
-        # Do histogram equlization
-        #img = cv2.equalizeHist(gray)
-        
         depth_norm = cv2.normalize(depth_image, None, 255, 0, cv2.NORM_MINMAX, cv2.CV_8U)      
 
         canny = cv2.Canny(depth_norm, 100, 200)
         #cv2.imshow('canny', canny)
         #cv2.waitKey(1)
-
-        
-
-        ### Binarize the image, there are different ways to do it
-        #ret, thresh = cv2.threshold(img, 50, 255, 0)
-        #ret, thresh = cv2.threshold(img, 70, 255, cv2.THRESH_BINARY)
-        #thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 25)
 
         ### Extract contours
         contours, hierarchy = cv2.findContours(canny, cv2.RETR_TREE , cv2.CHAIN_APPROX_SIMPLE)
@@ -179,7 +177,7 @@ class The_Ring:
 
 
         ### Find two elipses with same centers
-        candidates = []
+        ring_candidates = []
         for n in range(len(elps)):
             for m in range(n + 1, len(elps)):
                 e1 = elps[n]
@@ -189,10 +187,10 @@ class The_Ring:
                 dist = np.sqrt(((e1[0][0] - e2[0][0]) ** 2 + (e1[0][1] - e2[0][1]) ** 2))
                 #             print dist
                 if dist < 5 and dista > 3 and distb > 3:
-                    candidates.append((e1,e2))
+                    ring_candidates.append((e1,e2))
 
         # Extract the depth from the depth image
-        for c in candidates:
+        for c in ring_candidates:
 
             # the centers of the ellipses
             e1 = c[0]
@@ -209,40 +207,38 @@ class The_Ring:
             y1 = int(center[0] - sizeb /2)
             y2 = int(center[0] + sizeb /2)
             y_min = y1 if y1>0 else 0
-            y_max = y2 if y2<cv_image.shape[0] else cv_image.shape[0]
+            y_max = y2 if y2<rgb_image.shape[0] else rgb_image.shape[0]
 
             x1 = int(center[1] - sizea /2)
             x2 = int(center[1] + sizea /2)
             x_min = x1 if x1 > 0 else 0
-            x_max = x2 if x2 < cv_image.shape[1] else cv_image.shape[1]
+            x_max = x2 if x2 < rgb_image.shape[1] else rgb_image.shape[1]
 
             #cv2.imshow('ring', cv_image[y_min:y_max,x_min:x_max])
             #cv2.waitKey(1)
 
-            ring_image = cv_image[y_min:y_max,x_min:x_max,:]
+            ring_image = rgb_image[y_min:y_max,x_min:x_max,:]
             exclude = np.all(ring_image == 178, axis=2)
 
             color = np.mean(ring_image[~exclude], axis=0)
             # print(f'B: {color[0]} G: {color[1]} R: {color[2]}')
-            
+
             if (np.any(np.isnan(color))):
                 return 
-            
+
             color = color /255
             colorRGB = ColorRGBA(color[2], color[1], color[0], 1.0)
-            self.get_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
-           
-            
+            self.get_ring_pose(e1, float(np.nanmean(depth_image[y_min:y_max,x_min:x_max])), timestamp, colorRGB)
 
 
 def main():
 
-    ring_finder = The_Ring()
-    
+    ring = RingNode()
+
     rate = rospy.Rate(1)
     while not rospy.is_shutdown():
+        ring.merge()
         rate.sleep()
-        ring_finder.find_ring()
 
     cv2.destroyAllWindows()
 
