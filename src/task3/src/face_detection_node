@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import sys
-import os
 import math
 import rospy
 import cv2
@@ -14,12 +13,11 @@ import message_filters
 from os.path import join, dirname
 
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
+from geometry_msgs.msg import Vector3, PoseStamped
 from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
-
-import pytesseract
+from task3.srv import FaceService, FaceServiceResponse
 
 
 class FaceNode:
@@ -52,6 +50,9 @@ class FaceNode:
         # Synchronize the subscriptions into one callback
         self.ts = message_filters.ApproximateTimeSynchronizer([self.image_sub, self.depth_sub], 10, 0.1)
         self.ts.registerCallback(self.image_callback)
+
+        self.face_service = rospy.Service('/face_service', FaceService, self.faceServiceCallBack)
+        self.face_region = None
 
         # Object we use for transforming between coordinate frames
         self.tf_buf = tf2_ros.Buffer()
@@ -179,6 +180,14 @@ class FaceNode:
 
         self.update_face_array(pose_world)
 
+    def faceServiceCallBack(self, req):
+        if self.face_region is None:
+            return None
+
+        response = FaceServiceResponse()
+        response.face = self.bridge.cv2_to_imgmsg(self.face_region, "bgr8")
+        return response
+
 
     def image_callback(self, rgb_data, depth_data):
         try:
@@ -217,6 +226,7 @@ class FaceNode:
 
                 # Extract region containing face
                 face_region = rgb_image[y1:y2, x1:x2]
+                self.face_region = face_region
 
                 # Visualize the extracted face
                 # cv2.imshow("ImWindow", face_region)

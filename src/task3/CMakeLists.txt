@@ -77,10 +77,10 @@ add_message_files(
 
 ## Generate services in the 'srv' folder
 add_service_files(
-  
   DIRECTORY srv
   FILES
   PosterService.srv
+  FaceService.srv
 )
 
 ## Generate actions in the 'action' folder

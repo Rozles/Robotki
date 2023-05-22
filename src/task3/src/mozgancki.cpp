@@ -25,6 +25,7 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include <vector>
 
+#include "task3/PosterService.h"
 
 /* State of the robot
 *   0 - halt
@@ -40,6 +41,8 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 ros::Publisher park;
 ros::Publisher twist_pub;
 //ros::ServiceClient goalClient;
+
+ros::ServiceClient posterClient;
 
 MoveBaseClient *acPtr;
 
@@ -127,8 +130,8 @@ void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) 
         }
         if (!faces[i].visited) {
             STATE = 2;
-            ros::Duration(0.5).sleep();
             acPtr->cancelGoal();
+            ros::Duration(0.5).sleep();
         }
     }
 }
@@ -267,6 +270,13 @@ void actionClientThread(MoveBaseClient *actionClient) {
                     if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
                         face.visit();
                         STATE = 1;
+                        task3::PosterService srv;
+                        srv.request.str = "AAA";
+                        if (posterClient.call(srv)) {
+                            ROS_INFO("Poster service called");
+                        } else {
+                            ROS_ERROR("Failed to call service poster");
+                        }
                         break;
                     } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
             
@@ -352,6 +362,8 @@ int main(int argc, char **argv) {
     ros::Subscriber position = n.subscribe("odom", 1, positionCallBack);
     MoveBaseClient actionClient("/move_base", true);
     acPtr = &actionClient;
+
+    posterClient = n.serviceClient<task3::PosterService>("poster_service");
 
     nav_msgs::OccupancyGrid::ConstPtr costmapMsg = ros::topic::waitForMessage<nav_msgs::OccupancyGrid>("/move_base/global_costmap/costmap", ros::Duration(5));
     if (costmapMsg == nullptr) {
