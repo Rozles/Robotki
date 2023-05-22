@@ -8,62 +8,69 @@ import re
 
 from std_msgs.msg import String
 
-class Dialogue:
-
-    def play_sound(self, text):
-        subprocess.run(["rosrun", "sound_play", "say.py", text])
-
-    # The information should include a reference to two cylinders
-    def check_information(self, text):
-        color_options = ['blue', 'red', 'green', 'yellow']
-        cylinder_keywords = ['cylinder', 'one']
-        
-        pattern = r"(?i)(\b(?:{})\b).*?(?:{})".format('|'.join(color_options), '|'.join(cylinder_keywords))
-        
-        match = re.search(pattern, text)
-        
-        if match:
-            colors = re.findall(r"\b(?:{})\b".format('|'.join(color_options)), text)
-            return True, colors[0], colors[1] if len(colors) >= 2 else None
-        else:
-            return False, None, None
+from task3.srv import DialogueService
 
 
-    def dialogue_logic(self):
-        recognizer = sr.Recognizer()
-        microphone = sr.Microphone()
+def play_sound(text):
+    subprocess.run(["rosrun", "sound_play", "say.py", text])
 
-        useful = False
+# The information should include a reference to two cylinders
+def check_information(text):
+    color_options = ['blue', 'red', 'green', 'yellow']
+    cylinder_keywords = ['cylinder', 'one']
+    
+    pattern = r"(?i)(\b(?:{})\b).*?(?:{})".format('|'.join(color_options), '|'.join(cylinder_keywords))
+    
+    match = re.search(pattern, text)
+    
+    if match:
+        colors = re.findall(r"\b(?:{})\b".format('|'.join(color_options)), text)
+        return True, colors[0], colors[1] if len(colors) >= 2 else None
+    else:
+        return False, "", ""
 
-        while True:
-            self.play_sound("Do you know where the robber is hiding?")
 
-            with microphone as source:
-                audio = recognizer.listen(source)
-            try:                
-                text = recognizer.recognize_google(audio)
-                print("Answer: ", text)
-                useful, color1, color2 = self.check_information(text)
-                message = "{} {} {}".format(int(useful), color1, color2)
-                self.result_publisher.publish(message)
-                if useful == True:
-                    self.play_sound("OK, thank you")
-                    break
+def callback(request):
+    print("Service je bil poklican")
+    recognizer = sr.Recognizer()
+    microphone = sr.Microphone()
 
-            except sr.UnknownValueError:
-                print("Unable to recognize speech.")
+    useful = False
+    response = DialogueService._response_class()
+    max_response_count = 2 # How many times we can get a useless response before finishing the convo
 
-    def callback(self,data):
-        if data.data == "start_dialogue":
-            self.dialogue_logic()
+    while True:
+        play_sound("Do you know where the robber is hiding?")
 
-    def __init__(self):
-        rospy.init_node('speech_recognition_node', anonymous=True)
-        rospy.Subscriber('dialogue_commands', String, self.callback)
-        self.result_publisher = rospy.Publisher('dialogue_result', String, queue_size=10)
+        with microphone as source:
+            audio = recognizer.listen(source)
+        try:                
+            text = recognizer.recognize_google(audio)
+            print("Answer: ", text)
+            useful, color1, color2 = check_information(text)
+            response.color1 = color1
+            response.color2 = color2
+
+            if useful:
+                break
+
+            max_response_count -= 1
+
+            if max_response_count <= 0:
+                response.color1 = "bad_response"
+                response.color2 = "bad_response"
+                break
+
+        except sr.UnknownValueError:
+            print("Unable to recognize speech.")
+
+    play_sound("OK, thank you")
+
+    return response
 
 def speech_recognition_node():
-    dialogue = Dialogue()
+    rospy.init_node('speech_recognition_node', anonymous=True)
+    result_service = rospy.Service('dialogue_result', DialogueService, callback)
     rospy.spin()
 
 if __name__ == '__main__':
