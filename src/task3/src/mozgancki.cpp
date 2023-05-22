@@ -6,6 +6,8 @@
 #include <sys/select.h>
 #include <signal.h>
 #include <fcntl.h>
+#include <ros/service_client.h>
+#include <task3/DialogueService.h>
 #include <tf2_ros/transform_listener.h>
 #include <geometry_msgs/TransformStamped.h>
 #include "move_base_msgs/MoveBaseAction.h"
@@ -50,6 +52,8 @@ visualization_msgs::MarkerArray rings;
 visualization_msgs::MarkerArray cylinders;
 
 nav_msgs::OccupancyGrid costmap;
+
+ros::ServiceClient dialogueServiceClient;
 
 class Face {
     public:
@@ -266,7 +270,24 @@ void actionClientThread(MoveBaseClient *actionClient) {
                     
                     if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
                         face.visit();
-                        STATE = 1;
+                        // Call the service
+                        task3::DialogueService srv;
+                        srv.request.status = 0;
+                        if (dialogueServiceClient.call(srv)) {
+                            /// Process the successful response
+                            std::string color1 = srv.response.color1;
+                            std::string color2 = srv.response.color2;
+
+                            if (!color1.empty() && !color2.empty()) {
+                                STATE = 1;
+                            } else {
+                                STATE = 2;  
+                            }
+                            
+                        } else {
+                            // Service call failed
+                            ROS_ERROR("Failed to call service");
+                        }
                         break;
                     } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
             
@@ -346,6 +367,8 @@ int kbhit() {
 int main(int argc, char **argv) {
     ros::init(argc, argv, "mozgancki");
     ros::NodeHandle n;
+
+    dialogueServiceClient = n.serviceClient<task3::DialogueService>("dialogue_result");
 
     signal(SIGINT, sigintHandler);
 

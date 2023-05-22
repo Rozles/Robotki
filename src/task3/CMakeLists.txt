@@ -81,6 +81,7 @@ add_service_files(
   DIRECTORY srv
   FILES
   PosterService.srv
+  DialogueService.srv
 )
 
 ## Generate actions in the 'action' folder
