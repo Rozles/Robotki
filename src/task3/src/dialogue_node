@@ -1,0 +1,73 @@
+#!/usr/bin/python3
+
+import rospy
+import speech_recognition as sr
+import subprocess
+import time
+import re
+
+from std_msgs.msg import String
+
+class Dialogue:
+
+    def play_sound(self, text):
+        subprocess.run(["rosrun", "sound_play", "say.py", text])
+
+    # The information should include a reference to two cylinders
+    def check_information(self, text):
+        color_options = ['blue', 'red', 'green', 'yellow']
+        cylinder_keywords = ['cylinder', 'one']
+        
+        pattern = r"(?i)(\b(?:{})\b).*?(?:{})".format('|'.join(color_options), '|'.join(cylinder_keywords))
+        
+        match = re.search(pattern, text)
+        
+        if match:
+            colors = re.findall(r"\b(?:{})\b".format('|'.join(color_options)), text)
+            return True, colors[0], colors[1] if len(colors) >= 2 else None
+        else:
+            return False, None, None
+
+
+    def dialogue_logic(self):
+        recognizer = sr.Recognizer()
+        microphone = sr.Microphone()
+
+        useful = False
+
+        while True:
+            self.play_sound("Do you know where the robber is hiding?")
+
+            with microphone as source:
+                audio = recognizer.listen(source)
+            try:                
+                text = recognizer.recognize_google(audio)
+                print("Answer: ", text)
+                useful, color1, color2 = self.check_information(text)
+                message = "{} {} {}".format(int(useful), color1, color2)
+                self.result_publisher.publish(message)
+                if useful == True:
+                    self.play_sound("OK, thank you")
+                    break
+
+            except sr.UnknownValueError:
+                print("Unable to recognize speech.")
+
+    def callback(self,data):
+        if data.data == "start_dialogue":
+            self.dialogue_logic()
+
+    def __init__(self):
+        rospy.init_node('speech_recognition_node', anonymous=True)
+        rospy.Subscriber('dialogue_commands', String, self.callback)
+        self.result_publisher = rospy.Publisher('dialogue_result', String, queue_size=10)
+
+def speech_recognition_node():
+    dialogue = Dialogue()
+    rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        speech_recognition_node()
+    except rospy.ROSInterruptException:
+        pass
