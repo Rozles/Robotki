@@ -80,6 +80,7 @@ add_service_files(
   DIRECTORY srv
   FILES
   DialogueService.srv
+  RobberService.srv
 )
 
 ## Generate actions in the 'action' folder

@@ -194,7 +194,6 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
     // Null pointer check before accessing cloud_cylinder->points
     if (cloud_cylinder->points.empty())
     {
-        ROS_WARN("Empty point cloud after cylinder segmentation.");
         return;
     }
     

@@ -4,6 +4,7 @@ import sys
 import math
 import rospy
 import cv2
+import signal
 import numpy as np
 import tf2_geometry_msgs
 import tf2_ros
@@ -115,6 +116,8 @@ class FaceNode:
                 m.pose.orientation.z /= norm
                 m.pose.orientation.w /= norm
                 self.face_n[i] += 1
+                if poster:
+                    m.color = ColorRGBA(1, 0.7, 0.2, 1)
             if self.face_n[i] >= 2:
                 marker_array.markers.append(m)
         if new_face:
@@ -207,6 +210,8 @@ class FaceNode:
         for p in self.poster_candidates:
             if self.dist(p.pose, pose.pose) < 0.5:
                 return
+        print("New poster found")
+        print(color, number)
         poster = Poster()
         poster.color = color
         poster.reward = number
@@ -260,12 +265,15 @@ class FaceNode:
                 # Extract region containing face
                 face_region = rgb_image[y1:y2, x1:x2]
 
-                y_max = y2 + 61 if y2 + 61 < h else h
+                y_max = y2 + 100 if y2 + 61 < h else h
                 x_min = x1-30 if x1-30 > 0 else 0
                 x_max = x2 + 30 if x2 + 30 < w else w
                 text_region = rgb_image[y2:y_max, x_min:x_max]
-
-                text = pytesseract.image_to_string(text_region)
+                try:
+                    text = pytesseract.image_to_string(text_region)
+                except pytesseract.pytesseract.TesseractError as e:
+                    text = ""
+                
                 color, number = self.check_text(text)
                 if color is not None and number is not None:
                     poster = True
@@ -286,15 +294,24 @@ class FaceNode:
                     if poster:
                         self.update_posters(face_region, color, number, pose)
 
+
+def signal_handler(signal, frame):
+        cv2.destroyAllWindows()
+        rospy.signal_shutdown("Keyboard interrupt")
+
+
 def main():
 
     face = FaceNode()
+    
+    signal.signal(signal.SIGINT, signal_handler)
 
     rate = rospy.Rate(1)
-    while not rospy.is_shutdown():
-        rate.sleep()
-
-    cv2.destroyAllWindows()
+    try:
+        while not rospy.is_shutdown():
+            rate.sleep()
+    except rospy.ROSInterruptException:
+        pass
 
 
 if __name__ == '__main__':
