@@ -79,12 +79,7 @@ add_message_files(
 add_service_files(
   DIRECTORY srv
   FILES
-  PosterService.srv
-<<<<<<< HEAD
-  FaceService.srv
-=======
   DialogueService.srv
->>>>>>> e0d16b95033392b091ba9590560bc7a99c3c4464
 )
 
 ## Generate actions in the 'action' folder
