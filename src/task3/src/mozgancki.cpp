@@ -7,7 +7,6 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <ros/service_client.h>
-#include <task3/DialogueService.h>
 #include <tf2_ros/transform_listener.h>
 #include <geometry_msgs/TransformStamped.h>
 #include "move_base_msgs/MoveBaseAction.h"
@@ -27,6 +26,8 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include <vector>
 
+#include "task3/PosterService.h"
+#include <task3/DialogueService.h>
 
 /* State of the robot
 *   0 - halt
@@ -41,7 +42,6 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 ros::Publisher park;
 ros::Publisher twist_pub;
-//ros::ServiceClient goalClient;
 
 MoveBaseClient *acPtr;
 
@@ -54,6 +54,7 @@ visualization_msgs::MarkerArray cylinders;
 nav_msgs::OccupancyGrid costmap;
 
 ros::ServiceClient dialogueServiceClient;
+ros::ServiceClient posterClient;
 
 class Face {
     public:
@@ -120,21 +121,33 @@ void cylinderCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArr
     cylinders = *markerArray;
 }
 
-void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
-    if (markerArray == nullptr) return;
-    for (int i = 0; i < markerArray->markers.size(); i++) {
-        if (i >= faces.size()) {
-            faces.push_back(Face(markerArray->markers[i].pose, i, false));
-        } else {
-            faces[i].pose = markerArray->markers[i].pose;
-            int id = i;
-        }
+void visitFaces() {
+    for (int i = 0; i < faces.size(); i++) {
         if (!faces[i].visited) {
             STATE = 2;
-            ros::Duration(0.5).sleep();
             acPtr->cancelGoal();
         }
     }
+}
+
+void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
+    if (markerArray == nullptr) return;
+    for (int i = 0; i < markerArray->markers.size(); i++) {
+        visualization_msgs::Marker m = markerArray->markers[i];
+        if (faces.size() == 0) {
+            faces.push_back(Face(m.pose, i, false));
+            continue;
+        }
+        for (int j = 0; j < faces.size(); j++) {
+            if (sqrt((faces[j].pose.position.x - m.pose.position.x) * (faces[j].pose.position.x - m.pose.position.x) + (faces[j].pose.position.y - m.pose.position.y) * (faces[j].pose.position.y - m.pose.position.y)) < 0.3) {
+                faces[j].pose = markerArray->markers[i].pose;
+                faces[j].id = i;
+                break;
+            }
+            faces.push_back(Face(markerArray->markers[i].pose, i, false));
+        }
+    }
+    visitFaces();
 }
 
 geometry_msgs::PoseStamped nextFaceGoal(Face face) {
@@ -244,7 +257,7 @@ void actionClientThread(MoveBaseClient *actionClient) {
     while (!actionClient->waitForServer(ros::Duration(3.0))) {
         ROS_INFO("Waiting for the move_base action server");
     }
-    while (ros::ok()){
+    while (ros::ok()) {
         if (STATE == 1) {
             move_base_msgs::MoveBaseGoal target;
             target.target_pose = nextGoal();
@@ -270,6 +283,14 @@ void actionClientThread(MoveBaseClient *actionClient) {
                     
                     if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
                         face.visit();
+                        STATE = 1;
+                        
+                        task3::PosterService posterSrv;
+                        if (posterClient.call(posterSrv)) {
+                            ROS_INFO("Poster service called");
+                        } else { 
+                            ROS_ERROR("Failed to call service poster");
+                        }
                         // Call the service
                         task3::DialogueService srv;
                         srv.request.status = 0;
@@ -277,7 +298,6 @@ void actionClientThread(MoveBaseClient *actionClient) {
                             /// Process the successful response
                             std::string color1 = srv.response.color1;
                             std::string color2 = srv.response.color2;
-
                             if (!color1.empty() && !color2.empty()) {
                                 STATE = 1;
                             } else {
@@ -375,6 +395,8 @@ int main(int argc, char **argv) {
     ros::Subscriber position = n.subscribe("odom", 1, positionCallBack);
     MoveBaseClient actionClient("/move_base", true);
     acPtr = &actionClient;
+
+    posterClient = n.serviceClient<task3::PosterService>("poster_service");
 
     nav_msgs::OccupancyGrid::ConstPtr costmapMsg = ros::topic::waitForMessage<nav_msgs::OccupancyGrid>("/move_base/global_costmap/costmap", ros::Duration(5));
     if (costmapMsg == nullptr) {

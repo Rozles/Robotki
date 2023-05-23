@@ -1,3 +1,4 @@
 sensor_msgs/Image face
+geometry_msgs/Pose pose
 string color
-string reward
+int32 reward

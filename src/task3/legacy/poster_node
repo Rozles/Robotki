@@ -1,0 +1,79 @@
+#!/usr/bin/python3
+
+import sys
+import math
+import rospy
+import cv2
+import numpy as np
+import tf2_geometry_msgs
+import tf2_ros
+import tf.transformations as tft
+
+
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import PointStamped, Vector3, PoseStamped
+from cv_bridge import CvBridge, CvBridgeError
+from visualization_msgs.msg import Marker, MarkerArray
+from std_msgs.msg import ColorRGBA
+from task3.srv import PosterService, PosterServiceResponse
+from task3.msg import Poster
+from task3.srv import FaceService, FaceServiceRequest, FaceServiceResponse
+
+import pytesseract
+
+
+class PosterNode:
+    def __init__(self):
+        rospy.init_node('poster_node', anonymous=True)
+
+        # An object we use for converting images between ROS format and OpenCV format
+        self.bridge = CvBridge()
+
+        # Marker array object used for visualizations
+        self.face_candidates = MarkerArray()
+        self.face_n = []
+
+        # Publiser for the visualization markers
+        self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
+
+        self.service = rospy.Service('/poster_service', PosterService, self.serviceCallBack)
+        self.face_client = rospy.ServiceProxy('/face_service', FaceService)
+        rospy.wait_for_service('/poster_service')
+
+        # Object we use for transforming between coordinate frames
+        self.tf_buf = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+
+    def serviceCallBack(self, req):
+        for _ in range(3):
+            img_msg = rospy.wait_for_message('camera/rgb/image_raw', Image)
+            try:
+                cv_image = self.bridge.imgmsg_to_cv2(img_msg, "bgr8")
+            except CvBridgeError as e:
+                print(e)
+                return False
+        
+            # Extract text from image
+            text = pytesseract.image_to_string(cv_image)
+        
+        response = PosterServiceResponse(Poster())
+        
+        # Check and extract data from text
+        print('Extracted>>',text)
+
+        return response
+    
+
+def main():
+
+    poster = PosterNode()
+
+    rate = rospy.Rate(1)
+    while not rospy.is_shutdown():
+        rate.sleep()
+
+    cv2.destroyAllWindows()
+
+
+if __name__ == '__main__':
+    main()
