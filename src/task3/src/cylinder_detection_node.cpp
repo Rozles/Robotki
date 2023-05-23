@@ -84,6 +84,12 @@ void update_contenders(geometry_msgs::PointStamped point, std_msgs::ColorRGBA co
 
 void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
 {
+    if (cloud_blob == nullptr)
+    {
+        ROS_ERROR("Null pointer to input cloud.");
+        return;
+    }
+
     // All the objects needed
 
     ros::Time time= ros::Time::now();
@@ -184,6 +190,13 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
     extract.setNegative(false);
     pcl::PointCloud<PointT>::Ptr cloud_cylinder(new pcl::PointCloud<PointT>());
     extract.filter(*cloud_cylinder);
+
+    // Null pointer check before accessing cloud_cylinder->points
+    if (cloud_cylinder->points.empty())
+    {
+        ROS_WARN("Empty point cloud after cylinder segmentation.");
+        return;
+    }
     
     float radius = coefficients_cylinder->values[6];
     int size = cloud_cylinder->points.size();
@@ -204,7 +217,7 @@ void cloud_cb(const pcl::PCLPointCloud2ConstPtr &cloud_blob)
     g = g / 100;
     b = b / 100;
 
-    // ROS_INFO("Cylinder detected, R: %d, G: %d, B: %d", r, g, b);
+    ROS_INFO("Cylinder detected, R: %d, G: %d, B: %d", r, g, b);
 
     pcl::compute3DCentroid(*cloud_cylinder, centroid);
 
