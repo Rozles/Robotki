@@ -1,4 +1,4 @@
-sensor_msgs/Image face
-geometry_msgs/Pose pose
+geometry_msgs/PoseStamped pose
 string color
 int32 reward
+bool encoding

@@ -133,6 +133,12 @@ float dist(geometry_msgs::Pose pose1, geometry_msgs::Pose pose2) {
     return sqrt(pow(pose1.position.x - pose2.position.x, 2) + pow(pose1.position.y - pose2.position.y, 2));
 }
 
+int posterCounter = 0;
+
+void posterCallBack(const task3::Poster::ConstPtr& posterMsg) {
+    posterCounter++;
+}
+
 void costmapCallBack(const nav_msgs::OccupancyGrid::ConstPtr& costmapMsg) {
     if (costmapMsg == nullptr) return;
     costmap = *costmapMsg;
@@ -174,13 +180,6 @@ void cylinderCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArr
     }
 }
 
-
-void posterCallBack(const task3::Poster::ConstPtr& poster) {
-    if (poster == nullptr) return;
-    posters.push_back(*poster);
-}
-
-
 void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
     if (markerArray == nullptr) return;
     for (int i = 0; i < markerArray->markers.size(); i++) {
@@ -207,7 +206,7 @@ void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) 
             }
         }
     }
-    if (newFaces.size() > 0 && STATE == 1) {
+    if (newFaces.size() > 0 && STATE != 0 && STATE != 3) {
         STATE = 2;
         acPtr->cancelGoal();
         ros::Duration(0.69).sleep();
@@ -345,6 +344,14 @@ geometry_msgs::PoseStamped nextFaceGoal(Face face) {
     tf2::Quaternion turn_to_marker_q;
     turn_to_marker_q.setRPY(0, 0, atan2(turn_to_marker.y(), turn_to_marker.x()));
     goal.pose.orientation = tf2::toMsg(turn_to_marker_q);
+    int cost = costmap.data[mapCordinatesToIndex(goal.pose.position.x, goal.pose.position.y)];
+    if (cost > 30 || cost < 0) {
+        float x;
+        float y;
+        findEmpySpot(goal.pose.position.x, goal.pose.position.y, x, y);
+        goal.pose.position.x = x;
+        goal.pose.position.y = y;
+    }
     return goal;
 }
 
@@ -537,8 +544,8 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "mozgancki");
     ros::NodeHandle n;
 
-    cylindersToVisit.push_back("RED");
-    cylindersToVisit.push_back("GREEN");
+    cylindersToVisit.push_back("BLUE");
+    cylindersToVisit.push_back("YELLOW");
 
     signal(SIGINT, sigintHandler);
 

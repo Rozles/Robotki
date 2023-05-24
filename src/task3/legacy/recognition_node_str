@@ -12,7 +12,7 @@ import tf2_ros
 import re
 from os.path import join, dirname
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import PoseStamped, Twist, Vector3
+from geometry_msgs.msg import PointStamped, Twist, Vector3
 from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA 
@@ -79,13 +79,16 @@ class RecognitionNode():
 
     def check_text(self, text):
         text = re.sub(r'\W+', '', text)
+        color_pattern = r'(BLUE|GREEN|RED|BLACK)'
         number_pattern = r'(\d+)'
 
+        color_match = re.search(color_pattern, text, re.IGNORECASE)
         number_match = re.search(number_pattern, text)
 
+        color = color_match.group(1) if color_match else None
         number = int(number_match.group(1)) if number_match else None
         
-        return number
+        return color, number
 
     def posterCB(self, img_msg):
         print("RECIEVED")
@@ -96,35 +99,21 @@ class RecognitionNode():
             return
         
         poster = Poster()
-        pose = PoseStamped()
-        pose.header.frame_id = "base_link"
-        pose.header.stamp = rospy.Time(0)
-        pose.pose.position.x = 0
-        pose.pose.position.y = 0
-        try:
-            pose_transformed = self.tf_buf.transform(pose, "map")
-        except Exception as e:
-            print(e)
-            pose_transformed = pose
-        poster.pose = pose_transformed
+        poster.stamp = img_msg.header.stamp
         
         h, w = img.shape[:2]
-        img_out = img[h - 60:h-30,10:w-30,:]
+        img_out = img[h - 100:h-50,10:w-30,:]
+        #img_out = cv2.cvtColor(img_out, cv2.COLOR_BGR2GRAY)
+        #img_out = cv2.adaptiveThreshold(img_out,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
+        #img_out = cv2.bitwise_not(img_out)
+        #kernel = np.array([[0,1,0],[1,1,1],[0,1,0]],np.uint8)
+        #dilate = cv2.dilate(img_out,kernel,iterations = 1)
+        #erode = cv2.erode(dilate,kernel,iterations = 1)
+        cv2.imshow("img", img_out)
+        cv2.waitKey(0)
         text = pytesseract.image_to_string(img_out, config='--psm 6 --oem 3 -c tessedit_char_whitelist=01')
-        number = self.check_text(text)
-        red = np.sum(np.where(img[h-30:,:,2] > 200, 1, 0))
-        green = np.sum(np.where(img[h-30:,:,1] > 150, 1, 0))
-        blue = np.sum(np.where(img[h-30:,:,0] > 150, 1, 0))
-        print("colors", red, green, blue)
-        if (red > green) and (red > blue) and (red > 1500):
-            color = "RED"
-        elif (green > red) and (green > blue) and (green > 1500):
-            color = "GREEN"
-        elif (blue > red) and (blue > green) and (blue > 1500):
-            color = "BLUE"
-        else: 
-            color = None
-        print(color, number)
+        color, number = self.check_text(text)
+        #print(color, number)
         poster.color = color if color is not None else ""
         poster.reward = number if number is not None else -1
         if (color is not None) and (number is not None):
@@ -151,12 +140,11 @@ class RecognitionNode():
 
 
     def robberServiceCB(self, data):
-        print("Looking for robber")
         self.arm_movement_pub.publish(self.extend2)
         rospy.sleep(2)
         
         start = rospy.Time.now()
-        while(rospy.Time.now() - start).to_sec() < 20:
+        while(rospy.Time.now() - start).to_sec() < 10:
             try:
                 rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
             except Exception as e:
@@ -168,27 +156,25 @@ class RecognitionNode():
             except CvBridgeError as e:
                 print(e)
                 return 
-
-            poster = Poster()
-
             
-            face_region = face_recognition.face_locations(rgb_image, number_of_times_to_upsample=0, model='cnn')
+            face_region = face_recognition.face_locations(rgb_image)
             encodings = face_recognition.face_encodings(rgb_image, face_region)
-            if (len(encodings) > 0 and len(self.encodings) > 0):
-                distances = face_recognition.face_distance(self.encodings, encodings[0])
-                index = np.argmin(distances)
-                if (distances[index] < 0.5):
-                    poster = self.posters[index]
-                    self.arm_movement_pub.publish(self.retract)
-                    print("Here is hiding", poster.color, poster.reward)
-                    return poster
-                else:
-                    self.arm_movement_pub.publish(self.retract)
-                    print("I do not recognize this robber")
-                    return poster
+            print(len(encodings))
+            for poster in self.posters:
+                try:
+                    poster_img = self.bridge.imgmsg_to_cv2(poster.face, "bgr8")
+                except CvBridgeError as e:
+                    print(e)
+                    break
+                encodings2 = face_recognition.face_encodings(poster_img)
+                if len(encodings2) > 0 and len(encodings) > 2:
+                    distance = face_recognition.face_distance(encodings2, encodings[0])
+                    if distance < 0.5:
+                        self.arm_movement_pub.publish(self.retract)
+                        return poster
 
-        print("Timeout")
         self.arm_movement_pub.publish(self.retract)
+
         return Poster()
     
     def signal_handler(self, signal, frame):

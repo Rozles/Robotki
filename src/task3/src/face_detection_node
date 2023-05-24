@@ -18,6 +18,7 @@ from cv_bridge import CvBridge, CvBridgeError
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 from task3.msg import Poster
+from threading import Lock
 
 
 
@@ -44,9 +45,11 @@ class FaceNode:
         # Publiser for the visualization markers
         self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
         self.poster_req = rospy.Publisher('poster_req', Image, queue_size=1)
-
+        self.lock = Lock()
         self.poster_res = rospy.Subscriber('poster_res', Poster, self.poster_res_callback)
         self.last_poster = rospy.Time.now()
+        self.poster_buffer = None
+        self.lock_tick_count = 0
 
         # Subscribers for the images
         self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
@@ -60,14 +63,49 @@ class FaceNode:
         self.tf_buf = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
 
-    def poster_res_callback(self, msg):
-        self.last_poster = rospy.Time.now()
-
-    def check_poster(self):
-        if (rospy.Time.now() - self.last_poster).to_sec() < 1:
-            return True
+    def emergency_release(self):
+        if self.lock_tick_count > 10:
+            #print("EMERGENCY RELEASE")
+            self.lock_tick_count = 0
+            if self.lock.locked():
+                self.lock.release()
         else:
-            return False
+            self.lock_tick_count += 1
+
+    def poster_res_callback(self, poster):
+        #lockstate = "LOCKED" if self.lock.locked() else "UNLOCKED"
+        #print("RECIEVING Lock state:", lockstate)
+        if self.lock.locked():
+            self.lock.release()
+            self.lock_tick_count = 0
+        if (poster.color != "") and (poster.reward > 0):
+            print(f'Poster {poster.color} found with reward {poster.reward}')
+            self.check_poster(poster.pose)
+
+    def check_poster(self, pose):
+        mini = 100000
+        mini_f = None
+        for f in self.face_candidates.markers:
+            d = self.dist(f.pose, pose.pose)
+            if d < mini:
+                mini = d
+                mini_f = f
+        if mini_f is not None:
+            mini_f.color = ColorRGBA(1, 0.7, 0.2, 1)
+
+        
+    def send_poster(self):
+        if self.poster_buffer is not None and not self.lock.locked():
+            #lockstate = "LOCKED" if self.lock.locked() else "UNLOCKED"
+            #print("SENDING Lock state:", lockstate)
+
+            self.lock.acquire()
+
+            try:
+                self.poster_req.publish(self.poster_buffer)
+                self.poster_buffer = None
+            finally:
+                pass
 
     def dist(self, p1, p2):
         return np.sqrt((p1.position.x - p2.position.x)**2 + (p1.position.y - p2.position.y)**2)
@@ -95,14 +133,12 @@ class FaceNode:
                     f.pose.orientation.z /= norm
                     f.pose.orientation.w /= norm
                     if f.color.g > 0 or f2.color.g > 0:
-                        f.color.r = 1
-                        f.color.g = 0.7
-                        f.color.b = 0.2
+                        f.color = ColorRGBA(1, 0.7, 0.2, 1)
                     self.face_n[i] += self.face_n[j]
                     del self.face_candidates.markers[j]
                     del self.face_n[j]
 
-    def update_face_array(self, pose, poster):
+    def update_face_array(self, pose):
         new_face = True
         marker_array = MarkerArray()
         # Create a marker used for visualization
@@ -124,13 +160,11 @@ class FaceNode:
                 m.pose.orientation.z /= norm
                 m.pose.orientation.w /= norm
                 self.face_n[i] += 1
-                if poster:
-                    m.color = ColorRGBA(1, 0.7, 0.2, 1)
             if self.face_n[i] >= 2:
                 marker_array.markers.append(m)
         if new_face:
             marker = Marker()
-            marker.header.stamp = rospy.Time(0)
+            marker.header.stamp = pose.header.stamp
             marker.header.frame_id = 'map'
             marker.pose = pose.pose
             marker.type = Marker.ARROW
@@ -139,10 +173,7 @@ class FaceNode:
             marker.lifetime = rospy.Duration(0)
             marker.id = len(self.face_candidates.markers)
             marker.scale = Vector3(0.15, 0.1, 0.1)
-            if poster:
-                marker.color = ColorRGBA(1, 0.7, 0.2, 1)
-            else:
-                marker.color = ColorRGBA(1, 0, 0.5, 1)
+            marker.color = ColorRGBA(1, 0, 0.5, 1)
             self.face_candidates.markers.append(marker)
             self.face_n.append(1)
 
@@ -240,19 +271,20 @@ class FaceNode:
                 # Extract region containing face
                 face_region = rgb_image[y1:y2, x1:x2]
                 y_min = y1 - 20 if y1 - 20 > 0 else 0
-                y_max = y2 + 60 if y2 + 60 < h else h
-                x_min = x1 - 30 if x1 - 30 > 0 else 0
-                x_max = x2 + 30 if x2 + 30 < w else w
+                y_max = y2 + 100 if y2 + 100 < h else h
+                x_min = x1 - 35 if x1 - 35 > 0 else 0
+                x_max = x2 + 35 if x2 + 35 < w else w
 
                 #cv2.imshow("ImWindow", rgb_image[y_min:y_max, x_min:x_max])
                 #cv2.waitKey(1)
 
                 try:
-                    padded_img = self.bridge.cv2_to_imgmsg(rgb_image[y_min:y_max, x_min:x_max], "bgr8")
+                    padded_img = self.bridge.cv2_to_imgmsg(rgb_image[80:280, x_min:x_max], "bgr8")
                 except CvBridgeError as e:
                     print(e)
 
-                self.poster_req.publish(padded_img)
+                padded_img.header.stamp = timestamp
+                self.poster_buffer = padded_img
                 # Visualize the extracted face
                 # cv2.imshow("ImWindow", face_region)
                 # cv2.waitKey(1)
@@ -264,23 +296,29 @@ class FaceNode:
                 pose = self.get_face_pose((x1,x2,y1,y2), face_distance, timestamp, depth_image[y1:y2,x1:x2])
 
                 if pose is not None:
-                    self.update_face_array(pose, self.check_poster())
+                    self.update_face_array(pose)
 
-
-def signal_handler(signal, frame):
+    def signal_handler(self, signal, frame):
         cv2.destroyAllWindows()
+        if self.lock.locked():
+            self.lock.release()
+            self.lock_tick_count = 0
         rospy.signal_shutdown("Keyboard interrupt")
+
+
 
 
 def main():
 
     face = FaceNode()
     
-    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGINT, face.signal_handler)
 
     rate = rospy.Rate(1)
     try:
         while not rospy.is_shutdown():
+            face.emergency_release()
+            face.send_poster()
             rate.sleep()
     except rospy.ROSInterruptException:
         pass
