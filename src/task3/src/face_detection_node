@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-import sys
 import math
 import rospy
 import cv2
@@ -10,7 +9,6 @@ import tf2_geometry_msgs
 import tf2_ros
 import tf.transformations as tft
 import message_filters
-import re
 
 from os.path import join, dirname
 
@@ -21,7 +19,6 @@ from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA
 from task3.msg import Poster
 
-import pytesseract
 
 
 class FaceNode:
@@ -42,12 +39,14 @@ class FaceNode:
 
         # Marker array object used for visualizations
         self.face_candidates = MarkerArray()
-        self.poster_candidates = []
         self.face_n = []
 
         # Publiser for the visualization markers
         self.face_pub = rospy.Publisher('face_markers', MarkerArray, queue_size=1)
-        self.poster_pub = rospy.Publisher('poster', Poster, queue_size=1)
+        self.poster_req = rospy.Publisher('poster_req', Image, queue_size=1)
+
+        self.poster_res = rospy.Subscriber('poster_res', Poster, self.poster_res_callback)
+        self.last_poster = rospy.Time.now()
 
         # Subscribers for the images
         self.image_sub = message_filters.Subscriber('camera/rgb/image_raw', Image)
@@ -60,6 +59,15 @@ class FaceNode:
         # Object we use for transforming between coordinate frames
         self.tf_buf = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
+
+    def poster_res_callback(self, msg):
+        self.last_poster = rospy.Time.now()
+
+    def check_poster(self):
+        if (rospy.Time.now() - self.last_poster).to_sec() < 1:
+            return True
+        else:
+            return False
 
     def dist(self, p1, p2):
         return np.sqrt((p1.position.x - p2.position.x)**2 + (p1.position.y - p2.position.y)**2)
@@ -193,39 +201,6 @@ class FaceNode:
 
         return pose_world
 
-    def check_text(self, text):
-        text = re.sub(r'\W+', '', text)
-        color_pattern = r'(BLUE|GREEN|RED|YELLOW)'
-        number_pattern = r'(\d+)'
-
-        color_match = re.search(color_pattern, text, re.IGNORECASE)
-        number_match = re.search(number_pattern, text)
-
-        color = color_match.group(1) if color_match else None
-        number = int(number_match.group(1)) if number_match else None
-        
-        return color, number
-    
-    def update_posters(self, face_region, color, number, pose):
-        for p in self.poster_candidates:
-            if self.dist(p.pose, pose.pose) < 0.5:
-                return
-        print("New poster found")
-        print(color, number)
-        poster = Poster()
-        poster.color = color
-        poster.reward = number
-        try:
-            face_msg = self.bridge.cv2_to_imgmsg(face_region, "bgr8")
-        except CvBridgeError as e:
-            print(e)
-            return
-        poster.face = face_msg
-        poster.pose = pose.pose
-        self.poster_candidates.append(poster)
-        self.poster_pub.publish(poster)
-
-
 
     def image_callback(self, rgb_data, depth_data):
         try:
@@ -264,21 +239,20 @@ class FaceNode:
 
                 # Extract region containing face
                 face_region = rgb_image[y1:y2, x1:x2]
-
-                y_max = y2 + 100 if y2 + 61 < h else h
-                x_min = x1-30 if x1-30 > 0 else 0
+                y_min = y1 - 20 if y1 - 20 > 0 else 0
+                y_max = y2 + 60 if y2 + 60 < h else h
+                x_min = x1 - 30 if x1 - 30 > 0 else 0
                 x_max = x2 + 30 if x2 + 30 < w else w
-                text_region = rgb_image[y2:y_max, x_min:x_max]
+
+                #cv2.imshow("ImWindow", rgb_image[y_min:y_max, x_min:x_max])
+                #cv2.waitKey(1)
+
                 try:
-                    text = pytesseract.image_to_string(text_region)
-                except pytesseract.pytesseract.TesseractError as e:
-                    text = ""
-                
-                color, number = self.check_text(text)
-                if color is not None and number is not None:
-                    poster = True
-                else:
-                    poster = False
+                    padded_img = self.bridge.cv2_to_imgmsg(rgb_image[y_min:y_max, x_min:x_max], "bgr8")
+                except CvBridgeError as e:
+                    print(e)
+
+                self.poster_req.publish(padded_img)
                 # Visualize the extracted face
                 # cv2.imshow("ImWindow", face_region)
                 # cv2.waitKey(1)
@@ -290,9 +264,7 @@ class FaceNode:
                 pose = self.get_face_pose((x1,x2,y1,y2), face_distance, timestamp, depth_image[y1:y2,x1:x2])
 
                 if pose is not None:
-                    self.update_face_array(pose, poster)
-                    if poster:
-                        self.update_posters(face_region, color, number, pose)
+                    self.update_face_array(pose, self.check_poster())
 
 
 def signal_handler(signal, frame):

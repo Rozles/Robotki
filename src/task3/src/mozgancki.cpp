@@ -207,7 +207,7 @@ void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) 
             }
         }
     }
-    if (newFaces.size() > 0) {
+    if (newFaces.size() > 0 && STATE == 1) {
         STATE = 2;
         acPtr->cancelGoal();
         ros::Duration(0.69).sleep();
@@ -443,15 +443,16 @@ void actionClientThread(MoveBaseClient *actionClient) {
             else if (checkCylinderState()){
                 move_base_msgs::MoveBaseGoal target;
                 std::string color = cylindersToVisit.front();
-                cylindersToVisit.erase(cylindersToVisit.begin());
                 target.target_pose = nextCylinderGoal(color);
                 acPtr->sendGoal(target);
                 acPtr->waitForResult();
                 
                 if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+                    cylindersToVisit.erase(cylindersToVisit.begin());
                     task3::RobberService robberService;
                     if (robberClient.call(robberService)) {
-
+                        task3::Poster poster = robberService.response.poster;
+                        ROS_INFO_STREAM("Robber service response: " << poster.color);
                     } else {
                         ROS_ERROR("Failed to call service");
                     }
@@ -582,12 +583,15 @@ int main(int argc, char **argv) {
                 ROS_INFO("Robot state chaned to stop");
             } else if (c == 'e') {
                 STATE = 1;
+                acPtr->cancelAllGoals();
                 ROS_INFO("Robot state chaned to explore");
             } else if (c == 'g') {
                 STATE = 2;
+                acPtr->cancelAllGoals();
                 ROS_INFO("Robot state chaned to greeting");
             } else if (c == 'c') {
                 STATE = 3;
+                acPtr->cancelAllGoals();
                 ROS_INFO("Robot state chaned to cyilinder scan");
             }
 

@@ -9,6 +9,7 @@ import numpy as np
 import signal
 import tf2_geometry_msgs
 import tf2_ros
+import re
 from os.path import join, dirname
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import PointStamped, Twist, Vector3
@@ -19,13 +20,14 @@ from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from std_msgs.msg import String, ColorRGBA
 from task3.msg import Poster
 from task3.srv import RobberService, RobberServiceResponse
-        
-    
+import face_recognition
 
-class RobberNode():
+import pytesseract
+
+class RecognitionNode():
     def __init__(self):
 
-        rospy.init_node('robber_node', anonymous=True)
+        rospy.init_node('recognition_node', anonymous=True)
 
         protoPath = join(dirname(__file__), "deploy.prototxt.txt")
         modelPath = join(dirname(__file__), "res10_300x300_ssd_iter_140000.caffemodel")
@@ -35,12 +37,14 @@ class RobberNode():
        
         
         self.arm_movement_pub = rospy.Publisher('/turtlebot_arm/arm_controller/command', JointTrajectory, queue_size=1)
-        self.start = rospy.Subscriber("/posters", Poster, self.posterCB)
+        self.posters_req = rospy.Subscriber("/poster_req", Image, self.posterCB)
+        self.posters_res = rospy.Publisher("/poster_res", Poster, queue_size=10)
         self.robberService = rospy.Service("/robber_service", RobberService, self.robberServiceCB)
         
         self.movement_pub = rospy.Publisher("/cmd_vel_mux/input/teleop", Twist, queue_size=10)
 
         self.posters = []
+        self.encodings = []
 
         # Pre-defined positions for the arm
         self.retract = JointTrajectory()
@@ -73,14 +77,68 @@ class RobberNode():
         twist.linear.z = 0.0
         self.movement_pub.publish(twist)
 
-    def posterCB(self, data):
-        self.posters.append(data)
+    def check_text(self, text):
+        text = re.sub(r'\W+', '', text)
+        color_pattern = r'(BLUE|GREEN|RED|BLACK)'
+        number_pattern = r'(\d+)'
+
+        color_match = re.search(color_pattern, text, re.IGNORECASE)
+        number_match = re.search(number_pattern, text)
+
+        color = color_match.group(1) if color_match else None
+        number = int(number_match.group(1)) if number_match else None
+        
+        return color, number
+
+    def posterCB(self, img_msg):
+        try:
+            img = self.bridge.imgmsg_to_cv2(img_msg, "bgr8")
+        except CvBridgeError as e:
+            print(e)
+            return
+        
+        h, w = img.shape[:2]
+        img_out = cv2.cvtColor(img[h - 60:,:,:], cv2.COLOR_BGR2GRAY)
+        ret,img_out = cv2.threshold(img_out,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+        #cv2.imshow("poster", img_out)
+        #cv2.waitKey(1)
+        text = pytesseract.image_to_string(img_out)
+        color, number = self.check_text(text)
+        print(color, number)
+        if (color is None) or (number is None):
+            return
+        
+        face_region = face_recognition.face_locations(img)
+        encodings = face_recognition.face_encodings(img, face_region)
+        print(len(encodings))
+        if (len(self.encodings) > 0):
+            distances = face_recognition.face_distance(self.encodings, encodings[0])
+            index = np.argmin(distances)
+            if (distances[index] < 0.5):
+                return 
+        self.encodings.append(encodings[0])
+        poster = Poster()
+        try:
+            post_msg = self.bridge.cv2_to_imgmsg(img[face_region[0][0]:face_region[0][2], face_region[0][3]:face_region[0][1]], "bgr8")
+        except CvBridgeError as e:
+            print(e)
+            return 
+        poster.face = post_msg
+        poster.reward = number
+        poster.color = color
+        self.posters.append(poster)
+        print("New poster found!")
+        self.posters_res.publish(poster)
+    
+
+
 
     def robberServiceCB(self, data):
         self.arm_movement_pub.publish(self.extend2)
-
         rospy.sleep(2)
-        while True:
+        
+        start = rospy.Time.now()
+        while(rospy.Time.now() - start).to_sec() < 10:
             try:
                 rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
             except Exception as e:
@@ -93,28 +151,21 @@ class RobberNode():
                 print(e)
                 return 
             
-            self.dims = rgb_image.shape
-            h = self.dims[0]
-            w = self.dims[1]
-            
-            blob = cv2.dnn.blobFromImage(cv2.resize(rgb_image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
-            
-            self.face_net.setInput(blob)
-            face_detections = self.face_net.forward()
-
-            for i in range(0, face_detections.shape[2]):
-                confidence = face_detections[0, 0, i, 2]
-                if confidence>0.5:
-                    box = face_detections[0,0,i,3:7] * np.array([w,h,w,h])
-                    box = box.astype('int')
-                    x1, y1, x2, y2 = box[0], box[1], box[2], box[3]
-
-                    # Extract region containing face
-                    face_region = rgb_image[y1:y2, x1:x2]
-                    cv2.imshow("face", face_region)
-                    cv2.waitKey(1)
-
-        
+            face_region = face_recognition.face_locations(rgb_image)
+            encodings = face_recognition.face_encodings(rgb_image, face_region)
+            print(len(encodings))
+            for poster in self.posters:
+                try:
+                    poster_img = self.bridge.imgmsg_to_cv2(poster.face, "bgr8")
+                except CvBridgeError as e:
+                    print(e)
+                    break
+                encodings2 = face_recognition.face_encodings(poster_img)
+                if len(encodings2) > 0 and len(encodings) > 2:
+                    distance = face_recognition.face_distance(encodings2, encodings[0])
+                    if distance < 0.5:
+                        self.arm_movement_pub.publish(self.retract)
+                        return poster
 
         self.arm_movement_pub.publish(self.retract)
 
@@ -124,15 +175,10 @@ class RobberNode():
         cv2.destroyAllWindows()
         self.arm_movement_pub.publish(self.retract)
         rospy.signal_shutdown("Keyboard interrupt")
-        
-
-        
-        
-
 
 
 def main():
-    rob = RobberNode()
+    rob = RecognitionNode()
     rospy.sleep(0.5)
     rob.arm_movement_pub.publish(rob.retract)
 

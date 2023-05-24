@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+
+import sys
+import rospy
+import cv2
+import numpy as np
+from os.path import dirname, join
+from sensor_msgs.msg import Image
+from std_msgs.msg import String
+from cv_bridge import CvBridge, CvBridgeError
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+import face_recognition
+
+
+class RoboSheriff:
+    def __init__(self):
+        rospy.init_node('sheriffline', anonymous=True)
+        self.arm_mover = rospy.Publisher('/turtlebot_arm/arm_controller/command', JointTrajectory, queue_size=1)
+
+        self.rgb_image_sub = rospy.Subscriber("/camera/rgb/image_raw", Image, self.rgb_image_callback)
+        self.arm_image_sub = rospy.Subscriber("/arm_camera/rgb/image_raw", Image, self.arm_image_callback)
+
+        self.reidentification_sub = rospy.Subscriber("/sheriffline", String, self.najdi_roparja_callback)
+        self.detected = False
+        self.detected_face = None
+        self.rgb_image_message = None
+        self.arm_image_message = None
+
+        self.bridge = CvBridge()
+
+        self.dims = None
+        
+
+    def move_arm(self):
+        # Dvign roko
+        dvign = JointTrajectory()
+        dvign.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        dvign.points = [JointTrajectoryPoint(positions=[0, 0.5, 0.6, -0.3],
+                                              time_from_start=rospy.Duration(1))]
+
+        self.arm_mover.publish(dvign)
+        rospy.sleep(5)
+        
+
+    def najdi_roparja(self, mode):
+        try:
+            if mode == 'save':
+                rgb_image = self.bridge.imgmsg_to_cv2(self.rgb_image_message, "bgr8")
+                cv2.imwrite("rgb_image.jpg", rgb_image)
+                image = face_recognition.load_image_file("rgb_image.jpg")
+                face_locations = face_recognition.face_locations(image)
+                face_encodings = face_recognition.face_encodings(image, face_locations)
+            elif mode == 'compare':
+                rgb_image = self.bridge.imgmsg_to_cv2(self.arm_image_message, "bgr8")
+                cv2.imwrite("arm_image.jpg", rgb_image)
+                image = face_recognition.load_image_file("arm_image.jpg")
+                face_locations = face_recognition.face_locations(image)
+                face_encodings = face_recognition.face_encodings(image, face_locations)
+
+        except CvBridgeError as e:
+            print(e)
+            return
+
+        if len(face_encodings) > 0:
+            if mode == "save":
+                # Save the face encoding
+                self.detected_face = face_encodings[0]
+                print("Reference face saved successfully.")
+            elif mode == "compare":
+                # Compare the face encoding with the reference face encoding
+                distance = face_recognition.face_distance([self.detected_face], face_encodings[0])
+                print("Face distance:", distance)
+                if distance < 0.6:  # Set your desired threshold value
+                    print("Faces are similar")
+                else:
+                    print("Faces are different")
+        else:
+            print("No face detected or reference face not available")
+
+
+    def rgb_image_callback(self, data):
+        self.rgb_image_message = data
+
+    def arm_image_callback(self, data):
+        self.arm_image_message = data
+
+    def najdi_roparja_callback(self, command):
+        if command.data == 'poster':
+            print("Najden poster")
+            self.najdi_roparja("save")
+        if command.data == 'cilinder':
+            self.move_arm()
+            print('Hop cafizelj')
+            self.najdi_roparja("compare")
+
+    def run(self):
+        self.move_arm()
+        rospy.spin()
+
+if __name__ == '__main__':
+    rs = RoboSheriff()
+    rospy.sleep(0.5)
+    try:
+        rospy.spin()
+    except KeyboardInterrupt:
+        print("Shutting down")
