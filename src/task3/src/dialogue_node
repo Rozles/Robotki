@@ -1,18 +1,24 @@
 #!/usr/bin/python3
-
 import rospy
 import speech_recognition as sr
 import subprocess
 import time
 import re
+import ctypes
 
 from std_msgs.msg import String
-
 from task3.srv import DialogueService
 
+ERROR_HANDLER_FUNC = ctypes.CFUNCTYPE(None, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p)
+
+def py_error_handler(filename, line, function, err, fmt):
+    pass
+
+c_error_handler = ERROR_HANDLER_FUNC(py_error_handler)
 
 def play_sound(text):
-    subprocess.run(["rosrun", "sound_play", "say.py", text])
+    subprocess.run(["rosrun", "sound_play", "say.py", text], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print("Robot:", text)
 
 # The information should include a reference to two cylinders
 def check_information(text):
@@ -29,24 +35,35 @@ def check_information(text):
     else:
         return False, "", ""
 
+def callback_audio(request):
 
-def callback(request):
-    print("Service je bil poklican")
+    print() # To seperate the conversations in the terminal
+
     recognizer = sr.Recognizer()
     microphone = sr.Microphone()
 
     useful = False
     response = DialogueService._response_class()
-    max_response_count = 2 # How many times we can get a useless response before finishing the convo
+    max_response_count = 2  # How many times we can get a useless response before finishing the convo
 
     while True:
         play_sound("Do you know where the robber is hiding?")
 
         with microphone as source:
+            recognizer.adjust_for_ambient_noise(source)
             audio = recognizer.listen(source)
         try:                
             text = recognizer.recognize_google(audio)
-            print("Answer: ", text)
+
+            text = text.strip()  # Remove leading/trailing whitespace
+
+            if not text[0].isupper():
+                text = text[0].upper() + text[1:]  # Capitalize first letter
+            
+            if not text.endswith('.'):
+                text += '.'  # Add a period at the end
+
+            print("Person:", text)
             useful, color1, color2 = check_information(text)
             response.color1 = color1
             response.color2 = color2
@@ -64,9 +81,42 @@ def callback(request):
         except sr.UnknownValueError:
             print("Unable to recognize speech.")
 
-    play_sound("OK, thank you")
+    play_sound("OK, thank you!")
 
     return response
+
+def callback_text(request):
+    print()  # To separate the conversations in the terminal
+
+    useful = False
+    response = DialogueService._response_class()
+    max_response_count = 2  # How many times we can get a useless response before finishing the convo
+
+    while True:
+        play_sound("Do you know where the robber is hiding?")
+        text = input("Person: ")
+
+        useful, color1, color2 = check_information(text)
+        response.color1 = color1
+        response.color2 = color2
+
+        if useful:
+            break
+
+        max_response_count -= 1
+
+        if max_response_count <= 0:
+            response.color1 = "bad_response"
+            response.color2 = "bad_response"
+            break
+
+    play_sound("OK, thank you!")
+
+    return response
+
+def callback(request):
+    # return callback_audio(request)
+    return callback_text(request)
 
 def speech_recognition_node():
     rospy.init_node('speech_recognition_node', anonymous=True)
@@ -75,6 +125,8 @@ def speech_recognition_node():
 
 if __name__ == '__main__':
     try:
+        asound = ctypes.cdll.LoadLibrary('libasound.so.2')
+        asound.snd_lib_error_set_handler(c_error_handler)
         speech_recognition_node()
     except rospy.ROSInterruptException:
         pass
