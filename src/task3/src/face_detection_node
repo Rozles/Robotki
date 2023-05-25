@@ -65,9 +65,9 @@ class FaceNode:
 
     def emergency_release(self):
         if self.lock_tick_count > 10:
-            #print("EMERGENCY RELEASE")
             self.lock_tick_count = 0
             if self.lock.locked():
+                print("EMERGENCY RELEASE")
                 self.lock.release()
         else:
             self.lock_tick_count += 1
@@ -78,6 +78,7 @@ class FaceNode:
         if self.lock.locked():
             self.lock.release()
             self.lock_tick_count = 0
+            self.poster_buffer = None
         if (poster.color != "") and (poster.reward > 0):
             print(f'Poster {poster.color} found with reward {poster.reward}')
             self.check_poster(poster.pose)

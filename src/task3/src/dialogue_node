@@ -31,7 +31,7 @@ def check_information(text):
     
     if match:
         colors = re.findall(r"\b(?:{})\b".format('|'.join(color_options)), text)
-        return True, colors[0], colors[1] if len(colors) >= 2 else None
+        return True, colors[0].upper(), colors[1].upper() if len(colors) >= 2 else ""
     else:
         return False, "", ""
 
@@ -59,7 +59,7 @@ def callback_audio(request):
 
             if not text[0].isupper():
                 text = text[0].upper() + text[1:]  # Capitalize first letter
-            
+
             if not text.endswith('.'):
                 text += '.'  # Add a period at the end
 
@@ -67,17 +67,13 @@ def callback_audio(request):
             useful, color1, color2 = check_information(text)
             response.color1 = color1
             response.color2 = color2
-
             if useful:
                 break
-
             max_response_count -= 1
-
             if max_response_count <= 0:
-                response.color1 = "bad_response"
-                response.color2 = "bad_response"
+                response.color1 = ""
+                response.color2 = ""
                 break
-
         except sr.UnknownValueError:
             print("Unable to recognize speech.")
 
@@ -86,15 +82,23 @@ def callback_audio(request):
     return response
 
 def callback_text(request):
-    print()  # To separate the conversations in the terminal
+    print("-------------------------")  # To separate the conversations in the terminal
 
     useful = False
     response = DialogueService._response_class()
     max_response_count = 2  # How many times we can get a useless response before finishing the convo
 
+    
     while True:
+   
         play_sound("Do you know where the robber is hiding?")
-        text = input("Person: ")
+        
+        waiting = True
+        while waiting:
+            text = input("Person: ")
+            if text:
+                waiting = False
+     
 
         useful, color1, color2 = check_information(text)
         response.color1 = color1
@@ -106,8 +110,8 @@ def callback_text(request):
         max_response_count -= 1
 
         if max_response_count <= 0:
-            response.color1 = "bad_response"
-            response.color2 = "bad_response"
+            response.color1 = ""
+            response.color2 = ""
             break
 
     play_sound("OK, thank you!")

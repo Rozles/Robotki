@@ -66,6 +66,8 @@ class RingNode:
 
 
     def update_ring_array(self, pose, color):
+        if 0.4 < color.r > 0.6 and 0.4 < color.g > 0.6 and 0.4 < color.b > 0.6:
+            return
         new_ring = True
         marker_array = MarkerArray()
         for i, r in enumerate(self.ring_candidates.markers):

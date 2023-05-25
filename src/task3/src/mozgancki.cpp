@@ -37,6 +37,7 @@
 *   1 - explore
 *   2 - go to face
 *   3 - search for robber
+*   4 - take robber to prison
 */
 int STATE = 0;
 
@@ -46,18 +47,67 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 ros::Publisher park;
 ros::Publisher twist_pub;
+ros::Publisher robber_pub;
+bool robberDelivery = false;
 
 MoveBaseClient *acPtr;
 
 float robot_x;
 float robot_y;
 
-visualization_msgs::MarkerArray rings;
-
 nav_msgs::OccupancyGrid costmap;
 
 ros::ServiceClient dialogueServiceClient;
 ros::ServiceClient robberClient;
+
+class Ring {
+    public:
+        geometry_msgs::Pose pose;
+        std::string color;
+
+        Ring(geometry_msgs::Pose pose = geometry_msgs::Pose(), std::string color = "")
+            : pose(pose), color(color) {}
+
+        ~Ring() {}
+};
+
+std::vector<Ring> rings;
+
+bool findRing(std::string color) {
+    for (int i = 0; i < rings.size(); i++) {
+        if (rings[i].color == color) {
+            return true;
+        }
+    }
+    return false;
+}
+
+class Robber {
+    public:
+        std::string prison;
+        std::string hideout;
+        int reward;
+
+        Robber(std::string prison = "", std::string hideout = "", int reward = -1)
+            : prison(prison), hideout(hideout), reward(reward) {}
+
+        ~Robber() {}
+};
+
+std::vector<Robber> robbers;
+
+Robber targetRobber() {
+    if (robbers.size() == 0) return Robber();
+    int maxReward = 0;
+    int maxRewardIndex = 0;
+    for (int i = 0; i < robbers.size(); i++) {
+        if (robbers[i].reward > maxReward) {
+            maxReward = robbers[i].reward;
+            maxRewardIndex = i;
+        }
+    }
+    return robbers[maxRewardIndex];
+}
 
 class Cylinder {
     public:
@@ -76,7 +126,7 @@ std::vector<std::string> cylindersToVisit;
 bool checkCylinderState() {
     int count = 0;
     for (int i = 0; i < cylinders.size(); i++) {
-        ROS_INFO_STREAM("I Know:" << cylinders[i].color);
+        //ROS_INFO_STREAM("I Know:" << cylinders[i].color);
         for (int j = 0; j < cylindersToVisit.size(); j++) {
             if (cylinders[i].color == cylindersToVisit[j]) {
                 count++;
@@ -157,7 +207,22 @@ void positionCallBack(const nav_msgs::Odometry::ConstPtr& msg) {
 // }
 
 void ringCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) {
-   rings = *markerArray;
+    if (markerArray == nullptr) return;
+    rings.clear();
+    for (int i = 0; i < markerArray->markers.size(); i++) {
+        visualization_msgs::Marker m = markerArray->markers[i];
+        std::string color;
+        if (m.color.r < 0.3 && m.color.g < 0.3 && m.color.b < 0.3)
+            color = "BLACK";
+        else if (m.color.r > m.color.g && m.color.r > m.color.b)
+            color = "RED";
+        else if (m.color.g > m.color.r && m.color.g > m.color.b)
+            color = "GREEN";
+        else if (m.color.b > m.color.r && m.color.b > m.color.g)
+            color = "BLUE";
+        Ring ring = Ring(m.pose, color);
+        rings.push_back(ring);
+    }
 }
 
 
@@ -213,15 +278,33 @@ void faceCallBack(const visualization_msgs::MarkerArray::ConstPtr& markerArray) 
     }
 }
 
+void publishRobber() {
+    visualization_msgs::Marker marker;
+    marker.header.frame_id = "map";
+    marker.header.stamp = ros::Time();
+    marker.ns = "robber";
+    marker.id = 0;
+    marker.type = visualization_msgs::Marker::SPHERE;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker.pose.position.x = robot_x;
+    marker.pose.position.y = robot_y;
+    marker.pose.position.z = 0.5;
+    marker.scale.x = 0.3;
+    marker.scale.y = 0.3;
+    marker.scale.z = 0.3;
+    marker.color.a = 1.0;
+    marker.color.r = 0.5;
+    marker.color.g = 0.5;
+    marker.color.b = 0.5;
+    marker.lifetime = ros::Duration(1.0);
+    robber_pub.publish(marker);
+}
 
-int mapCordinatesToIndex(float x, float y) {
+int mapCoordinatesToIndex(float x, float y) {
     int col = static_cast<int>((x - costmap.info.origin.position.x) / costmap.info.resolution);
     int row = static_cast<int>((y - costmap.info.origin.position.y) / costmap.info.resolution);
     return  row * costmap.info.width + col;
 }
-
-
-
 
 void indexToMapCoordiantes(int index, float &x, float &y) {
     int col = index % costmap.info.width;
@@ -259,7 +342,7 @@ float generateRandomFloat() {
 
 void generateGoals() {
     for (int i = 0; i < costmap.data.size(); i += 5) {
-        if (costmap.data[i] == 0) {
+        if (costmap.data[i] >= 0 && costmap.data[i] < 50) {
             float x;
             float y;
             indexToMapCoordiantes(i, x, y);
@@ -291,13 +374,13 @@ void generateGoals() {
 }
 
 void findEmpySpot(float x, float y, float& newX, float& newY) {
-    float iksi[8] = {0, 0.25, 0.5, 0.25, 0, -0.25, -0.5, -0.25};
-    float ipsi[8] = {0.5, 0.25, 0, -0.25, -0.5, -0.25, 0, 0.25};
+    float iksi[8] = {0, 0.318, 0.45, 0.318, 0, -0.318, -0.45, -0.318};
+    float ipsi[8] = {0.45, 0.318, 0, -0.318, -0.45, -0.318, 0, 0.318};
     int min = 1000000;
     for (int i = 0; i < 8; i++) {
         float xr = x + iksi[i];
         float yr = y + ipsi[i];
-        int index = mapCordinatesToIndex(xr, yr);
+        int index = mapCoordinatesToIndex(xr, yr);
         int cost = costmap.data[index];
         if (cost < min && cost >= 0) {
             min = cost;
@@ -308,6 +391,26 @@ void findEmpySpot(float x, float y, float& newX, float& newY) {
             return;
         }
     }
+}
+
+geometry_msgs::PoseStamped nextPrisonGoal(std::string color) {
+    geometry_msgs::PoseStamped goal;
+    for (int i = 0; i < rings.size(); i++) {
+        if (rings[i].color == color) {
+            goal.header.frame_id = "map";
+            float x;
+            float y;
+            findEmpySpot(rings[i].pose.position.x, rings[i].pose.position.y, x, y);
+            goal.pose.position.x = x;
+            goal.pose.position.y = y;
+            tf2::Vector3 turn_to_marker(rings[i].pose.position.x - goal.pose.position.x, rings[i].pose.position.y - goal.pose.position.y, 0.0);
+            tf2::Quaternion turn_to_marker_q;
+            turn_to_marker_q.setRPY(0, 0, atan2(turn_to_marker.y(), turn_to_marker.x()));
+            goal.pose.orientation = tf2::toMsg(turn_to_marker_q);
+            return goal;
+        }
+    }
+    return goal;
 }
 
 geometry_msgs::PoseStamped nextCylinderGoal(std::string color) {
@@ -336,22 +439,21 @@ geometry_msgs::PoseStamped nextFaceGoal(Face face) {
    
     tf2::Vector3 vector(0.5, 0, 0);
     tf2::Vector3 rotated = tf2::quatRotate(tf2::Quaternion(face.pose.orientation.x, face.pose.orientation.y, face.pose.orientation.z, face.pose.orientation.w), vector);
-    
     goal.header.frame_id = "map";
     goal.pose.position.x = face.pose.position.x + rotated[0];
     goal.pose.position.y = face.pose.position.y + rotated[1];
-    tf2::Vector3 turn_to_marker(face.pose.position.x - goal.pose.position.x, face.pose.position.y - goal.pose.position.y, 0.0);
-    tf2::Quaternion turn_to_marker_q;
-    turn_to_marker_q.setRPY(0, 0, atan2(turn_to_marker.y(), turn_to_marker.x()));
-    goal.pose.orientation = tf2::toMsg(turn_to_marker_q);
-    int cost = costmap.data[mapCordinatesToIndex(goal.pose.position.x, goal.pose.position.y)];
-    if (cost > 30 || cost < 0) {
+    int cost = costmap.data[mapCoordinatesToIndex(goal.pose.position.x, goal.pose.position.y)];
+    if (cost > 50 || cost < 0) {
         float x;
         float y;
         findEmpySpot(goal.pose.position.x, goal.pose.position.y, x, y);
         goal.pose.position.x = x;
         goal.pose.position.y = y;
     }
+    tf2::Vector3 turn_to_marker(face.pose.position.x - goal.pose.position.x, face.pose.position.y - goal.pose.position.y, 0.0);
+    tf2::Quaternion turn_to_marker_q;
+    turn_to_marker_q.setRPY(0, 0, atan2(turn_to_marker.y(), turn_to_marker.x()));
+    goal.pose.orientation = tf2::toMsg(turn_to_marker_q);
     return goal;
 }
 
@@ -382,6 +484,18 @@ geometry_msgs::PoseStamped nextGoal() {
     q.setRPY(0, 0, angle);
     goal.pose.orientation = tf2::toMsg(q);
     return goal;
+}
+
+void checkState() {
+    ros::Time currentTime = ros::Time::now();
+    ros::Duration timeRunning = currentTime - stim;
+    if (timeRunning.toSec() > 60 * (8 - 2 * robbers.size())) {
+        if (cylindersToVisit.empty() && STATE != 4) {
+           STATE = 1;
+        } else {
+            STATE = 3;
+        }
+    }
 }
 
 void actionClientThread(MoveBaseClient *actionClient) {
@@ -417,22 +531,45 @@ void actionClientThread(MoveBaseClient *actionClient) {
                     visitedFaces.push_back(newFaces.front());
                     newFaces.erase(newFaces.begin());
                     STATE = 1;
-                    ros::Duration(5).sleep();
-                    
-                    // Call the service
-                    if (!visitedFaces.back().poster) {
-                        task3::DialogueService srv;
-                        srv.request.status = 0;
-                        if (dialogueServiceClient.call(srv)) {
-                            /// Process the successful response
-                            std::string color1 = srv.response.color1;
-                            std::string color2 = srv.response.color2;
-                            if (!color1.empty() && !color2.empty()) {
-                                STATE = 3;
-                            } 
-                        } else {
-                            // Service call failed
-                            ROS_ERROR("Failed to call service");
+                    int failed = 0;
+                    std::string color = "";
+                    int reward = -1;
+                    while (failed < 3) {
+                        task3::Poster::ConstPtr msg = ros::topic::waitForMessage<task3::Poster>("poster_res");
+                        ROS_INFO("Received poster: %s, %d", msg->color.c_str(), msg->reward);
+                        if (msg != nullptr) {
+                            if (msg->color != "" && msg->reward > 0) {
+                                color = msg->color;
+                                reward = msg->reward;
+                                break;
+                            } else {
+                                failed++;
+                                //ROS_INFO("This is not a poster");
+                            }
+                        }
+                    }
+                    if (failed < 3) {
+                        Robber robber = Robber(color, "", reward);
+                        robbers.push_back(robber);
+                        ROS_INFO("This is a poster for %s with reward %d", color.c_str(), reward);
+                    } else {
+                        ROS_INFO("This is a person");
+                        if (cylindersToVisit.empty()) {
+                            task3::DialogueService srv;
+                            srv.request.status = 0;
+                            if (dialogueServiceClient.call(srv)) {
+                                /// Process the successful response
+                                std::string color1 = srv.response.color1;
+                                std::string color2 = srv.response.color2;
+                                if (!color1.empty() && !color2.empty()) {
+                                    ROS_INFO("Robber is hiding in %s or %s", color1.c_str(), color2.c_str());
+                                    cylindersToVisit.push_back(color1);
+                                    cylindersToVisit.push_back(color2);
+                                } 
+                            } else {
+                                // Service call failed
+                                ROS_ERROR("Failed to call service");
+                            }
                         }
                     }
                 } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
@@ -447,7 +584,7 @@ void actionClientThread(MoveBaseClient *actionClient) {
         if (STATE == 3) {
             if (cylindersToVisit.empty())
                 STATE == 1;
-            else if (checkCylinderState()){
+            else if (checkCylinderState()) {
                 move_base_msgs::MoveBaseGoal target;
                 std::string color = cylindersToVisit.front();
                 target.target_pose = nextCylinderGoal(color);
@@ -459,25 +596,68 @@ void actionClientThread(MoveBaseClient *actionClient) {
                     task3::RobberService robberService;
                     if (robberClient.call(robberService)) {
                         task3::Poster poster = robberService.response.poster;
-                        ROS_INFO_STREAM("Robber service response: " << poster.color);
+                        if (poster.reward == -1) {
+                            ROS_INFO("I do not recognize this robber");
+                            STATE = 3;
+                        } else {
+                            ROS_INFO("Robber %s is hiding here", poster.color.c_str());
+                            Robber targetR = targetRobber();
+                            if (targetR.reward == -1) {
+                                ROS_INFO("HOW DID WE GET HERE");
+                            }
+                            else if (targetR.prison == poster.color || (cylindersToVisit.empty())) {
+                                STATE = 4;
+                                robberDelivery = true;
+                                ROS_INFO("I am taking the robber to prison");
+                            }
+                        }  
                     } else {
                         ROS_ERROR("Failed to call service");
                     }
-                    STATE = 0;
                 } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
         
                 } else {
-        
                     ROS_WARN("Goal could not be reached!");
                 }
             } else {
                 STATE = 1;
             }
         }
+        if (STATE == 4) {
+            Robber targetR = targetRobber();
+            if (targetR.reward == -1) STATE = 1;
+            else {
+                move_base_msgs::MoveBaseGoal target;
+                if (findRing(targetR.prison)) {
+                    target.target_pose = nextPrisonGoal(targetR.prison);
+                    acPtr->sendGoal(target);
+                    acPtr->waitForResult();
+                    
+                    if (acPtr->getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+                        
+                
+                    } else  if (acPtr->getState() == actionlib::SimpleClientGoalState::RECALLED || acPtr->getState() == actionlib::SimpleClientGoalState::PREEMPTED){
+            
+                    } else {
+                        ROS_WARN("Goal could not be reached!");
+                    }
+                } else {
+                    STATE = 1;
+                }
+                
+            }
+        }
     }
 }
 
 boost::thread* threadPtr;
+
+void doneCallBack(std_msgs::String msg) {
+    ROS_INFO("%s", msg.data.c_str());
+    threadPtr->interrupt();
+    threadPtr->join();
+    ros::shutdown();
+}
 
 void sigintHandler(int sig) {
     threadPtr->interrupt();
@@ -544,9 +724,6 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "mozgancki");
     ros::NodeHandle n;
 
-    cylindersToVisit.push_back("BLUE");
-    cylindersToVisit.push_back("YELLOW");
-
     signal(SIGINT, sigintHandler);
 
     ros::Subscriber position = n.subscribe("odom", 1, positionCallBack);
@@ -556,10 +733,12 @@ int main(int argc, char **argv) {
     dialogueServiceClient = n.serviceClient<task3::DialogueService>("dialogue_result");
     robberClient = n.serviceClient<task3::RobberService>("robber_service");
 
+    ros::Subscriber done = n.subscribe<std_msgs::String>("done", 1, doneCallBack);
     ros::Subscriber sub_ring = n.subscribe<visualization_msgs::MarkerArray>("ring_markers", 1, ringCallBack);
     ros::Subscriber sub_cylinder = n.subscribe<visualization_msgs::MarkerArray>("cylinder_markers", 1, cylinderCallBack);
     ros::Subscriber sub_face = n.subscribe<visualization_msgs::MarkerArray>("face_markers", 1, faceCallBack);
     ros::Subscriber sub_poster = n.subscribe<task3::Poster>("poster", 1, posterCallBack);
+    robber_pub = n.advertise<visualization_msgs::Marker>("robber", 1);
 
     nav_msgs::OccupancyGrid::ConstPtr costmapMsg = ros::topic::waitForMessage<nav_msgs::OccupancyGrid>("/move_base/global_costmap/costmap", ros::Duration(5));
     if (costmapMsg == nullptr) {
@@ -582,6 +761,8 @@ int main(int argc, char **argv) {
     char input;
     while(ros::ok()) {
         ros::spinOnce();
+        checkState();
+        if (robberDelivery) publishRobber();
         if (kbhit()) {
             char c = getchar();
             if (c == 's') {
@@ -604,7 +785,6 @@ int main(int argc, char **argv) {
 
         }
     }
-    
 
     return 0;
 }

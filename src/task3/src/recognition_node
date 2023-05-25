@@ -35,13 +35,14 @@ class RecognitionNode():
         self.face_net = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
         self.dims = (0, 0, 0)
        
-        
+        self.done = rospy.Publisher("/done", String, queue_size=1)
         self.arm_movement_pub = rospy.Publisher('/turtlebot_arm/arm_controller/command', JointTrajectory, queue_size=1)
         self.posters_req = rospy.Subscriber("/poster_req", Image, self.posterCB)
         self.posters_res = rospy.Publisher("/poster_res", Poster, queue_size=10)
         self.robberService = rospy.Service("/robber_service", RobberService, self.robberServiceCB)
         
         self.movement_pub = rospy.Publisher("/cmd_vel_mux/input/teleop", Twist, queue_size=10)
+        self.start = rospy.Subscriber("/start_parking", String, self.startParkingCB)
 
         self.posters = []
         self.encodings = []
@@ -67,6 +68,16 @@ class RecognitionNode():
         self.right.points = [JointTrajectoryPoint(positions=[-1.57,0.3,1,0],
                                                     time_from_start = rospy.Duration(1))]
         
+        self.wave1 = JointTrajectory()
+        self.wave1.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.wave1.points = [JointTrajectoryPoint(positions=[-1.57,-0.5,-0.5,-0.5],
+                                                    time_from_start = rospy.Duration(1))]
+        
+        self.wave2 = JointTrajectory()
+        self.wave2.joint_names = ["arm_shoulder_pan_joint", "arm_shoulder_lift_joint", "arm_elbow_flex_joint", "arm_wrist_flex_joint"]
+        self.wave2.points = [JointTrajectoryPoint(positions=[-1.57,0.5,0.5,0.5],
+                                                    time_from_start = rospy.Duration(1))]
+        
         self.bridge = CvBridge()
         self.tf_buf = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buf)
@@ -84,11 +95,14 @@ class RecognitionNode():
         number_match = re.search(number_pattern, text)
 
         number = int(number_match.group(1)) if number_match else None
+
+        if number is not None:
+            if number % 10 == 1:
+                number = number // 10
         
         return number
 
     def posterCB(self, img_msg):
-        print("RECIEVED")
         try:
             img = self.bridge.imgmsg_to_cv2(img_msg, "bgr8")
         except CvBridgeError as e:
@@ -113,38 +127,39 @@ class RecognitionNode():
         text = pytesseract.image_to_string(img_out, config='--psm 6 --oem 3 -c tessedit_char_whitelist=01')
         number = self.check_text(text)
         red = np.sum(np.where(img[h-30:,:,2] > 200, 1, 0))
-        green = np.sum(np.where(img[h-30:,:,1] > 150, 1, 0))
-        blue = np.sum(np.where(img[h-30:,:,0] > 150, 1, 0))
-        print("colors", red, green, blue)
-        if (red > green) and (red > blue) and (red > 1500):
+        green = np.sum(np.where(img[h-30:,:,1] > 200, 1, 0))
+        blue = np.sum(np.where(img[h-30:,:,0] > 140, 1, 0))
+        if (red > green) and (red > blue) and (red > 1000):
             color = "RED"
-        elif (green > red) and (green > blue) and (green > 1500):
+        elif (green > red) and (green > blue) and (green > 1000):
             color = "GREEN"
-        elif (blue > red) and (blue > green) and (blue > 1500):
+        elif (blue > red) and (blue > green) and (blue > 900):
             color = "BLUE"
         else: 
             color = None
+        print(red, green, blue)
         print(color, number)
         poster.color = color if color is not None else ""
         poster.reward = number if number is not None else -1
         if (color is not None) and (number is not None):
+            print("Poster: ", color, number)
             face_region = face_recognition.face_locations(img)
             encodings = face_recognition.face_encodings(img, face_region)
             if (len(encodings) == 0):
-                poster.encoding = False
+                poster.color = ""
+                poster.reward = -1
                 self.posters_res.publish(poster)
                 return
-            poster.encoding = True
             if (len(self.encodings) > 0):
                 distances = face_recognition.face_distance(self.encodings, encodings[0])
                 index = np.argmin(distances)
                 if (distances[index] < 0.5):
-                    print("Nasli smo enak poster")
+                    print("Poster already known")
                     self.posters_res.publish(self.posters[index])
                     return 
             self.encodings.append(encodings[0])
             self.posters.append(poster)
-            print("Shranil sem encoding Posterja")
+            print("Poster encoding added")
         self.posters_res.publish(poster)
     
 
@@ -154,25 +169,48 @@ class RecognitionNode():
         print("Looking for robber")
         self.arm_movement_pub.publish(self.extend2)
         rospy.sleep(2)
+
+        poster = Poster()
+        poster.reward = -1
         
         start = rospy.Time.now()
-        while(rospy.Time.now() - start).to_sec() < 20:
+        while(rospy.Time.now() - start).to_sec() < 30:
             try:
                 rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
             except Exception as e:
                 print(e)
-                return 
+                return poster
 
             try:
                 rgb_image = self.bridge.imgmsg_to_cv2(rgb_image_message, "bgr8")
             except CvBridgeError as e:
                 print(e)
-                return 
+                return poster
 
-            poster = Poster()
+
 
             
             face_region = face_recognition.face_locations(rgb_image, number_of_times_to_upsample=0, model='cnn')
+            if (len(face_region) == 0):
+                print("No face found with cnn model")
+                h, w = rgb_image.shape[:2]
+            
+                blob = cv2.dnn.blobFromImage(cv2.resize(rgb_image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
+                
+                self.face_net.setInput(blob)
+                face_detections = self.face_net.forward()
+
+                for i in range(0, face_detections.shape[2]):
+                    confidence = face_detections[0, 0, i, 2]
+                    if confidence>0.5:
+                        box = face_detections[0,0,i,3:7] * np.array([w,h,w,h])
+                        box = box.astype('int')
+                        face_region = [(box[0], box[1], box[2], box[3])]
+                        print(face_region)
+                        print("Face found with dnn model")
+                        break
+
+                # Extract region containing face  
             encodings = face_recognition.face_encodings(rgb_image, face_region)
             if (len(encodings) > 0 and len(self.encodings) > 0):
                 distances = face_recognition.face_distance(self.encodings, encodings[0])
@@ -189,7 +227,82 @@ class RecognitionNode():
 
         print("Timeout")
         self.arm_movement_pub.publish(self.retract)
-        return Poster()
+        return poster
+    
+    def stop(self):
+        twist = Twist()
+        twist.linear.x = 0.0
+        twist.linear.z = 0.0
+        self.movement_pub.publish(twist)
+
+    def startParkingCB(self, data):
+        self.arm_movement_pub.publish(self.extend)
+        
+        while(True):
+            target_x = 0
+            target_y = 0
+            try:
+                rgb_image_message = rospy.wait_for_message("/arm_camera/rgb/image_raw", Image)
+            except Exception as e:
+                print(e)
+                return 
+
+            try:
+                cv_image = self.bridge.imgmsg_to_cv2(rgb_image_message, "bgr8")
+            except CvBridgeError as e:
+                print(e)
+                return 
+
+            
+            gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+            img = cv2.equalizeHist(gray)
+            self.dims = img.shape
+            circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, dp=1, minDist=100,
+                            param1=50, param2=30, minRadius=0, maxRadius=0)
+
+                
+            if circles is not None:
+                circles = np.round(circles[0, :]).astype("int")
+                for (x, y, r) in circles:
+                    target_x += x
+                    target_y += y
+
+                target_x = int(target_x / len(circles))
+                target_y = int(target_y / len(circles))
+            r = rospy.Rate(10)
+            twist_msg = Twist()
+            if target_x < 310 and not target_x == 0:
+                twist_msg.angular.z = math.pi/10
+                self.movement_pub.publish(twist_msg)
+            elif target_x > 330 and not target_y == 0:
+                twist_msg.angular.z = -math.pi/10
+                self.movement_pub.publish(twist_msg)
+            elif target_y < 440:
+                twist_msg.linear.x = 0.1
+                twist_msg.angular.z = 0.0
+                self.movement_pub.publish(twist_msg)
+            else:
+                self.arm_movement_pub.publish(self.retract)
+                twist_msg.linear.x = 0.1
+                twist_msg.linear.z = 0.0
+                start_time = rospy.Time.now()
+                while (rospy.Time.now() - start_time).to_sec() < 2.0:
+                    self.movement_pub.publish(twist_msg)
+                    r.sleep()
+                self.stop()
+                break
+            r.sleep()
+            self.stop()
+
+        
+
+        start_time = rospy.Time.now()
+        while (rospy.Time.now() - start_time).to_sec() < 10.0:
+            self.arm_movement_pub.publish(self.wave1)
+            rospy.sleep(2)
+            self.arm_movement_pub.publish(self.wave2)
+            rospy.sleep(2)
+        return
     
     def signal_handler(self, signal, frame):
         cv2.destroyAllWindows()
